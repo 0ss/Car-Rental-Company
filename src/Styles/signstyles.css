@@ -11,5 +11,14 @@
     font-size: 14px;
 }
 .Have-account{
-    font-size: 13.5px;
+    font-size: 11px;
+}
+.other-page-link{
+    text-decoration: none;
+    color: black;
+}
+
+.other-page-link:hover{
+    text-decoration: none;
+    color:  #6B5B95;;
 }

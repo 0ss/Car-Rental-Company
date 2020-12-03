@@ -26,11 +26,11 @@ thead{
 th{
     padding: 0;
 }
-a{
+.view-details-link{
     font-size: 10px;
     color: #8170ad;
 }
-a:hover{
+.view-details-link:hover{
     color: #8170ad;
     text-decoration: none;
 }

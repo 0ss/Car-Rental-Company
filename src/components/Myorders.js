@@ -39,7 +39,7 @@ export default function Myorders() {
                                 <th scope="row">
                                     1
                                     <div>
-                                        <Link to="#">
+                                        <Link className="view-details-btn" to="#">
                                             view details
                                         </Link>
                                     </div>
@@ -66,7 +66,7 @@ export default function Myorders() {
                                 <th scope="row">
                                     2
                                     <div>
-                                        <Link to="#">
+                                        <Link className="view-details-btn" to="#">
                                             view details
                                         </Link>
                                     </div>
@@ -93,7 +93,7 @@ export default function Myorders() {
                                 <th scope="row">
                                     3
                                     <div>
-                                        <Link to="#">
+                                        <Link className="view-details-btn" to="#">
                                             view details
                                         </Link>
                                     </div>

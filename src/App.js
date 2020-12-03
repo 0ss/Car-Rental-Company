@@ -9,6 +9,7 @@ import Searchcars from './components/Carsfetching/Searchcars'
 import Addcar from './components/Addcar'
 import Successfulreservation from './components/Successfulreservation'
 import Myorders from './components/Myorders'
+import Resetpassword from './components/Resetpassword'
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
       <Route path="/addcar" component={Addcar}/>
       <Route path="/successfulreservation" component={Successfulreservation}/>
       <Route path="/myorders" component={Myorders}/>
+      <Route path="/resetpassword" component={Resetpassword}/>
+
     </Router>
   );
 }

@@ -82,11 +82,11 @@ export default function Signup() {
                                 />
                             </div>
                             <button type="submit" className="btn btn-block mt-4">
-                                <span>Sign up</span>
+                                Sign up
                             </button>
                             <small  class="Have-account form-text text-muted mt-3 text-center">
                             Already have an account? 
-                            <Link to="/login">
+                            <Link className="other-page-link" to="/login">
                                 &#160; Log in.
                             </Link>
                             </small>

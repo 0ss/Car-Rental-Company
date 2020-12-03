@@ -4,18 +4,15 @@ import   '../Styles/signstyles.css'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
 
-export default function Signin() {
+export default function Resetpassword() {
 
     const [error, setError] = useState(null);
 
     const handleSubmit = e =>{
         e.preventDefault() // prevent reloading the page
         const email = e.currentTarget.email.value
-        const password = e.currentTarget.password.value
-        console.log(email,password)
-        if(!email || !password){
-            console.log(email,password,e.currentTarget)
-            setError('Please make sure to write your email and password')
+        if(!email){
+            setError('Please make sure to write your email')
             return
         }
         /*
@@ -45,7 +42,10 @@ export default function Signin() {
                         }
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
-                                <label className="font-weight-bold" >Email address</label>
+                                <label className="font-weight-bold " >Email address</label>
+                                    <small  class="Have-account form-text text-muted mb-2">
+                                    Please enter your email address to help us find your account 
+                                    </small>
                                 <input
                                 type="email"
                                 name="email" 
@@ -54,32 +54,14 @@ export default function Signin() {
                                 placeholder="YouLookNiceToday@hotmail.com"
                                 />
                             </div>
-                            <div className="form-group">
-                                <label className="font-weight-bold">Password</label>
-                                <input
-                                type="password" 
-                                name="password"
-                                className="form-control" 
-                                id="exampleInputPassword1"
-                                placeholder="Password"
-                                />
-                            </div>
                             <button type="submit" className="btn btn-block mt-4">
-                            Sign in
+                                Sign up
                             </button>
                             <small  class="Have-account form-text text-muted mt-3 text-center">
-                            Don't have an account?  
-                            
-                                <Link className="other-page-link"to="/signup">
-                                &#160; Sign up.
-                                </Link>
-                            </small>
-                            <small  class="Have-account form-text text-muted mt-2 text-center">
-                             Maybe you forgot your password? it happens,   
-                            
-                                <Link className="other-page-link" to="/resetpassword">
-                                &#160; Reset.
-                                </Link>
+                            Already know your password? 
+                            <Link className="other-page-link" to="/login">
+                                &#160; Log in.
+                            </Link>
                             </small>
                         </form>    
                     </div>
@@ -88,4 +70,4 @@ export default function Signin() {
             <Footer/>
         </>
     )
-}
+}	
