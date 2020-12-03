@@ -44,7 +44,7 @@ function App() {
 
     <FirebaseAppProvider firebaseConfig={fireBaseConfig}>
 
-      <h1></h1>
+      <h1>🍍</h1>
       <Burrito />
       <Write/>
 
