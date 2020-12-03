@@ -1,8 +1,6 @@
 import './App.css';
 
-import config from './services/firebase/config'
-
-
+import fireBaseConfig from './services/firebase/config'
 
 import 'firebase/database';
 import 'firebase/firestore';
@@ -10,6 +8,7 @@ import 'firebase/firestore';
 import { FirebaseAppProvider, useFirestoreDocData, useFirestore, SuspenseWithPerf } from 'reactfire';
 
 function Burrito() {
+  
   // easily access the Firestore library
   const burritoRef = useFirestore()
     .collection('tryreactfire')
@@ -33,7 +32,7 @@ function App() {
 
   return (
 
-    <FirebaseAppProvider firebaseConfig={config}>
+    <FirebaseAppProvider firebaseConfig={fireBaseConfig}>
 
       <h1>🌯</h1>
       <Burrito />
