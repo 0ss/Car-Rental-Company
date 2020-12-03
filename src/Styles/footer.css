@@ -1,0 +1,41 @@
+
+
+
+.footer{
+    background-color: black;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 0px;
+    text-align: center;
+    border: 1px solid #e9e9e9;
+}
+.icon{
+   margin: 6px 12px;
+   text-decoration: none !important;
+   color:black
+}
+.icon:hover{
+   color: #8170ad;
+}
+.footer-middle{
+    color: black;
+    font-weight: bold;
+    font-size: 10px;
+    margin: 6px 0px
+}
+.footer-middle a{
+    color:black;
+    margin: 10px 10px;
+}
+.footer-middle a:hover{
+    text-decoration: none !important;
+    color:#8170ad
+}
+
+.footer-text{
+    color: black;
+    font-weight: bold;
+    font-size: 10px;
+}

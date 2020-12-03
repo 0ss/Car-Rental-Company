@@ -1,0 +1,24 @@
+
+
+.navbar{
+    background-color: #ffffff;
+    box-shadow: inset 0 -2px 0 0 #e9e9e9
+}
+.navbar-brand{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+.navbar-brand:hover{
+    color: rgb(0, 0, 0);
+}
+.nav-link{
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+.nav-link:hover{
+    color: #6B5B95;
+    opacity: 0.8;
+}
+
+/* background-color: #6B5B95*/

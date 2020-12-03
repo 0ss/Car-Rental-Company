@@ -1,0 +1,15 @@
+
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;   
+}
+
+.font-weight-bold{
+    font-size: 14px;
+}
+.Have-account{
+    font-size: 13.5px;
+}
