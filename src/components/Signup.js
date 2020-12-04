@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom'
 import '../styles/sign_styles.css'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
-import {FirebaseSignup} from '../services/firebase/auth'
+import {FirebaseSignup} from '../services/firebase/Auth'
 import { FirebaseAppProvider , useFirestore } from 'reactfire';
-import { fireBaseConfig } from '../services/firebase/config'
-import {firebaseCollections} from '../services/firebase/collections'
+import { fireBaseConfig } from '../services/firebase/Config'
+import {firebaseCollections} from '../services/firebase/Collections'
 
 export default function Signup() {
 

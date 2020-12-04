@@ -6,7 +6,7 @@ import './styles/main_styles.css'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import SearchCars from './components/cars_fetching/SearchCars'
-import AddCar from './components/AddCar'
+import AddCar from './components/admin/AddCar'
 import SuccessfulReservation from './components/SuccessfulReservation'
 import MyOrders from './components/MyOrders'
 import ResetPassword from './components/ResetPassword'
@@ -74,7 +74,10 @@ export const AppWrapper = ({ firebaseConfig }) => {
  const App = () => {
 
   /*const firebaseApp = useFirebaseApp();
-  preloadSDKs(firebaseApp).then(() => preloadData(firebaseApp));*/
+  preloadSDKs(firebaseApp).then(() => preloadData(firebaseApp));
+  
+  There was some errors some so I commented them 
+  */
 
   return (
 

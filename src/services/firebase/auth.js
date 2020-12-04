@@ -1,5 +1,5 @@
 import { useAuth, useUser, SuspenseWithPerf, AuthCheck , useFirestore } from 'reactfire';
-import * as Firestore from './firestore'
+import * as Firestore from './Firestore'
 
 export const SignOut = auth => auth.signOut().then(() => console.log('signed out'));
 

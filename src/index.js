@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {fireBaseConfig} from './services/firebase/config'
+import {fireBaseConfig} from './services/firebase/Config'
 
 /*
 const rootElement = document.getElementById('root');

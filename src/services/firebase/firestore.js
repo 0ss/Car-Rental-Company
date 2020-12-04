@@ -2,7 +2,7 @@ import 'firebase/database';
 import 'firebase/firestore';
 
 import { FirebaseAppProvider, useFirestoreDocData, useFirestore } from 'reactfire';
-import {firebaseCollections} from './collections'
+import {firebaseCollections} from './Collections'
 
 export async function SignUp(email , uid , firstName,lastName , phoneNumber){
     return Write(firebaseCollections.users , uid , {
