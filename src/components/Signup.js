@@ -3,17 +3,44 @@ import {Link} from 'react-router-dom'
 import '../styles/sign_styles.css'
 import Navbar from '../layout/navbar'
 import Footer from '../layout/footer'
+import {FirebaseSignup} from '../services/firebase/auth'
+import { FirebaseAppProvider , useFirestore } from 'reactfire';
+import { fireBaseConfig } from '../services/firebase/config'
+import {firebaseCollections} from '../services/firebase/collections'
 
 export default function Signup() {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [passwordConf, setPasswordConf] = useState('');
+
+    const [email, setEmail] = useState('hasdajksdk@dskldd.dddd')
+    const [password, setPassword] = useState('123456')
+    const [passwordConf, setPasswordConf] = useState('123456');
     // const [error, setError] = useState(null)
 
-    const handleSubmit = e =>{
-        e.preventDefault();
-       
+
+      function SignUp(email , uid , firstName,lastName , phoneNumber){
+        return Write(firebaseCollections.users , uid , {
+            firstName: firstName,
+            lastName:lastName,
+            phoneNumber:phoneNumber,
+            email:email,
+            uid:uid,
+        })
+    }
+    
+     async function getUserData(uid){
+        return (await Read(firebaseCollections.users , uid)).data()
+    }
+    
+     function Write(collection, doc, data) {
+        return  useFirestore()
+            .collection(collection)
+            .doc(doc).set(data);
+    }
+    
+    async function Read(collection, doc) {
+        return await useFirestore()
+            .collection(collection)
+            .doc(doc).get();
     }
 
     const handleChange = e =>{
@@ -28,15 +55,21 @@ export default function Signup() {
             setPasswordConf(value)
         }
     }
-  
+
 
     return (
+
+
+        
+
+    
+
         <>
             <Navbar />
             <div className="center"> 
                 <div class="card" style ={{'width':'22rem'}}>
                     <div class="card-body">
-                        <form onSubmit = {handleSubmit}>
+                        <form onSubmit = {SignUp(email , password , "a" , "b" , "c")}>
                             <div className="form-group">
                                 <label className="font-weight-bold" >Email address</label>
                                 <input
@@ -96,5 +129,7 @@ export default function Signup() {
             </div>
             <Footer />
         </>
+     
+
     )
 }
