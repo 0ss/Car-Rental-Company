@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Styles/footer.css'
+import '../styles/footer.css'
 export default function Footer() {
     return (
         <div className="footer bg-white">

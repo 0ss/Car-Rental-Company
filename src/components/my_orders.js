@@ -1,13 +1,13 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom'
-import '../Styles/mainstyles.css'
-import '../Styles/myorders.css'
-import Navbar from '../layout/Navbar'
-import Footer from '../layout/Footer'
+import '../styles/main_styles.css'
+import '../styles/my_orders.css'
+import Navbar from '../layout/navbar'
+import Footer from '../layout/footer'
 import Car from '../images/Dodge-Ram-2015.jpg'
 
-export default function Myorders() {
+export default function MyOrders() {
     return (
         <>
             <Navbar />
@@ -50,7 +50,7 @@ export default function Myorders() {
                                     className="car-order-img"
                                     style={{width:'200px'}}
                                     src={Car} 
-                                    alt="Card image cap"    
+                                    alt="Card cap"    
                                     /> 
                                 </td>
                                 <td >Black</td>
@@ -77,12 +77,12 @@ export default function Myorders() {
                                     className="car-order-img"
                                     style={{width:'200px'}}
                                     src={Car} 
-                                    alt="Card image cap"    
+                                    alt="Card cap"    
                                     /> 
                                 </td>
                                 <td >Black</td>
                                 <td>2015</td>
-                                <td>Paypal</td>
+                                <td>PayPal</td>
                                 <td>20/09/2020</td>
                                 <td>20/31/2020</td>
                                 <td>300$</td>
@@ -104,12 +104,12 @@ export default function Myorders() {
                                     className="car-order-img"
                                     style={{width:'200px'}}
                                     src={Car} 
-                                    alt="Card image cap"    
+                                    alt="Card cap"    
                                     /> 
                                 </td>
                                 <td >Black</td>
                                 <td>2015</td>
-                                <td>Paypal</td>
+                                <td>PayPal</td>
                                 <td>20/09/2020</td>
                                 <td>20/31/2020</td>
                                 <td>300$</td>

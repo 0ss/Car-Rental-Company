@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from '../layout/Navbar'
-import Footer from '../layout/Footer'
+import Navbar from '../layout/navbar'
+import Footer from '../layout/footer'
 
-export default function Addcar() {
+export default function AddCar() {
     return (
         <>
             <Navbar />

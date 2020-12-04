@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import '../Styles/signstyles.css'
-import Navbar from '../layout/Navbar'
-import Footer from '../layout/Footer'
+import '../styles/sign_styles.css'
+import Navbar from '../layout/navbar'
+import Footer from '../layout/footer'
 
 export default function Signup() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConf, setPasswordConf] = useState('');
-    const [error, setError] = useState(null)
+    // const [error, setError] = useState(null)
 
     const handleSubmit = e =>{
         e.preventDefault();
@@ -18,13 +18,13 @@ export default function Signup() {
 
     const handleChange = e =>{
         const {name, value} = e.currentTarget
-        if(name=='email'){
+        if(name==='email'){
             setEmail(value)
         }
-        else if(name=='password'){
+        else if(name==='password'){
             setPassword(value)
         }
-        else if(name=='passwordConf'){
+        else if(name==='passwordConf'){
             setPasswordConf(value)
         }
     }

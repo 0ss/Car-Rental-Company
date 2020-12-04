@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import   '../Styles/signstyles.css'
-import Navbar from '../layout/Navbar'
-import Footer from '../layout/Footer'
+import   '../styles/sign_styles.css'
+import Navbar from '../layout/navbar'
+import Footer from '../layout/footer'
 
-export default function Signin() {
+export default function Login() {
 
     const [error, setError] = useState(null);
 

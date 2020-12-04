@@ -1,8 +1,8 @@
 import React from 'react'
-import '../../Styles/searchcars.css'
+import '../../styles/search_cars.css'
 
 
-function Searchbar() {
+function SearchBar() {
     return (
         <div id="accordion" className="search-container mb-3">
             <button 
@@ -89,4 +89,4 @@ function Searchbar() {
     );
 }
   
-export default Searchbar;
+export default SearchBar;
