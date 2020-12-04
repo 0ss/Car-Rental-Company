@@ -1,9 +1,9 @@
 import React from 'react';
-import { unstable_createRoot } from 'react-dom';
-import { AppWrapper as ConcurrentModeApp } from './App';
+import ReactDOM from 'react-dom';
+import App from './App';
 import {fireBaseConfig} from './services/firebase/config'
 
-
+/*
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error('Could not find root element');
@@ -11,10 +11,12 @@ if (!rootElement) {
 
 unstable_createRoot(rootElement).render(<ConcurrentModeApp firebaseConfig={fireBaseConfig} />);
 
+There was some errors some so I commented them 
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
+*/
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);

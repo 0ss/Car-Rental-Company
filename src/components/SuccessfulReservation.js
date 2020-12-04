@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from '../layout/navbar'
+import Navbar from '../layout/Navbar'
 import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
-import Footer from '../layout/footer'
+import Footer from '../layout/Footer'
 
 export default function SuccessfulReservation() {
     return (

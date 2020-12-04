@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function view_car() {
+export default function ViewCar() {
     return (
         <div>
             

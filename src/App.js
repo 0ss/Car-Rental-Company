@@ -3,13 +3,13 @@ import {
   Route,
 } from 'react-router-dom';
 import './styles/main_styles.css'
-import Signup from './components/signup'
-import Login from './components/login'
-import SearchCars from './components/cars_fetching/search_cars'
-import AddCar from './components/add_car'
-import SuccessfulReservation from './components/successful_reservation'
-import MyOrders from './components/my_orders'
-import ResetPassword from './components/reset_password'
+import SignUp from './components/SignUp'
+import Login from './components/Login'
+import SearchCars from './components/cars_fetching/SearchCars'
+import AddCar from './components/AddCar'
+import SuccessfulReservation from './components/SuccessfulReservation'
+import MyOrders from './components/MyOrders'
+import ResetPassword from './components/ResetPassword'
 import {
   FirebaseAppProvider,
   preloadAuth,
@@ -73,13 +73,13 @@ export const AppWrapper = ({ firebaseConfig }) => {
 
  const App = () => {
 
-  const firebaseApp = useFirebaseApp();
-  preloadSDKs(firebaseApp).then(() => preloadData(firebaseApp));
+  /*const firebaseApp = useFirebaseApp();
+  preloadSDKs(firebaseApp).then(() => preloadData(firebaseApp));*/
 
   return (
 
     <Router>
-      <Route path="/signup" component={Signup} />
+      <Route path="/signup" component={SignUp} />
       <Route path="/login" component={Login} />
       <Route path="/searchcars" component={SearchCars} />
       <Route path="/addcar" component={AddCar} />
