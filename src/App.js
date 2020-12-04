@@ -10,6 +10,8 @@ import AddCar from './components/admin/AddCar'
 import SuccessfulReservation from './components/SuccessfulReservation'
 import MyOrders from './components/MyOrders'
 import ResetPassword from './components/ResetPassword'
+import ViewCar from './components/ViewCar'
+
 import {
   FirebaseAppProvider,
   preloadAuth,
@@ -85,10 +87,12 @@ export const AppWrapper = ({ firebaseConfig }) => {
       <Route path="/signup" component={SignUp} />
       <Route path="/login" component={Login} />
       <Route path="/searchcars" component={SearchCars} />
-      <Route path="/addcar" component={AddCar} />
+      <Route path="/admin/addcar" component={AddCar} />
       <Route path="/successfulreservation" component={SuccessfulReservation} />
       <Route path="/myorders" component={MyOrders} />
       <Route path="/resetpassword" component={ResetPassword} />
+      <Route path="/viewcar" component={ViewCar} />
+
 
     </Router>
 

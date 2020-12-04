@@ -11,7 +11,21 @@ export default function SearchCars() {
 
     
     const cars  = [
-        
+        {
+            name : 1,
+            price: "385.85",
+            imageSrc : Car
+        },
+        {
+            name : 2,
+            price: "385.85",
+            imageSrc : Car
+        },
+        {
+            name : 2,
+            price: "385.85",
+            imageSrc : Car
+        },
     ]
     /*
     above you should retreive all the object from the firebase and
@@ -46,7 +60,7 @@ export default function SearchCars() {
         </div>
         )
     }) : null
-    
+
     return (
         <>
             <Navbar />
