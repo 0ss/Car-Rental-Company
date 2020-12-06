@@ -6,10 +6,9 @@ import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
 
 export default function ViewCar() {
-
+    const id = (window.location.hash).substring(1) // id should come from firebase
     const [price, setPrice ] = useState(385.85)
     const [error, setError] = useState(null);
-
     const dateChange = e => {
         e.preventDefault()
         const from = e.target.from.value

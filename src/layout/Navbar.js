@@ -1,14 +1,20 @@
-import React from 'react'
+import React,  {useState} from 'react'
 import {Link} from 'react-router-dom'
 import '../styles/nav.css'
 export default function Navbar() {
+
+    const isLoggedOn = true // should be refactor with firebase conf
+
+    const handleLogOut = e =>{
+        // auth.signout()
+    }
     return (
         <>
             <nav className="navbar navbar-expand-sm ">
-                <Link className="navbar-brand font-weight-bold" to="/">
+                <div className="navbar-brand font-weight-bold">
                     <span style={{"fontSize":17}}>🏢&#160;</span>
                  CarRentalCompany 
-                 </Link>
+                 </div>
                 <button 
                 className="navbar-toggler navbar-light border"
                 type="button"
@@ -23,22 +29,33 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav navbar-nav ml-auto">
                         <li className="nav-item active mr-3">
-                            <a className="nav-link about" href="#">
-                            <span style={{"fontSize":14}}>🏠&#160; </span>
+                            <Link className="nav-link about" to="/">
+                            <span style={{"fontSize":14}}>&#160; </span>
                            Home
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item mr-3">
-                            <a className="nav-link contact" href="/searchcars">
-                            <span style={{"fontSize":14}}>🚘&#160; </span>
+                            <Link className="nav-link contact" to="/searchcars">
+                            <span style={{"fontSize":14}}>&#160; </span>
                             Cars
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item navbar-nav mr-3">
-                            <Link className="nav-link sign"to="/login">
-                                <span style={{"fontSize":14}}>⚙️&#160; </span>
-                                Sign Up/In 
+                            {isLoggedOn ? 
+                                <button className="btn btn-sm" onClick={handleLogOut}>
+                                    <span style={{"fontSize":12}}>
+                                        Logout
+                                    </span>                                
+                                </button>
+                            : 
+                            <Link className="btn btn-sm "to="/login">
+                                    <span style={{"fontSize":12}}>
+                                        Sign Up/in 
+                                    </span>
                             </Link>
+                            
+                            
+                            }
                             
                         </li>
                     </ul>

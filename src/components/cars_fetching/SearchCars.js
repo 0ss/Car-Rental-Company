@@ -12,16 +12,19 @@ export default function SearchCars() {
     
     const cars  = [
         {
+            id:'1',
             name : 1,
             price: "385.85",
             imageSrc : Car
         },
         {
+            id:'2',
             name : 2,
             price: "385.85",
             imageSrc : Car
         },
         {
+            id:'3',
             name : 2,
             price: "385.85",
             imageSrc : Car
@@ -50,7 +53,7 @@ export default function SearchCars() {
                     <h5 class="car-price mb-3 mt-3 text-center">
                         {car.price}
                     </h5>
-                    <Link to="/">
+                    <Link to={`/viewcar#${car.id}`}>
                         <button className="btn float-right">
                             <span className="font-weight-bold">Buy now!</span>
                         </button>
