@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Redirect } from "react-router-dom";
 import Navbar from '../layout/Navbar'
 import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
@@ -25,7 +26,21 @@ export default function ViewCar() {
             return
         }
         setError('')
-        setPrice(days*385.85)
+        
+        setPrice(parseInt(days*385.85))
+    }
+    const handleSubmitData = e =>{
+        e.preventDefault()
+        const price = e.target.price.value
+        const method = e.target.method.value
+        if(!price || !method){
+            setError('Please make sure to fill the form')
+            return
+        }
+        setError('')
+        console.log(e.target.price.value , e.target.method.value)
+        return (<Redirect from="/viewcar" to="/successfulreservation"  />)
+
     }
 
     return (
@@ -50,7 +65,7 @@ export default function ViewCar() {
                                 {error}
                                   
                             </div>
-                        }
+                            }
                             <form onSubmit={dateChange}>
                                 <div class="row mt-3  text-center">
                                         <div className="col-md-6">
@@ -74,14 +89,16 @@ export default function ViewCar() {
                                 </div>
                             </div>
                             </form>
+                            <form onSubmit={handleSubmitData}>
                             <div class="row text-center">
                                 <div className="col-md-12">
                                     <p>
                                         <span>Total price : </span>
-                                        <span 
-                                        className="d"
+                                        <label 
                                         style={{color:'green'}}
-                                        >${price}</span>
+                                        >${price}
+                                        </label>
+                                        <input type="hidden" name="price" value={price} />
                                     </p>                               
                                 </div>
                             </div>
@@ -90,11 +107,11 @@ export default function ViewCar() {
                                     <p>
                                         <span>Payment method : </span>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                                            <input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="Paypal" />
                                             <label class="form-check-label" for="inlineRadio1">Paypal</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                            <input class="form-check-input" type="radio" name="method" id="inlineRadio2" value="Cash" />
                                             <label class="form-check-label" for="inlineRadio2">Cash</label>
                                         </div>
                                     </p>                               
@@ -107,6 +124,7 @@ export default function ViewCar() {
                                     </button>                                
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
 
@@ -125,7 +143,8 @@ export default function ViewCar() {
                                     <p>
                                         <span>Color: </span>
                                         <span className="font-weight-light font-italic">
-                                            Red</span>
+                                            Red
+                                        </span>
                                     </p>
                                 </div>
                             </div>

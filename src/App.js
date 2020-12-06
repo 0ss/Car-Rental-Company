@@ -11,6 +11,7 @@ import SuccessfulReservation from './components/SuccessfulReservation'
 import MyOrders from './components/MyOrders'
 import ResetPassword from './components/ResetPassword'
 import ViewCar from './components/ViewCar'
+import Home from './components/Home'
 
 import {
   FirebaseAppProvider,
@@ -92,6 +93,8 @@ export const AppWrapper = ({ firebaseConfig }) => {
       <Route path="/myorders" component={MyOrders} />
       <Route path="/resetpassword" component={ResetPassword} />
       <Route path="/viewcar" component={ViewCar} />
+      <Route exact path="/" component={Home} />
+
 
 
     </Router>
