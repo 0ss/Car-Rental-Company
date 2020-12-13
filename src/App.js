@@ -3,7 +3,7 @@ import {
   Route,
 } from 'react-router-dom';
 import './styles/main_styles.css'
-import SignUp from './components/SignUp'
+import SignUp from './components/Signup'
 import Login from './components/Login'
 import SearchCars from './components/cars_fetching/SearchCars'
 import AddCar from './components/admin/AddCar'

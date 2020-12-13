@@ -145,12 +145,8 @@ export default function Signup() {
 
                             </div>
                         }
-                        <div className="center">
-                            <div class="card" style={{ 'width': '22rem' }}>
-                                <div class="card-body">
-                                    <Form />
-                                </div>
-                            </div>
+                        <div className="cente">
+                            <Form />    
                         </div>
                     </div>
 
