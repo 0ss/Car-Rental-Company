@@ -1,10 +1,52 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Navbar from '../layout/Navbar'
 import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
+import * as Firestore from "../services/api/firestore"
+import userEvent from '@testing-library/user-event'
+
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 
 export default function SuccessfulReservation() {
+
+    const id = getParameterByName("id")
+    const [car , setCar] = useState(null);
+    const [order , setOrder] = useState(null);
+
+
+    function getCar(id){
+        
+        Firestore.getCar(id).then((result)=>{
+            if(result && result.status === "ok"){
+                setCar(result.result)
+            }
+        })
+
+    }
+
+    function getOrder(id){
+        
+        Firestore.getOrder(id).then((result)=>{
+            if(result && result.status === "ok" && result.result?.carId){
+                setOrder(result?.result)
+                getCar(order?.carId)
+            }
+        })
+
+    }
+
+    if(!car)
+    getOrder(id)
     return (
         <>
             <Navbar />
@@ -22,7 +64,7 @@ export default function SuccessfulReservation() {
                         >
                             <div className="row">
                                 <div className="col-12">
-                                    <img class="card-img-top" src={Car} alt="Card cap" />
+                                    <img class="card-img-top" src={car?.image ? car.image : Car} alt="Card cap" />
                                 </div>
                             </div>
                             <div class="row mt-3  text-center">
@@ -56,7 +98,7 @@ export default function SuccessfulReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Car: </span>
-                                        <span className="font-weight-light font-italic">Dodge ram</span>
+    <span className="font-weight-light font-italic">{car?.name}</span>
                                     </p>
                                 </div>
                             </div>
@@ -65,7 +107,7 @@ export default function SuccessfulReservation() {
                                     <p>
                                         <span>Color: </span>
                                         <span className="font-weight-light font-italic">
-                                            Red</span>
+                                        {car?.color}</span>
                                     </p>
                                 </div>
                             </div>
@@ -73,7 +115,7 @@ export default function SuccessfulReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Model: </span>
-                                        <span className="font-weight-light font-italic">2019</span>
+                                        <span className="font-weight-light font-italic">{car?.model}</span>
                                     </p>
                                 </div>
                             </div>
@@ -81,7 +123,7 @@ export default function SuccessfulReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Price: </span>
-                                        <span className="font-weight-light font-italic">$385.87</span>
+    <span className="font-weight-light font-italic">{order?.price}</span>
                                     </p>
                                 </div>
                             </div>
@@ -89,7 +131,7 @@ export default function SuccessfulReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>From: </span>
-                                        <span className="font-weight-light font-italic">21/09/2020</span>
+                                        <span className="font-weight-light font-italic">{order?.dateFrom}</span>
                                     </p>
                                 </div>
                             </div>
@@ -97,7 +139,7 @@ export default function SuccessfulReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>To: </span>
-                                        <span className="font-weight-light font-italic">30/09/2020</span>
+    <span className="font-weight-light font-italic">{order?.dateTo}</span>
                                     </p>
                                 </div>
                             </div>
@@ -105,18 +147,18 @@ export default function SuccessfulReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Payment method: </span>
-                                        <span className="font-weight-light font-italic">Paypal</span>
+                                        <span className="font-weight-light font-italic">{order?.paymentMethod}</span>
                                     </p>
                                 </div>
                             </div>
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Order number: </span>
                                         <span className="font-weight-light font-italic">000001</span>
                                     </p>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

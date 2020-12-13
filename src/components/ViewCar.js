@@ -4,21 +4,30 @@ import Navbar from '../layout/Navbar'
 import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
+import * as Firestore from "../services/api/firestore"
 
 export default function ViewCar() {
     const id = (window.location.hash).substring(1) // id should come from firebase
     const [price, setPrice ] = useState(385.85)
     const [error, setError] = useState(null);
+    const [from, setFrom] = useState(null);
+    const [to, setTo] = useState(null);
+    const [days, setDays] = useState(null);
+
+
     const dateChange = e => {
         e.preventDefault()
-        const from = e.target.from.value
-        const to = e.target.to.value
+        setFrom (e.target.from.value)
+        setTo (e.target.to.value)
 
         if(!from || !to){
             setError('Please put the dates before submit')
             return
         }
-        const days = (new Date(to) - new Date(from) )/ (86400*1000)
+        setDays(((new Date(to) - new Date(from) )/ (86400*1000)))
+
+         console.log(from)
+
 
         if(days<0){  // if days in minus
             setError('Please fill the dates correctly')
@@ -37,8 +46,15 @@ export default function ViewCar() {
             return
         }
         setError('')
-        console.log(e.target.price.value , e.target.method.value)
-        return (<Redirect from="/viewcar" to="/successfulreservation"  />)
+        console.log(from)
+       Firestore.addOrder(id , price , days , from , to , method).then((result)=>{
+           if(result && result.status === "error"){
+            setError(result.error)
+           }else{
+            window.location.href = "/successfulreservation?id=" + id
+           }
+       })
+        // return (<Redirect from="/viewcar" to="/successfulreservation"  />)
 
     }
 

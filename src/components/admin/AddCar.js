@@ -104,7 +104,6 @@ export default function AddCar() {
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-
                                 {error}
                                   
                             </div>
@@ -154,7 +153,7 @@ export default function AddCar() {
                                 </div>
                             </div>
 
-                            <hr />
+                            <hr/>
 
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Location</h6>
