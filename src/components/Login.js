@@ -3,10 +3,31 @@ import {Link} from 'react-router-dom'
 import   '../styles/sign_styles.css'
 import Navbar from '../layout/navbar'
 import Footer from '../layout/footer'
+import * as Auth from '../services/api/auth'
+
 
 export default function Login() {
 
     const [error, setError] = useState(null);
+    const result = useState(null);
+
+
+    function login(email , password){
+        Auth.login(email , password).then((result) =>{
+            console.log(result)
+            if(result.status === 'error'){
+                setError(result.error)
+            }else{
+                Auth.setUid(result.userData.user.uid);
+                Auth.setUser(result.userData.user);
+                window.location.href = "/searchcars";
+            }
+        })
+    }
+
+
+ 
+      
 
     const handleSubmit = e =>{
         e.preventDefault() // prevent reloading the page
@@ -17,6 +38,12 @@ export default function Login() {
             console.log(email,password,e.currentTarget)
             setError('Please make sure to write your email and password')
             return
+        }else{            
+
+            
+
+          login(email , password);
+           
         }
         /*
         if not error then send the data to firebase,
@@ -26,9 +53,15 @@ export default function Login() {
        
     }
 
+
     return (
+        
         <>
+
+
+
             <Navbar />
+            
             <div className="center"> 
                 <div class="card" style ={{'width':'22rem'}}>
                     <div class="card-body ">
@@ -74,9 +107,11 @@ export default function Login() {
                                 &#160; Sign up.
                                 </Link>
                             </small>
+                        <div>
+                            {result}
+                        </div>
                             <small  class="Have-account form-text text-muted mt-2 text-center">
-                             Maybe you forgot your password? it happens,   
-                            
+                             Maybe you forgot your password? it happens,
                                 <Link className="other-page-link" to="/resetpassword">
                                 &#160; Reset.
                                 </Link>
