@@ -11,13 +11,7 @@ export default function Navbar() {
         if (Auth.isVerifiedUser(user)) {
             return (
                 <>
-                    <li className="nav-item navbar-nav mr-3">
-                        <Link className="nav-link sign" to="/profile">
-                            <span style={{ "fontSize": 14 }}>⚙️&#160; </span>
-                            {user.displayName}
-                        </Link>
-                    </li>
-                    <li className="nav-item navbar-nav mr-3">
+                 <li className="nav-item navbar-nav mr-2">
                         <Link className="nav-link sign" to="/myorders">
                             <span style={{ "fontSize": 14 }}></span>
                             My orders

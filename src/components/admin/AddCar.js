@@ -32,7 +32,7 @@ export default function AddCar() {
         const file = event.target.files[0]
         const base64 = await convertBase64(file)
         Firestore.uploadImage('cars_images' , uuid , file.type , base64).then((result) =>{
-            console.log(result);
+            console.log(result, 's');
 
             if(result.status === "ok"){
                 image = result.url
@@ -52,7 +52,7 @@ export default function AddCar() {
         const location = e.currentTarget.location.value
         const price = e.currentTarget.price.value
 
-        console.log(image.value)
+        console.log(image)
 
 
         if (!name || !color || !model || !size || !status || !location || !price || !image) {

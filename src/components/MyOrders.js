@@ -8,6 +8,59 @@ import Footer from '../layout/Footer'
 import Car from '../images/Dodge-Ram-2015.jpg'
 
 export default function MyOrders() {
+
+    const orders  = [ // should be fetched from firebase
+        {
+            id:'1',
+            car : 'dodssss',
+            carImage: Car,
+            color: 'black',
+            model:'2015',
+            paymentMethod:'paypal',
+            rentFrom: '20/09/2020',
+            rentTo: '20/31/2020',
+            price: '300$',
+
+        },
+        {
+            id:'1',
+            car : 'dod',
+            carImage: Car,
+            color: 'black',
+            model:'2015',
+            paymentMethod:'paypal',
+            rentFrom: '20/09/2020',
+            rentTo: '20/31/2020',
+            price: '300$',
+
+        },
+    ]
+    const ordersArray = orders.length ? orders.map(car => {
+        return(
+            <>
+            <tr>
+                <th scope="row">
+                    {car.id}
+                </th>
+                <td>{car.car}</td>
+                <td>
+                    <img 
+                    className="car-order-img"
+                    style={{width:'200px'}}
+                    src={car.carImage} 
+                    alt="Card cap"    
+                    /> 
+                </td>
+                <td>{car.color}</td>
+                <td>{car.model}</td>
+                <td>{car.paymentMethod}</td>
+                <td>{car.rentFrom}</td>
+                <td>{car.rentTo}</td>
+                <td>{car.price}</td>
+            </tr>
+            </>
+        )
+    }) : null
     return (
         <>
             <Navbar />
@@ -30,92 +83,10 @@ export default function MyOrders() {
                             <th scope="col">Rent from</th>
                             <th scope="col">to</th>
                             <th scope="col">price</th>
-                            <th scope="col">ends in</th>
-                            <th scope="col">Order number</th>
                             </tr>
                         </thead>
                         <tbody >
-                            <tr>
-                                <th scope="row">
-                                    1
-                                    <div>
-                                        <Link className="view-details-btn" to="#">
-                                            view details
-                                        </Link>
-                                    </div>
-                                </th>
-                                <td>Dodge ram</td>
-                                <td>
-                                    <img 
-                                    className="car-order-img"
-                                    style={{width:'200px'}}
-                                    src={Car} 
-                                    alt="Card cap"    
-                                    /> 
-                                </td>
-                                <td >Black</td>
-                                <td>2015</td>
-                                <td>Paypal</td>
-                                <td>20/09/2020</td>
-                                <td>20/31/2020</td>
-                                <td>300$</td>
-                                <td>3 days</td>
-                                <td>000001</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    2
-                                    <div>
-                                        <Link className="view-details-btn" to="#">
-                                            view details
-                                        </Link>
-                                    </div>
-                                </th>
-                                <td>Dodge ram</td>
-                                <td>
-                                    <img 
-                                    className="car-order-img"
-                                    style={{width:'200px'}}
-                                    src={Car} 
-                                    alt="Card cap"    
-                                    /> 
-                                </td>
-                                <td >Black</td>
-                                <td>2015</td>
-                                <td>PayPal</td>
-                                <td>20/09/2020</td>
-                                <td>20/31/2020</td>
-                                <td>300$</td>
-                                <td>3 days</td>
-                                <td>000001</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    3
-                                    <div>
-                                        <Link className="view-details-btn" to="#">
-                                            view details
-                                        </Link>
-                                    </div>
-                                </th>
-                                <td>Dodge ram</td>
-                                <td>
-                                    <img 
-                                    className="car-order-img"
-                                    style={{width:'200px'}}
-                                    src={Car} 
-                                    alt="Card cap"    
-                                    /> 
-                                </td>
-                                <td >Black</td>
-                                <td>2015</td>
-                                <td>PayPal</td>
-                                <td>20/09/2020</td>
-                                <td>20/31/2020</td>
-                                <td>300$</td>
-                                <td>3 days</td>
-                                <td>000001</td>
-                            </tr>
+                        {ordersArray}
                         </tbody>
                     </table>
                 </div> 

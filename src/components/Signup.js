@@ -20,8 +20,11 @@ export default function Signup() {
         Auth.signUp(email , password, name).then((result) =>{
             console.log(result)
             if(result.status === 'error'){
+                console.log("error")
                 setError(result.error)
             }else{
+                console.log("yay")
+
                 Auth.setUid(result.userData.uid);
                 Auth.setUser(result.userData);
                 window.location.href = "/searchcars";
@@ -32,102 +35,29 @@ export default function Signup() {
 
 
 
-    const handleChange = e => {
-        const { name, value } = e.currentTarget
-        if (name === 'email') {
-            setEmail(value)
-        }
-        else if (name === 'password') {
-            setPassword(value)
-        }
-        else if (name === 'passwordConf') {
-            setPasswordConf(value)
-        }
-        else if (name === 'name') {
-            setName(value)
-        }
-    }
-
-    function Form() {
 
         const HandleSubmit = e => {
             e.preventDefault() // prevent reloading the page
+            setError('')
+            setEmail(e.target.email.value)
+            setPassword(e.target.password.value)
+            setPasswordConf(e.target.passwordConf.value)
+            setName(e.target.name.value)
+
+            console.log(e.target.email.value, e.target.password.value,e.target.passwordConf.value , e.target.name.value)
+            console.log(email , password ,passwordConf, name)
+            if(!email || !password || !name || !passwordConf ){
+                setError('please complete the form')
+                return 
+            }
+            if(password !== passwordConf ){
+                setError('password do not match')
+                return
+            }
+            console.log(email , password ,passwordConf, name)
             signup(email , password , name);
         }
-
-        return (
-
-            <form onSubmit={HandleSubmit}>
-                <div className="form-group">
-                    <label className="font-weight-bold" >name</label>
-                    <input
-                        type="text"
-                        name='name'
-                        value={name}
-                        className="form-control"
-                        id="exampleInputName"
-                        placeholder="Enter name"
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label className="font-weight-bold" >Email address</label>
-                    <input
-                        type="text"
-                        name='email'
-                        value={email}
-                        className="form-control"
-                        id="exampleInputEmail1"
-                        placeholder="Enter email"
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label className="font-weight-bold">Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        className="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="Password"
-                        onChange={handleChange}
-                    />
-                </div>
-                <small
-                    id="passwordHelpBlock"
-                    className="form-text text-muted font-italic"
-                    style={{ 'fontSize': 11 }}
-                >
-                    Your password must be 6-20 characters long, contain letters and numbers.
-            </small>
-                <div className="form-group">
-                    <label className="font-weight-bold mt-2">Password Confirmation</label>
-                    <input
-                        type="password"
-                        name='passwordConf'
-                        value={passwordConf}
-                        className="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="Password"
-                        onChange={handleChange}
-
-                    />
-                </div>
-                <button type="submit" className="btn btn-block mt-4">
-                    Sign up
-            </button>
-                <small class="Have-account form-text text-muted mt-3 text-center">
-                    Already have an account?
-            <Link className="other-page-link" to="/login">
-                        &#160; Log in.
-            </Link>
-                </small>
-            </form>
-        );
-    }
-
-
+    
     return (
         <>
             <Navbar />
@@ -145,8 +75,65 @@ export default function Signup() {
 
                             </div>
                         }
-                        <div className="cente">
-                            <Form />    
+                        <div >
+                        <form onSubmit={HandleSubmit}>
+                            <div className="form-group">
+                                <label className="font-weight-bold" >name</label>
+                                <input
+                                    type="text"
+                                    name='name'
+                                    className="form-control"
+                                    id="exampleInputName"
+                                    placeholder="Enter name"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label className="font-weight-bold" >Email address</label>
+                                <input
+                                    type="text"
+                                    name='email'
+                                    className="form-control"
+                                    id="exampleInputEmail1"
+                                    placeholder="Enter email"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label className="font-weight-bold">Password</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    className="form-control"
+                                    id="exampleInputPassword1"
+                                    placeholder="Password"
+                                />
+                            </div>
+                            <small
+                                id="passwordHelpBlock"
+                                className="form-text text-muted font-italic"
+                                style={{ 'fontSize': 11 }}
+                            >
+                                Your password must be 6-20 characters long, contain letters and numbers.
+                        </small>
+                            <div className="form-group">
+                                <label className="font-weight-bold mt-2">Password Confirmation</label>
+                                <input
+                                    type="password"
+                                    name='passwordConf'
+                                    className="form-control"
+                                    id="exampleInputPassword1"
+                                    placeholder="Password"
+                                />
+                            </div>
+                            <button type="submit" className="btn btn-block mt-4">
+                                Sign up
+                        </button>
+                            <small class="Have-account form-text text-muted mt-3 text-center">
+                                Already have an account?
+                        <Link className="other-page-link" to="/login">
+                                    &#160; Log in.
+                        </Link>
+                            </small>
+                        </form>
                         </div>
                     </div>
 
