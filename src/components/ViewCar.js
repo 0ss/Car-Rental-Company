@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Redirect } from "react-router-dom";
 import Navbar from '../layout/Navbar'
 import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
