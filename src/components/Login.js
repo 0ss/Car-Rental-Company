@@ -9,7 +9,6 @@ import * as Auth from '../services/api/auth'
 export default function Login() {
 
     const [error, setError] = useState(null);
-    const result = useState(null);
 
 
     function login(email , password){
@@ -107,9 +106,6 @@ export default function Login() {
                                 &#160; Sign up.
                                 </Link>
                             </small>
-                        <div>
-                            {result}
-                        </div>
                             <small  class="Have-account form-text text-muted mt-2 text-center">
                              Maybe you forgot your password? it happens,
                                 <Link className="other-page-link" to="/resetpassword">
