@@ -1,61 +1,84 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Navbar from '../layout/Navbar'
 import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
 import * as Firestore from "../services/api/firestore"
 
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 export default function ViewCar() {
-    const id = (window.location.hash).substring(1) // id should come from firebase
-    const [price, setPrice ] = useState(385.85)
+    const carId = getParameterByName("id")
+    const [price, setPrice] = useState(385.85)
     const [error, setError] = useState(null);
     const [from, setFrom] = useState(null);
     const [to, setTo] = useState(null);
     const [days, setDays] = useState(null);
+    const [car, setCar] = useState(null);
+
+    function getCar(id) {
+
+        if (id && id.length > 3)
+            Firestore.getCar(id).then((result) => {
+                if (result && result.status === "ok") {
+                    setCar(result.result)
+                }
+            })
+
+    }
 
 
     const dateChange = e => {
         e.preventDefault()
-        setFrom (e.target.from.value)
-        setTo (e.target.to.value)
+        setFrom(e.target.from.value)
+        setTo(e.target.to.value)
 
-        if(!from || !to){
+        if (!from || !to) {
             setError('Please put the dates before submit')
             return
         }
-        setDays(((new Date(to) - new Date(from) )/ (86400*1000)))
-
-         console.log(from)
+        setDays(((new Date(to) - new Date(from)) / (86400 * 1000)))
 
 
-        if(days<0){  // if days in minus
+
+        if (days < 0) {  // if days in minus
             setError('Please fill the dates correctly')
             return
         }
         setError('')
-        
-        setPrice(parseInt(days*385.85))
+
+        setPrice(parseInt(days * car.price))
     }
-    const handleSubmitData = e =>{
+    const handleSubmitData = e => {
         e.preventDefault()
         const price = e.target.price.value
         const method = e.target.method.value
-        if(!price || !method){
+        if (!price || !method) {
             setError('Please make sure to fill the form')
             return
         }
         setError('')
-        console.log(from)
-       Firestore.addOrder(id , price , days , from , to , method).then((result)=>{
-           if(result && result.status === "error"){
-            setError(result.error)
-           }else{
-            window.location.href = "/successfulreservation?id=" + id
-           }
-       })
+        const orderId = Firestore.getUuid();
+        Firestore.addOrder(orderId, carId, price, days, from, to, method).then((result) => {
+            if (result && result.status === "error") {
+                setError(result.error)
+            } else {
+                window.location.href = "/successfulreservation?id=" + orderId
+            }
+        })
         // return (<Redirect from="/viewcar" to="/successfulreservation"  />)
 
     }
+
+    if(!car)
+    getCar(carId);
 
     return (
         <>
@@ -66,78 +89,78 @@ export default function ViewCar() {
                         <div class="card mx-auto mb-5" style={{ borderRadius: '30px' }} >
                             <div className="row">
                                 <div className="col-12">
-                                    <img class="card-img-top" src={Car} alt="Card cap" />
+                                    <img class="card-img-top" src={car?.image ? car.image : Car} alt="Card cap" />
                                 </div>
                             </div>
                             {
-                            error &&
-                            <div class="alert alert-danger text-center " style={{'fontSize':13}} role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                error &&
+                                <div class="alert alert-danger text-center " style={{ 'fontSize': 13 }} role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
 
-                                {error}
-                                  
-                            </div>
+                                    {error}
+
+                                </div>
                             }
                             <form onSubmit={dateChange}>
                                 <div class="row mt-3  text-center">
-                                        <div className="col-md-6">
-                                            <p>
-                                                <span>Rent from: </span>
-                                                <input type="date" name="from"  />
-                                            </p>                               
-                                        </div>
-                                        <div className="col-md-6 ">
-                                            <p>
-                                                <span>to: </span>
-                                                <input type="date" name="to" />
-                                            </p>                              
-                                        </div>
+                                    <div className="col-md-6">
+                                        <p>
+                                            <span>Rent from: </span>
+                                            <input type="date" name="from" />
+                                        </p>
+                                    </div>
+                                    <div className="col-md-6 ">
+                                        <p>
+                                            <span>to: </span>
+                                            <input type="date" name="to" />
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="row text-center mb-2">
                                     <div className="col-md-12">
                                         <button className="btn btn-sm" type="submit">
                                             click to see price
-                                        </button>                              
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
                             </form>
                             <form onSubmit={handleSubmitData}>
-                            <div class="row text-center">
-                                <div className="col-md-12">
-                                    <p>
-                                        <span>Total price : </span>
-                                        <label 
-                                        style={{color:'green'}}
-                                        >${price}
-                                        </label>
-                                        <input type="hidden" name="price" value={price} />
-                                    </p>                               
+                                <div class="row text-center">
+                                    <div className="col-md-12">
+                                        <p>
+                                            <span>Total price : </span>
+                                            <label
+                                                style={{ color: 'green' }}
+                                            >${price}
+                                            </label>
+                                            <input type="hidden" name="price" value={price} />
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-center">
-                                <div className="col-md-12">
-                                    <p>
-                                        <span>Payment method : </span>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="Paypal" />
-                                            <label class="form-check-label" for="inlineRadio1">Paypal</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="method" id="inlineRadio2" value="Cash" />
-                                            <label class="form-check-label" for="inlineRadio2">Cash</label>
-                                        </div>
-                                    </p>                               
+                                <div class="row text-center">
+                                    <div className="col-md-12">
+                                        <p>
+                                            <span>Payment method : </span>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="Paypal" />
+                                                <label class="form-check-label" for="inlineRadio1">Paypal</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="method" id="inlineRadio2" value="Cash" />
+                                                <label class="form-check-label" for="inlineRadio2">Cash</label>
+                                            </div>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row m-3">
-                                <div className="col">
-                                    <button className="btn btn-sm float-right" type="submit">
-                                        order now
-                                    </button>                                
+                                <div class="row m-3">
+                                    <div className="col">
+                                        <button className="btn btn-sm float-right" type="submit">
+                                            order now
+                                    </button>
+                                    </div>
                                 </div>
-                            </div>
                             </form>
                         </div>
                     </div>
@@ -148,7 +171,7 @@ export default function ViewCar() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Car: </span>
-                                        <span className="font-weight-light font-italic">Dodge ram</span>
+                                        <span className="font-weight-light font-italic">{car?.name}</span>
                                     </p>
                                 </div>
                             </div>
@@ -157,7 +180,7 @@ export default function ViewCar() {
                                     <p>
                                         <span>Color: </span>
                                         <span className="font-weight-light font-italic">
-                                            Red
+                                            {car?.color}
                                         </span>
                                     </p>
                                 </div>
@@ -166,7 +189,7 @@ export default function ViewCar() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Model: </span>
-                                        <span className="font-weight-light font-italic">2019</span>
+                                        <span className="font-weight-light font-italic">{car?.model}</span>
                                     </p>
                                 </div>
                             </div>
@@ -174,7 +197,7 @@ export default function ViewCar() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Price: </span>
-                                        <span className="font-weight-light font-italic">$385.87</span>
+                                        <span className="font-weight-light font-italic">{car?.price}/hour</span>
                                     </p>
                                 </div>
                             </div>
@@ -182,7 +205,7 @@ export default function ViewCar() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Status: </span>
-                                        <span className="font-weight-light font-italic">New</span>
+                                        <span className="font-weight-light font-italic">{car?.status}</span>
                                     </p>
                                 </div>
                             </div>
@@ -190,7 +213,7 @@ export default function ViewCar() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Location: </span>
-                                        <span className="font-weight-light font-italic">Khobar</span>
+                                        <span className="font-weight-light font-italic">{car?.location}</span>
                                     </p>
                                 </div>
                             </div>

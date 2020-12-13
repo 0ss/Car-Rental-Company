@@ -24,9 +24,8 @@ export async function getCar(carId) {
    return await get('cars' , carId)
 }
 
-export async function addOrder(carId , price , days , dateFrom , dateTo , paymentMethod) {
+export async function addOrder(orderId, carId , price , days , dateFrom , dateTo , paymentMethod) {
     if(await Auth.checkUid(Auth.getUid())){
-        const orderId = uuid();
    return await set('orders' , orderId , {id:orderId, uid:Auth.getUid() , carId:carId , price: price , days:days , dateFrom:dateFrom , dateTo:dateTo , paymentMethod:paymentMethod })
     }else{
         return false;
