@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import '../styles/nav.css'
 import * as Auth from '../services/api/auth'
 export default function Navbar() {
@@ -53,16 +53,16 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav navbar-nav ml-auto">
                         <li className="nav-item active mr-3">
-                            <a className="nav-link about" href="#">
-                                <span style={{ "fontSize": 14 }}>🏠&#160; </span>
+                            <Link className="nav-link about" to="/">
+                            <span style={{"fontSize":14}}>&#160; </span>
                            Home
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item mr-3">
-                            <a className="nav-link contact" href="/searchcars">
-                                <span style={{ "fontSize": 14 }}>🚘&#160; </span>
+                            <Link className="nav-link contact" to="/searchcars">
+                            <span style={{"fontSize":14}}>&#160; </span>
                             Cars
-                            </a>
+                            </Link>
                         </li>
                         {CheckAuth()}
                     </ul>

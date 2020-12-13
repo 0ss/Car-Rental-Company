@@ -1,8 +1,12 @@
+
 import React from 'react'
+import {Link} from 'react-router-dom'
 import '../../styles/search_cars.css'
 
 
 function SearchBar() {
+
+    const isAdmin = true;
     return (
         <div id="accordion" className="search-container mb-3">
             <button 
@@ -13,8 +17,17 @@ function SearchBar() {
             aria-controls="collapseOne"
             style={{width:'10'}}
             >
-                    Toggle to filter results!
-                </button>
+                Toggle to filter results!
+            </button>
+               
+                {
+                    isAdmin && 
+                    <Link className="float-right btn btn-sm" to="/admin/addcar">
+                        Add car
+                    </Link>
+                }
+
+
             <div class="card mt-2" style={{border:0}}>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import   '../styles/sign_styles.css'
-import Navbar from '../layout/navbar'
-import Footer from '../layout/footer'
+import Navbar from '../layout/Navbar'
+import Footer from '../layout/Footer'
 
 export default function ResetPassword() {
 

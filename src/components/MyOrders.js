@@ -3,8 +3,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import '../styles/main_styles.css'
 import '../styles/my_orders.css'
-import Navbar from '../layout/navbar'
-import Footer from '../layout/footer'
+import Navbar from '../layout/Navbar'
+import Footer from '../layout/Footer'
 import Car from '../images/Dodge-Ram-2015.jpg'
 
 export default function MyOrders() {

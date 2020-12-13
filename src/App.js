@@ -1,17 +1,18 @@
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
 } from 'react-router-dom';
 import './styles/main_styles.css'
-import Signup from './components/signup'
-import Login from './components/login'
-import SearchCars from './components/cars_fetching/search_cars'
-import AddCar from './components/add_car'
-import SuccessfulReservation from './components/successful_reservation'
-import MyOrders from './components/my_orders'
-import 'firebase/auth';
-import { AuthProvider } from "./services/firebase/context";
+import SignUp from './components/SignUp'
+import Login from './components/Login'
+import SearchCars from './components/cars_fetching/SearchCars'
+import AddCar from './components/admin/AddCar'
+import SuccessfulReservation from './components/SuccessfulReservation'
+import MyOrders from './components/MyOrders'
+import ResetPassword from './components/ResetPassword'
+import ViewCar from './components/ViewCar'
+import Home from './components/Home'
+
 
 
 
@@ -20,24 +21,27 @@ const App = () => {
 
 
 
+ 
+
   return (
-    <AuthProvider>
 
     <Router>
-      <Switch>
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/login" component={Login} />
-        <Route path="/searchcars" component={SearchCars} />
-        <Route path="/addcar" component={AddCar} />
-        <Route path="/successfulreservation" component={SuccessfulReservation} />
-        <Route path="/myorders" component={MyOrders} />
-        {/* <Route path="/resetpassword" component={ResetPassword} /> */}
+      <Route path="/signup" component={SignUp} />
+      <Route path="/login" component={Login} />
+      <Route path="/searchcars" component={SearchCars} />
+      <Route path="/admin/addcar" component={AddCar} />
+      <Route path="/successfulreservation" component={SuccessfulReservation} />
+      <Route path="/myorders" component={MyOrders} />
+      <Route path="/resetpassword" component={ResetPassword} />
+      <Route path="/viewcar" component={ViewCar} />
+      <Route exact path="/" component={Home} />
 
-      </Switch>
+
+
     </Router>
-    </AuthProvider>
 
   );
 }
+
 
 export default App;
