@@ -122,7 +122,7 @@ export default function SuccessfulReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Price: </span>
-    <span className="font-weight-light font-italic">{order?.price}</span>
+    <span className="font-weight-light font-italic">{order?.price}$</span>
                                     </p>
                                 </div>
                             </div>
