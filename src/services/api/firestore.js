@@ -15,6 +15,10 @@ export async function getList(collection) {
     return await Api.Post('firestore/list/get', { collection: collection, uid: Auth.getUid() });
 }
 
+export async function getSearchList(collection, searchName, searchValue) {
+    return await Api.Post('firestore/list/search/get', { collection: collection, searchName: searchName, searchValue: searchValue, uid: Auth.getUid() });
+}
+
 export async function addCar(name, color, model, size, status, location, price, image, id) {
     if (!id) id = uuid()
     if (await Auth.checkUid(Auth.getUid())) {
@@ -42,6 +46,14 @@ export async function addOrder(orderId, carId, price, days, dateFrom, dateTo, pa
 
 export async function getOrder(orderId) {
     return await get('orders', orderId)
+}
+
+export async function getOrders() {
+    return await getList('orders')
+}
+
+export async function getUserOrders() {
+    return await getSearchList('orders', "uid", Auth.getUid())
 }
 
 export async function uploadImage(path, fileName, fileType, base64Data) {

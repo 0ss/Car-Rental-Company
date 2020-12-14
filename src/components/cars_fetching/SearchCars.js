@@ -135,6 +135,7 @@ function filterCars(cars) {
 }
 
 export default function SearchCars() {
+    
     const [cars, setCars] = useState(null);
     const [shownCars, setShownCars] = useState(null);
     const [tempHash, setTempHash] = useState(null);

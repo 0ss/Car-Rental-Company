@@ -32,8 +32,6 @@ export default function AddCar() {
         const file = event.target.files[0]
         const base64 = await convertBase64(file)
         Firestore.uploadImage('cars_images' , uuid , file.type , base64).then((result) =>{
-            console.log(result, 's');
-
             if(result.status === "ok"){
                 image = result.url
             }else{
@@ -51,8 +49,6 @@ export default function AddCar() {
         const status = e.currentTarget.status.value
         const location = e.currentTarget.location.value
         const price = e.currentTarget.price.value
-
-        console.log(image)
 
 
         if (!name || !color || !model || !size || !status || !location || !price || !image) {
@@ -75,7 +71,7 @@ export default function AddCar() {
                 if (result && result.status === "error") {
                     setError(result.error);
                 } else {
-                    window.location.href = "/manageCars"
+                    window.location.href = "/searchcars"
                 }
             })
 
