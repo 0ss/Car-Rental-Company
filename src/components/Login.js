@@ -44,12 +44,7 @@ export default function Login() {
           login(email , password);
            
         }
-        /*
-        if not error then send the data to firebase,
-        if error happens then but it inside
-        setError(...)
-        */
-       
+
     }
 
 

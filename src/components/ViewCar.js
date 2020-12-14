@@ -16,7 +16,7 @@ function getParameterByName(name, url = window.location.href) {
 
 export default function ViewCar() {
     const carId = getParameterByName("id")
-    const [price, setPrice] = useState(385.85)
+    const [price, setPrice] = useState(0.0)
     const [error, setError] = useState(null);
     const [from, setFrom] = useState(null);
     const [to, setTo] = useState(null);
@@ -54,7 +54,7 @@ export default function ViewCar() {
         }
         setError('')
 
-        setPrice(parseInt(days * car.price))
+        setPrice(parseInt(days * car.price * 24))
     }
     const handleSubmitData = e => {
         e.preventDefault()
@@ -79,7 +79,10 @@ export default function ViewCar() {
 
     if(!car)
     getCar(carId);
+    if(car){
+        console.log(car.price)
 
+    }
     return (
         <>
             <Navbar />
