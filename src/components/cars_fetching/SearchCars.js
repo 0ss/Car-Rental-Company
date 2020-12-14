@@ -38,7 +38,7 @@ function filterCars(cars) {
     const isColorMatch = ((car) => car.color?.toLowerCase() === options.color?.toLowerCase());
     const isModelMatch = ((car) => car.model?.toLowerCase() === options.model?.toLowerCase());
     const isSizeMatch = ((car) => car.size?.toLowerCase() === options.size?.toLowerCase());
-    const isPriceMatch = ((car) => car.price >= options.priceFrom && car.price <= options.priceTo);
+    const isPriceMatch = ((car) => parseFloat(car.price) >= parseFloat(options.priceFrom) && parseFloat(car.price) <= parseFloat(options.priceTo));
 
 
     if (options.color && options.model && options.size && options.priceTo && options.priceFrom) {
@@ -137,7 +137,7 @@ function filterCars(cars) {
 export default function SearchCars() {
     const [cars, setCars] = useState(null);
     const [shownCars, setShownCars] = useState(null);
-    const [tempHash , setTempHash] = useState(null);
+    const [tempHash, setTempHash] = useState(null);
 
     function getCars() {
         Firestore.getCars().then((result) => {
@@ -149,12 +149,12 @@ export default function SearchCars() {
         })
     }
 
-    function checkHash(){
-        if(tempHash !== window.location.hash){
+    function checkHash() {
+        if (tempHash !== window.location.hash) {
             setTempHash(window.location.hash);
-            if(!cars)
-            getCars();
-            else{
+            if (!cars)
+                getCars();
+            else {
                 setShownCars(filterCars(cars))
             }
             console.log("change in hash!")
