@@ -67,12 +67,6 @@ export default function SuccessfulReservation() {
                                 </div>
                             </div>
                             <div class="row mt-3  text-center">
-                                <div className="col-md-4 mb-3 ">
-                                    <button className="btn btn-sm" >View Car Password</button>
-                                </div>
-                                <div className="col-md-4 mb-3">
-                                    <button className="btn btn-sm">Pick-up Location</button>
-                                </div>
                                 <div className="col-md-4 mb-3">
                                     <button
                                         className="btn btn-sm"

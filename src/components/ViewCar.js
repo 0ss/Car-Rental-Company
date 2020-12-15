@@ -3,6 +3,7 @@ import Navbar from '../layout/Navbar'
 import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
+import {Redirect} from 'react-router-dom'
 import * as Firestore from "../services/api/firestore"
 
 function getParameterByName(name, url = window.location.href) {
@@ -21,8 +22,8 @@ export default function ViewCar() {
     const [from, setFrom] = useState(null);
     const [to, setTo] = useState(null);
     const [days, setDays] = useState(null);
-    const [car, setCar] = useState(null);
-
+    const [car, setCar] = useState({});
+    console.log('from' , from, 'to', to)
     function getCar(id) {
 
         if (id && id.length > 3)
@@ -37,13 +38,18 @@ export default function ViewCar() {
 
     const dateChange = e => {
         e.preventDefault()
-        setFrom(e.target.from.value)
-        setTo(e.target.to.value)
+        setError('')
 
-        if (!from || !to) {
+        console.log(e.target.from.value, e.target.to.value)
+        console.log('from' , from, 'to', to, car.price)
+
+        if (!e.target.from.value || !e.target.to.value) {
             setError('Please put the dates before submit')
             return
         }
+        setFrom(e.target.from.value)
+        setTo(e.target.to.value)
+        console.log('from' , from, 'to', to)
         setDays(((new Date(to) - new Date(from)) / (86400 * 1000)))
 
 
@@ -111,7 +117,7 @@ export default function ViewCar() {
                                     <div className="col-md-6">
                                         <p>
                                             <span>Rent from: </span>
-                                            <input type="date" name="from" />
+                                            <input type="date" name="from"/>
                                         </p>
                                     </div>
                                     <div className="col-md-6 ">
