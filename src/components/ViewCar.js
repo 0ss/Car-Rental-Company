@@ -23,64 +23,32 @@ export default function ViewCar() {
 
     var fromDate = from, toDate = to, days
 
-
-    console.log('from', from, 'to', to)
-
-
-
     function getCar(id) {
 
         if (id && id.length > 3)
             Firestore.getCar(id).then((result) => {
-                console.log('resusssssslt', result)
-
                 if (result && result.status === "ok") {
                     setCar(result.result)
-                    console.log('resusssssslt', result)
                 }
             })
 
     }
 
-    //    function changePrice(){
-    //     const pr = (parseInt(car.price) * days)
-    //     console.log(pr)
-    //     setPrice(pr)
-    //     }
 
-
-    // const dateChange = e => {
-    //     e.preventDefault()
-    //     setError('')
-
-    //     console.log(e.target.from.value, e.target.to.value)
-    //     console.log('from' , from, 'to', to, car.price)
-
-    //     if (!e.target.from.value || !e.target.to.value) {
-    //         setError('Please put the dates before submit')
-    //         return
-    //     }
-    //     // setFrom(e.target.from.value)
-    //     // setTo(e.target.to.value)
-    //     console.log('from' , from, 'to', to)
-    //     setDays(((new Date(to) - new Date(from)) / (86400 * 1000)))
-
-
-
-    //     if (days < 0) {  // if days in minus
-    //         setError('Please fill the dates correctly')
-    //         return
-    //     }
-    //     setError('')
-
-    //     // changePrice()
-    // }
     const handleSubmitData = e => {
         e.preventDefault()
         const price = e.target.price.value
         const method = e.target.method.value
-        if (!price || !method) {
-            setError('Please make sure to fill the form')
+        if (!price) {
+            setError('Please select rent dates')
+            return
+        }
+        if (!method) {
+            setError('Please select a payment method')
+            return
+        }
+        if (!from || !to) {
+            setError('Please select a correct dates')
             return
         }
         setError('')
@@ -111,24 +79,39 @@ export default function ViewCar() {
 
     function changeFrom(e) {
         fromDate = (e.target.value)
-        //    setFrom(e.target.value)
-        if ((fromDate && toDate) || (from && to))
+
+        if (getDatesDiff(new Date(), fromDate) <= 1) {
+            setError("The date can't be in the past!")
+            setFrom(null)
+            return
+        }
+
+        if ((fromDate && toDate) || (from && to)) {
             calculatePrice()
+        }
     }
 
     function changeTo(e) {
         toDate = (e.target.value)
-        // setTo(e.target.value)
+        if (getDatesDiff(new Date(), toDate) <= 1) {
+            setError("The date can't be in the past!")
+            setTo(null)
+            return
+        }
         if ((fromDate && toDate) || (from && to))
             calculatePrice()
+    }
+
+    function getDatesDiff(from, to) {
+        return Math.floor((Date.parse(to) - Date.parse(from)) / 86400000)
     }
 
 
     function calculatePrice() {
 
-        days = (Math.floor((Date.parse(toDate) - Date.parse(fromDate)) / 86400000))
+        days = getDatesDiff(fromDate, toDate)
 
-        if (days <= 0) {  // if days in minus
+        if (days <= 1) {  // if days in minus
             setError('Please fill the dates correctly')
             setFrom(null)
             setTo(null)
