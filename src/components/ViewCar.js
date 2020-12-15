@@ -28,8 +28,11 @@ export default function ViewCar() {
 
         if (id && id.length > 3)
             Firestore.getCar(id).then((result) => {
+                console.log('resusssssslt', result )
+
                 if (result && result.status === "ok") {
                     setCar(result.result)
+                    console.log('resusssssslt', result )
                 }
             })
 
@@ -99,7 +102,14 @@ export default function ViewCar() {
                         <div class="card mx-auto mb-5" style={{ borderRadius: '30px' }} >
                             <div className="row">
                                 <div className="col-12">
-                                    <img class="card-img-top" src={car?.image ? car.image : Car} alt="Card cap" />
+                                    
+                                {
+                                    car?.image ?
+                                    <img class="card-img-top" src={car?.image} alt="Card cap" />: 
+                                    <div class="loader text-center mt-3"></div>
+
+                                    
+                                    }
                                 </div>
                             </div>
                             {
