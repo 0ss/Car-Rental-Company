@@ -1,20 +1,19 @@
 
 import React, { useState } from 'react'
-import '../styles/main_styles.css'
-import '../styles/my_orders.css'
+import '../../styles/main_styles.css'
+import '../../styles/my_orders.css'
+import Navbar from '../../layout/Navbar'
+import Footer from '../../layout/Footer'
+import * as Firestore from '../../services/api/firestore'
 import { Link } from 'react-router-dom'
-import Navbar from '../layout/Navbar'
-import Footer from '../layout/Footer'
-import * as Firestore from '../services/api/firestore'
-import SearchCarsUI from './cars_fetching/SearchCarsUI'
+import SearchCarsUI from '../cars_fetching/SearchCarsUI'
 
-export default function MyOrders() {
-
+export default function AllOrders() {
 
     const [orders, setOrders] = useState(null);
 
     function getOrders() {
-        Firestore.getUserOrders().then((result) => {
+        Firestore.getOrders().then((result) => {
             if (result.status === "ok") {
                 addCarsToOrders(result.result)
             }
@@ -26,7 +25,6 @@ export default function MyOrders() {
     async function addCarsToOrders(orders) {
         for (const order of orders) {
             order.car = await getCar(order.carId);
-
         }
 
         setOrders(orders);
@@ -50,8 +48,6 @@ export default function MyOrders() {
     if (!orders)
         getOrders();
 
-
-
     const carsArray = orders?.length ? orders.map(order => {
         return (
             <div key={order.id} className="col-md-4 mb-4">
@@ -67,7 +63,7 @@ export default function MyOrders() {
                         </h5>
                         <h5 class="car-price mb-3 mt-3 text-center">
                             Total: {order.price}$
-                    </h5>
+                        </h5>
                         <Link to={`/viewReservation?id=${order.id}`}>
                             <button className="btn float-right">
                                 <span className="font-weight-bold">Manage Order</span>

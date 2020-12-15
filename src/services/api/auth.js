@@ -1,5 +1,6 @@
 
 import * as Api from './controllers';
+import * as Firestore from './firestore'
 
 export async function login(email, password) {
     return await Api.Post('login', { email: email, password: password })
@@ -21,6 +22,10 @@ export async function checkUid(uid) {
 export function isVerifiedUser(user) {
    return user && user.uid && user.uid.length > 9;
 }
+
+export async function isAdmin() {
+    return await (Firestore.getUser(getUid())).result.isAdmin === true
+ }
 
 export function setUid(uid) {
     localStorage.setItem("uid", uid)

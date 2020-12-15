@@ -73,13 +73,14 @@ export default function ViewCar() {
         setError('')
         const orderId = Firestore.getUuid();
         Firestore.addOrder(orderId, carId, price, days, from, to, method).then((result) => {
+            console.log(result)
             if (result && result.status === "error") {
                 setError(result.error)
+                window.location.href = "/login"
             } else {
-                window.location.href = "/successfulreservation?id=" + orderId
+                window.location.href = "/viewReservation?id=" + orderId
             }
         })
-        // return (<Redirect from="/viewcar" to="/successfulreservation"  />)
 
     }
 

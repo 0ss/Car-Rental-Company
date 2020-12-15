@@ -11,6 +11,12 @@ export default function Login() {
     const [error, setError] = useState(null);
 
 
+    if(window.location.search.includes("logout")){
+        Auth.removeUser(Auth.getUser())
+        Auth.removeUid(Auth.getUid())
+    }
+
+
     function login(email , password){
         Auth.login(email , password).then((result) =>{
             console.log(result)
