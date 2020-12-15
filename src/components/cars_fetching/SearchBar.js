@@ -2,11 +2,24 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/search_cars.css'
-
-
+import * as Auth from '../../services/api/auth'
+import * as Firestore from '../../services/api/firestore'
+import { auth } from 'reactfire'
 
 
 function SearchBar() {
+
+    const [isAdmin , setIsAdmin] = useState(null);
+
+
+    function checkAdmin(){
+        Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) =>{
+           if(result.status === "ok"){
+               setIsAdmin(result.result?.isAdmin === true)
+           }
+        })
+    }
+
 
 
 
@@ -15,7 +28,7 @@ function SearchBar() {
 
         if (hash.includes(type)) {
             console.log(hash.split(type + "=")[1].split("&")[0])
-            hash = value === "All" ? hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], "")  : hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], `${type}=${value}`)
+            hash = value === "All" ? hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], "") : hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], `${type}=${value}`)
         } else {
             hash += `${type}=${value}&`
         }
@@ -29,7 +42,11 @@ function SearchBar() {
         window.location.hash = e.target.value
 
     }
-    const isAdmin = true;
+
+
+    if(isAdmin === null)
+    checkAdmin()
+
     return (
         <div id="accordion" className="search-container mb-3">
             <button
@@ -43,12 +60,9 @@ function SearchBar() {
                 Toggle to filter results!
             </button>
 
-            {
-                isAdmin &&
-                <Link className="float-right btn btn-sm" to="/admin/addcar">
-                    Add car
-                    </Link>
-            }
+           {isAdmin ?   <Link className="float-right btn btn-sm" to="/admin/addcar">
+                Add car
+            </Link> : <></>}
 
 
             <div class="card mt-2" style={{ border: 0 }}>

@@ -64,6 +64,10 @@ export async function uploadImage(path, fileName, fileType, base64Data) {
     }
 }
 
+export async function getUser(uid) {
+    return await get('users' , uid)
+}
+
 export function getUuid() {
     return uuid();
 }
