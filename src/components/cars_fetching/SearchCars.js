@@ -220,10 +220,12 @@ export default function SearchCars() {
         return (
             <div key={car.id} className="col-md-4 mb-4">
                 <div class="card">
-                    <img class="card-img-top car-img" src={car.image} alt="Card cap"></img>
+                    <img class="card-img-top car-img" src={car.image} alt="Card cap" 
+                    style={{height:'200px'}}
+                    ></img>
                     <div class="card-body" >
                         <h5 class="card-title text-center">
-                            <span className="car-color float-right">
+                            <span className="car-color float-right" style={{background:car.color}}>
                             </span>
                             {car.name}
                         </h5>

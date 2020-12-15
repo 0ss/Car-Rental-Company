@@ -44,6 +44,7 @@ export default function AddCar() {
         image = car.image
     }
     const handleFileRead = async (event) => {
+        console.log(event)
         const file = event.target.files[0]
         const base64 = await convertBase64(file)
         Firestore.uploadImage('cars_images', uuid, file.type, base64).then((result) => {
