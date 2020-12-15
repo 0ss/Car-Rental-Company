@@ -3,7 +3,7 @@ import * as Auth from './auth'
 import uuid from 'react-uuid'
 
 export async function set(collection, doc, data) {
-    return await Api.Post('firestore/set', { collection: collection, doc: doc, data: JSON.stringify(data) });
+    return await Api.Post('firestore/set', { collection: collection, doc: doc, data: JSON.stringify(data), uid: Auth.getUid() });
 
 }
 
@@ -37,10 +37,10 @@ export async function getCars() {
 }
 
 export async function addOrder(orderId, carId, price, days, dateFrom, dateTo, paymentMethod) {
-    if (await Auth.checkUid(Auth.getUid())) {
+    if (Auth.isVerifiedUser(Auth.getUser()) &&  await Auth.checkUid(Auth.getUid())) {
         return await set('orders', orderId, { id: orderId, uid: Auth.getUid(), carId: carId, price: price, days: days, dateFrom: dateFrom, dateTo: dateTo, paymentMethod: paymentMethod })
     } else {
-        return false;
+        return {status: "error"};
     }
 }
 
