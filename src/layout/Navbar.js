@@ -78,7 +78,7 @@ export default function Navbar() {
             <nav className="navbar navbar-expand-sm ">
                 <Link className="navbar-brand font-weight-bold" to="/">
                     <span style={{ "fontSize": 17 }}>🏢&#160;</span>
-                 CarRentalCompany
+                    Luxury cars
                  </Link>
                 <button
                     className="navbar-toggler navbar-light border"
