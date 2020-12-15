@@ -10,6 +10,10 @@ export async function signUp(email, password, name) {
     return await Api.Post('signup', { email: email, password: password, name: name })
 }
 
+export async function restPassword(email) {
+    return await Api.Post('restPassword', { email: email })
+}
+
 export async function checkUid(uid) {
     const result = await Api.Post('firestore/get', { collection: "users", doc: uid, uid: uid });
     if (result && result.result && result.result.uid) {

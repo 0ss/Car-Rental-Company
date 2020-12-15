@@ -27,7 +27,7 @@ export default function Home() {
             </div>
             <div class="card-deck w-100 text-center mx-auto">
                 <div class="card mb-4">
-                    <img class="card-img-top" src={img1} alt="Card image cap" />
+                    <img class="card-img-top" src={img1} alt="Card cap" />
                     <div class="card-body">
                     <h5 class="card-title">Lamborghini</h5>
                     <p class="card-text">
@@ -38,7 +38,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div class="card mb-4">
-                    <img class="card-img-top" src={img2} alt="Card image cap" />
+                    <img class="card-img-top" src={img2} alt="Card cap" />
                     <div class="card-body">
                         <h5 class="card-title">Bugatti  </h5>
                         <p class="card-text">
@@ -49,7 +49,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div class="card mb-4">
-                    <img class="card-img-top" src={img3} alt="Card image cap" />
+                    <img class="card-img-top" src={img3} alt="Card cap" />
                     <div class="card-body">
                         <h5 class="card-title">Maserati  </h5>
                         <p class="card-text">

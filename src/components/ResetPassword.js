@@ -3,10 +3,13 @@ import {Link} from 'react-router-dom'
 import   '../styles/sign_styles.css'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
+import * as Auth from '../services/api/auth'
+
 
 export default function ResetPassword() {
 
     const [error, setError] = useState(null);
+    const [suc, setSuc] = useState(null);
 
     const handleSubmit = e =>{
         e.preventDefault() // prevent reloading the page
@@ -14,12 +17,15 @@ export default function ResetPassword() {
         if(!email){
             setError('Please make sure to write your email')
             return
+        }else{
+            Auth.restPassword(email).then((result)=>{
+                if(result.status === "ok"){
+                    setSuc("An email has been sent to your email to rest the password")
+                }else{
+                    setError(result.error)
+                }
+            })
         }
-        /*
-        if not error then send the data to firebase,
-        if error happens then but it inside
-        setError(...)
-        */
        
     }
 
@@ -37,6 +43,17 @@ export default function ResetPassword() {
                                 </button>
 
                                 {error}
+                                  
+                            </div>
+                        }
+                           {
+                            suc &&
+                            <div class="alert alert-success " style={{'fontSize':13}} role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+
+                                {suc}
                                   
                             </div>
                         }
