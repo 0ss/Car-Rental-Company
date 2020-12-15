@@ -1,22 +1,54 @@
-import React from 'react'
+import React , {useState} from 'react'
 import {Link} from 'react-router-dom'
 import '../styles/nav.css'
 import * as Auth from '../services/api/auth'
+import * as Firestore from '../services/api/firestore'
 export default function Navbar() {
+    
+    const [isAdmin , setIsAdmin] = useState(null);
+
+
+    function checkAdmin(){
+        Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) =>{
+           if(result.status === "ok"){
+               setIsAdmin(result.result?.isAdmin === true)
+           }
+        })
+    }
 
 
     function CheckAuth() {
 
-        const user = Auth.getUser();
-        if (Auth.isVerifiedUser(user)) {
-            return (
-                <>
-                 <li className="nav-item navbar-nav mr-2">
+        function Orders(){
+            if(isAdmin){
+                return(
+                    <li className="nav-item navbar-nav mr-2">
+                        <Link className="nav-link sign" to="/admin/allOrders">
+                            <span style={{ "fontSize": 14 }}></span>
+                            All orders
+                        </Link>
+                    </li>
+                )
+            }else{
+                return (
+                    <li className="nav-item navbar-nav mr-2">
                         <Link className="nav-link sign" to="/myorders">
                             <span style={{ "fontSize": 14 }}></span>
                             My orders
                         </Link>
                     </li>
+                )
+            }
+        }
+    
+        if(isAdmin === null)
+        checkAdmin()
+
+        const user = Auth.getUser();
+        if (Auth.isVerifiedUser(user)) {
+            return (
+                <>
+                 <Orders/>
                     <li className="nav-item navbar-nav mr-4">
                         <Link className="nav-link sign" to="/login?action=logout">
                             <span style={{ "fontSize": 14 }}></span>
@@ -38,6 +70,8 @@ export default function Navbar() {
             )
         }
     }
+
+
 
     return (
         <>

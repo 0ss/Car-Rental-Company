@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import '../../styles/search_cars.css'
 import * as Auth from '../../services/api/auth'
 import * as Firestore from '../../services/api/firestore'
-import { auth } from 'reactfire'
 
 
 function SearchBar() {

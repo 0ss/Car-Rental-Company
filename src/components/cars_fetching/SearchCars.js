@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../../layout/Navbar'
-import Car from '../../images/Dodge-Ram-2015.jpg'
 import '../../styles/search_cars.css'
 import '../../styles/main_styles.css'
 import SearchItems from './SearchBar'
@@ -135,7 +134,7 @@ function filterCars(cars) {
 }
 
 export default function SearchCars() {
-    
+
     const [cars, setCars] = useState(null);
     const [shownCars, setShownCars] = useState(null);
     const [tempHash, setTempHash] = useState(null);

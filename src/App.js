@@ -7,6 +7,7 @@ import SignUp from './components/Signup'
 import Login from './components/Login'
 import SearchCars from './components/cars_fetching/SearchCars'
 import AddCar from './components/admin/AddCar'
+import AllOrders from './components/admin/AllOrders'
 import SuccessfulReservation from './components/SuccessfulReservation'
 import MyOrders from './components/MyOrders'
 import ResetPassword from './components/ResetPassword'
@@ -31,6 +32,7 @@ const App = () => {
       <Route path="/login" component={Login} />
       <Route path="/searchcars" component={SearchCars} />
       <Route path="/admin/addcar" component={AddCar} />
+      <Route path="/admin/allOrders" component={AllOrders} />
       <Route path="/successfulreservation" component={SuccessfulReservation} />
       <Route path="/myorders" component={MyOrders} />
       <Route path="/resetpassword" component={ResetPassword} />

@@ -1,17 +1,17 @@
 
 import React, { useState } from 'react'
-import '../styles/main_styles.css'
-import '../styles/my_orders.css'
-import Navbar from '../layout/Navbar'
-import Footer from '../layout/Footer'
-import * as Firestore from '../services/api/firestore'
+import '../../styles/main_styles.css'
+import '../../styles/my_orders.css'
+import Navbar from '../../layout/Navbar'
+import Footer from '../../layout/Footer'
+import * as Firestore from '../../services/api/firestore'
 
-export default function MyOrders() {
+export default function AllOrders() {
 
     const [orders, setOrders] = useState(null);
 
     function getOrders() {
-        Firestore.getUserOrders().then((result) => {
+        Firestore.getOrders().then((result) => {
             if (result.status === "ok") {
                 addCarsToOrders(result.result)
             }
@@ -23,7 +23,6 @@ export default function MyOrders() {
    async function addCarsToOrders(orders) {
         for (const order of orders) {
           order.car = await  getCar(order.carId);
-           
         }
 
         setOrders(orders);
