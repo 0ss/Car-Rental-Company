@@ -89,7 +89,7 @@ export default function MyOrders() {
                         ?
                         <SearchCarsUI cars={carsArray} />
                         :
-                        <h1 className="text-center">Cars inventory is empty</h1>
+                        <h1 className="text-center">You have no orders</h1>
                 }
 
             </div>
