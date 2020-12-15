@@ -11,6 +11,10 @@ export async function get(collection, doc) {
     return await Api.Post('firestore/get', { collection: collection, doc: doc, uid: Auth.getUid() });
 }
 
+export async function remove(collection, doc) {
+    return await Api.Post('firestore/remove', { collection: collection, doc: doc, uid: Auth.getUid() });
+}
+
 export async function getList(collection) {
     return await Api.Post('firestore/list/get', { collection: collection, uid: Auth.getUid() });
 }
@@ -37,10 +41,18 @@ export async function getCars() {
 }
 
 export async function addOrder(orderId, carId, price, days, dateFrom, dateTo, paymentMethod) {
-    if (Auth.isVerifiedUser(Auth.getUser()) &&  await Auth.checkUid(Auth.getUid())) {
-        return await set('orders', orderId, { id: orderId, uid: Auth.getUid(), carId: carId, price: price, days: days, dateFrom: dateFrom, dateTo: dateTo, paymentMethod: paymentMethod, clientName:Auth.getUser()?.displayName })
+    if (Auth.isVerifiedUser(Auth.getUser()) && await Auth.checkUid(Auth.getUid())) {
+        return await set('orders', orderId, { id: orderId, uid: Auth.getUid(), carId: carId, price: price, days: days, dateFrom: dateFrom, dateTo: dateTo, paymentMethod: paymentMethod, clientName: Auth.getUser()?.displayName })
     } else {
-        return {status: "error"};
+        return { status: "error" };
+    }
+}
+
+export async function cancelOrder(orderId) {
+    if (Auth.isVerifiedUser(Auth.getUser()) && await Auth.checkUid(Auth.getUid())) {
+        return await remove('orders', orderId)
+    } else {
+        return { status: "error" };
     }
 }
 
@@ -65,7 +77,7 @@ export async function uploadImage(path, fileName, fileType, base64Data) {
 }
 
 export async function getUser(uid) {
-    return await get('users' , uid)
+    return await get('users', uid)
 }
 
 export function getUuid() {

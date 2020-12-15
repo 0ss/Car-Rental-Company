@@ -44,6 +44,18 @@ export default function ViewReservation() {
 
     }
 
+    function CancelReservation(){
+        if(window.confirm('Are sure you want to cancel this reservation?\n\nYOU CAN NOT UNDO THIS ACTION')){
+            Firestore.cancelOrder(order.id).then((result)=>{
+                if(result.status === "ok"){
+                    window.location.href = "/searchcars"
+                }else{
+                    window.alert(result.result)
+                }
+            })
+        }
+    }
+
     if(!car)
     getOrder(id)
     return (
@@ -52,7 +64,7 @@ export default function ViewReservation() {
             <div className="container mt-4">
                 <div className="row mb-3">
                     <div className="col-12 text-center">
-                        <h2>Order details</h2>
+                        <h2>Reservation details</h2>
                     </div>
                 </div>
 
@@ -78,7 +90,14 @@ export default function ViewReservation() {
                                         className="btn btn-sm"
                                         onClick={() => window.print()}
                                     >
-                                        Print receipt </button>
+                                        Print Receipt </button>
+                                </div>
+                                <div className="col-md-4 mb-3">
+                                    <button
+                                        className="btn btn-sm"
+                                        onClick={CancelReservation}
+                                    >
+                                        Cancel Reservation</button>
                                 </div>
                             </div>
                         </div>
