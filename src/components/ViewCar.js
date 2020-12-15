@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../layout/Navbar'
-import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
-import {Redirect} from 'react-router-dom'
 import * as Firestore from "../services/api/firestore"
 
 function getParameterByName(name, url = window.location.href) {
@@ -22,8 +20,13 @@ export default function ViewCar() {
     const [from, setFrom] = useState(null);
     const [to, setTo] = useState(null);
     const [days, setDays] = useState(null);
-    const [car, setCar] = useState({});
+    const [car, setCar] = useState(null);
+
+    
     console.log('from' , from, 'to', to)
+
+
+
     function getCar(id) {
 
         if (id && id.length > 3)
