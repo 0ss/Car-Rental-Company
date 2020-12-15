@@ -17,6 +17,12 @@ export default function Navbar() {
                             My orders
                         </Link>
                     </li>
+                    <li className="nav-item navbar-nav mr-4">
+                        <Link className="nav-link sign" to="/login?action=logout">
+                            <span style={{ "fontSize": 14 }}></span>
+                            Logout
+                        </Link>
+                    </li>
                 </>
             )
         } else {
