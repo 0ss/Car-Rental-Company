@@ -16,7 +16,7 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 
-export default function SuccessfulReservation() {
+export default function ViewReservation() {
 
     const id = getParameterByName("id")
     const [car , setCar] = useState(null);
@@ -52,7 +52,7 @@ export default function SuccessfulReservation() {
             <div className="container mt-4">
                 <div className="row mb-3">
                     <div className="col-12 text-center">
-                        <h2>Your reservation has been placed successfully! </h2>
+                        <h2>Order details</h2>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@ export default function SuccessfulReservation() {
                         >
                             <div className="row mt-3">
                                 <div className="col-12 text-center">
-                                    <h2>Your receipt</h2>
+                                    <h2>{order?.clientName}'s receipt</h2>
                                 </div>
                             </div>
                             <div className="row">

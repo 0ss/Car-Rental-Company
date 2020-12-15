@@ -5,6 +5,8 @@ import '../../styles/my_orders.css'
 import Navbar from '../../layout/Navbar'
 import Footer from '../../layout/Footer'
 import * as Firestore from '../../services/api/firestore'
+import { Link } from 'react-router-dom'
+import SearchCarsUI from '../cars_fetching/SearchCarsUI'
 
 export default function AllOrders() {
 
@@ -46,61 +48,44 @@ export default function AllOrders() {
     if (!orders)
         getOrders();
 
-    const ordersArray = orders?.length ? orders?.map(order => {
-        return (
-                <tr key={order.id} >
-                    <th scope="row">
-                        {order?.id}
-                    </th>
-                    <td>{order?.car?.name}</td>
-                    <td>
-                        <img
-                            className="car-order-img"
-                            style={{ width: '200px' }}
-                            src={order?.car?.image}
-                            alt="Card cap"
-                        />
-                    </td>
-                    <td>{order?.car?.color}</td>
-                    <td>{order?.car?.model}</td>
-                    <td>{order?.paymentMethod}</td>
-                    <td>{order?.dateFrom}</td>
-                    <td>{order?.dateTo}</td>
-                    <td>{order?.price}</td>
-                </tr>
-        )
-    }) : null
-    return (
-        <>
-            <Navbar />
-            <div className="container">
-                <div className="row mt-4 ">
-                    <div className="col">
-                        <h2>My orders</h2>
+        const carsArray = orders?.length ? orders.map(order => {
+            return (
+                <div key={order.id} className="col-md-4 mb-4">
+                    <div class="card">
+                        <img class="card-img-top car-img" src={order.car.image} alt="Card cap"></img>
+                        <div class="card-body" >
+                            <h5 class="card-title text-center">
+                                {order.car.name}
+                            </h5>
+                            <h5 class="car-price mb-3 mt-3 text-center">
+                               Total: {order.price}$
+                        </h5>
+                            <Link to={`/viewReservation?id=${order.id}`}>
+                                <button className="btn float-right">
+                                    <span className="font-weight-bold">Manage Order</span>
+                                </button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
-                <div className="table-responsive-sm">
-                    <table class="table table-sm table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Car</th>
-                                <th scope="col">Car Image</th>
-                                <th scope="col">Color</th>
-                                <th scope="col">Model</th>
-                                <th scope="col">Payment method</th>
-                                <th scope="col">Rent from</th>
-                                <th scope="col">to</th>
-                                <th scope="col">price</th>
-                            </tr>
-                        </thead>
-                        <tbody >
-                            {ordersArray}
-                        </tbody>
-                    </table>
+            )
+        }) : null
+    
+        return (
+            <>
+                <Navbar />
+                <div className="container mt-3">
+    
+                    {
+                        carsArray
+                            ?
+                            <SearchCarsUI cars={carsArray} />
+                            :
+                            <h1 className="text-center">Cars inventory is empty</h1>
+                    }
+    
                 </div>
-            </div>
-            <Footer />
-        </>
-    )
-}
+                <Footer />
+            </>
+        )
+    }

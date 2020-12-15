@@ -8,7 +8,7 @@ import Login from './components/Login'
 import SearchCars from './components/cars_fetching/SearchCars'
 import AddCar from './components/admin/AddCar'
 import AllOrders from './components/admin/AllOrders'
-import SuccessfulReservation from './components/SuccessfulReservation'
+import ViewReservation from './components/ViewReservation'
 import MyOrders from './components/MyOrders'
 import ResetPassword from './components/ResetPassword'
 import ViewCar from './components/ViewCar'
@@ -33,7 +33,7 @@ const App = () => {
       <Route path="/searchcars" component={SearchCars} />
       <Route path="/admin/addcar" component={AddCar} />
       <Route path="/admin/allOrders" component={AllOrders} />
-      <Route path="/successfulreservation" component={SuccessfulReservation} />
+      <Route path="/viewReservation" component={ViewReservation} />
       <Route path="/myorders" component={MyOrders} />
       <Route path="/resetpassword" component={ResetPassword} />
       <Route path="/viewcar" component={ViewCar} />

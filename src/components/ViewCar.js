@@ -72,10 +72,9 @@ export default function ViewCar() {
                 setError(result.error)
                 window.location.href = "/login"
             } else {
-                window.location.href = "/successfulreservation?id=" + orderId
+                window.location.href = "/viewReservation?id=" + orderId
             }
         })
-        // return (<Redirect from="/viewcar" to="/successfulreservation"  />)
 
     }
 
