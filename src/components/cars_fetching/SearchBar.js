@@ -59,7 +59,7 @@ function SearchBar() {
                 Toggle to filter results!
             </button>
 
-           {isAdmin ?   <Link className="float-right btn btn-sm" to="/admin/addcar">
+           {isAdmin ?   <Link className="float-right btn btn-sm" to="/admin/addCar">
                 Add car
             </Link> : <></>}
 
