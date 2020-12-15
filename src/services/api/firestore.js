@@ -38,7 +38,7 @@ export async function getCars() {
 
 export async function addOrder(orderId, carId, price, days, dateFrom, dateTo, paymentMethod) {
     if (Auth.isVerifiedUser(Auth.getUser()) &&  await Auth.checkUid(Auth.getUid())) {
-        return await set('orders', orderId, { id: orderId, uid: Auth.getUid(), carId: carId, price: price, days: days, dateFrom: dateFrom, dateTo: dateTo, paymentMethod: paymentMethod })
+        return await set('orders', orderId, { id: orderId, uid: Auth.getUid(), carId: carId, price: price, days: days, dateFrom: dateFrom, dateTo: dateTo, paymentMethod: paymentMethod, clientName:Auth.getUser()?.displayName })
     } else {
         return {status: "error"};
     }
