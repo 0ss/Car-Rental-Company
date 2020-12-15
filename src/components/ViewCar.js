@@ -19,11 +19,12 @@ export default function ViewCar() {
     const [error, setError] = useState(null);
     const [from, setFrom] = useState(null);
     const [to, setTo] = useState(null);
-    const [days, setDays] = useState(null);
     const [car, setCar] = useState(null);
 
-    
-    console.log('from' , from, 'to', to)
+    var fromDate = from, toDate = to, days
+
+
+    console.log('from', from, 'to', to)
 
 
 
@@ -31,43 +32,49 @@ export default function ViewCar() {
 
         if (id && id.length > 3)
             Firestore.getCar(id).then((result) => {
-                console.log('resusssssslt', result )
+                console.log('resusssssslt', result)
 
                 if (result && result.status === "ok") {
                     setCar(result.result)
-                    console.log('resusssssslt', result )
+                    console.log('resusssssslt', result)
                 }
             })
 
     }
 
-
-    const dateChange = e => {
-        e.preventDefault()
-        setError('')
-
-        console.log(e.target.from.value, e.target.to.value)
-        console.log('from' , from, 'to', to, car.price)
-
-        if (!e.target.from.value || !e.target.to.value) {
-            setError('Please put the dates before submit')
-            return
-        }
-        setFrom(e.target.from.value)
-        setTo(e.target.to.value)
-        console.log('from' , from, 'to', to)
-        setDays(((new Date(to) - new Date(from)) / (86400 * 1000)))
+    //    function changePrice(){
+    //     const pr = (parseInt(car.price) * days)
+    //     console.log(pr)
+    //     setPrice(pr)
+    //     }
 
 
+    // const dateChange = e => {
+    //     e.preventDefault()
+    //     setError('')
 
-        if (days < 0) {  // if days in minus
-            setError('Please fill the dates correctly')
-            return
-        }
-        setError('')
+    //     console.log(e.target.from.value, e.target.to.value)
+    //     console.log('from' , from, 'to', to, car.price)
 
-        setPrice(parseInt(days * car.price * 24))
-    }
+    //     if (!e.target.from.value || !e.target.to.value) {
+    //         setError('Please put the dates before submit')
+    //         return
+    //     }
+    //     // setFrom(e.target.from.value)
+    //     // setTo(e.target.to.value)
+    //     console.log('from' , from, 'to', to)
+    //     setDays(((new Date(to) - new Date(from)) / (86400 * 1000)))
+
+
+
+    //     if (days < 0) {  // if days in minus
+    //         setError('Please fill the dates correctly')
+    //         return
+    //     }
+    //     setError('')
+
+    //     // changePrice()
+    // }
     const handleSubmitData = e => {
         e.preventDefault()
         const price = e.target.price.value
@@ -90,12 +97,55 @@ export default function ViewCar() {
 
     }
 
-    if(!car)
-    getCar(carId);
-    if(car){
-        console.log(car.price)
+    const DateInput = ({ type, placeholder, ...props }) => (
+        <input
+            type={type}
+            spellCheck="false"
+            autoComplete="false"
+            placeholder={placeholder}
+            defaultValue={placeholder}
+            onChange={props.Onchange}
+            {...props}
+        />
+    )
+
+    function changeFrom(e) {
+        fromDate = (e.target.value)
+        //    setFrom(e.target.value)
+        if ((fromDate && toDate) || (from && to))
+            calculatePrice()
+    }
+
+    function changeTo(e) {
+        toDate = (e.target.value)
+        // setTo(e.target.value)
+        if ((fromDate && toDate) || (from && to))
+            calculatePrice()
+    }
+
+
+    function calculatePrice() {
+
+        days = (Math.floor((Date.parse(toDate) - Date.parse(fromDate)) / 86400000))
+
+        if (days <= 0) {  // if days in minus
+            setError('Please fill the dates correctly')
+            setFrom(null)
+            setTo(null)
+            return
+        } else {
+            setPrice(car.price * days)
+            setTo(toDate)
+            setFrom(fromDate)
+
+        }
+
 
     }
+
+    if (!car)
+        getCar(carId);
+
     return (
         <>
             <Navbar />
@@ -105,13 +155,13 @@ export default function ViewCar() {
                         <div class="card mx-auto mb-5" style={{ borderRadius: '30px' }} >
                             <div className="row">
                                 <div className="col-12">
-                                    
-                                {
-                                    car?.image ?
-                                    <img class="card-img-top" src={car?.image} alt="Card cap" />: 
-                                    <div class="loader text-center mt-3"></div>
 
-                                    
+                                    {
+                                        car?.image ?
+                                            <img class="card-img-top" src={car?.image} alt="Card cap" /> :
+                                            <div class="loader text-center mt-3"></div>
+
+
                                     }
                                 </div>
                             </div>
@@ -126,29 +176,37 @@ export default function ViewCar() {
 
                                 </div>
                             }
-                            <form onSubmit={dateChange}>
-                                <div class="row mt-3  text-center">
-                                    <div className="col-md-6">
-                                        <p>
-                                            <span>Rent from: </span>
-                                            <input type="date" name="from"/>
-                                        </p>
-                                    </div>
-                                    <div className="col-md-6 ">
-                                        <p>
-                                            <span>to: </span>
-                                            <input type="date" name="to" />
-                                        </p>
-                                    </div>
+                            <div class="row mt-3  text-center">
+                                <div className="col-md-6">
+                                    <p>
+                                        <span>Rent from: </span>
+                                        <DateInput
+                                            type="date"
+                                            name="from"
+                                            placeholder={from}
+                                            Onchange={changeFrom}
+                                        />
+                                    </p>
                                 </div>
-                                <div class="row text-center mb-2">
+                                <div className="col-md-6 ">
+                                    <p>
+                                        <span>to: </span>
+                                        <DateInput
+                                            type="date"
+                                            name="to"
+                                            placeholder={to}
+                                            Onchange={changeTo}
+                                        />
+                                    </p>
+                                </div>
+                            </div>
+                            {/* <div class="row text-center mb-2">
                                     <div className="col-md-12">
                                         <button className="btn btn-sm" type="submit">
                                             click to see price
                                         </button>
                                     </div>
-                                </div>
-                            </form>
+                                </div> */}
                             <form onSubmit={handleSubmitData}>
                                 <div class="row text-center">
                                     <div className="col-md-12">
@@ -220,7 +278,7 @@ export default function ViewCar() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Price: </span>
-                                        <span className="font-weight-light font-italic">{car?.price}/hour</span>
+                                        <span className="font-weight-light font-italic">{car?.price}/Day</span>
                                     </p>
                                 </div>
                             </div>
