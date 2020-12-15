@@ -188,7 +188,7 @@ export default function SearchCars() {
         return(
             <>
             <Link to={`/admin/addCar?car=${car}`}>
-            <button className="btn float-right">
+            <button className="btn float-right ml-3">
                 <span className="font-weight-bold">Edit</span>
             </button>
         </Link>
