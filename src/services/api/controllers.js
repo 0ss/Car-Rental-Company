@@ -1,4 +1,4 @@
-const apiUrl = "https://car-rental-com.herokuapp.com"
+const apiUrl = "http://localhost:8888"
 
 export async function Post(path , body){
     const requestOptions = {

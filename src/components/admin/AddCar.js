@@ -151,7 +151,15 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Color</h6>
                                 <div class="col-sm-10">
-                                    <input defaultValue={editMode ? car?.color : ''} name="color" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Dark Red" />
+                                    <select name="color" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Dark Red" >
+                                            <option>Red</option>
+                                            <option>Yellow</option>
+                                            <option>Black</option>
+                                            <option>White</option>
+                                            <option>Blue</option>
+                                            <option>Grey</option>
+                                            <option>Green</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -160,7 +168,20 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Model</h6>
                                 <div class="col-sm-10">
-                                    <input defaultValue={editMode ? car?.model : ''} name="model" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="2015" />
+                                    <select defaultValue={editMode ? car?.model : ''} name="model" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="2015" >
+                                            <option>2021</option>
+                                            <option>2020</option>
+                                            <option>2019</option>
+                                            <option>2018</option>
+                                            <option>2017</option>
+                                            <option>2016</option>
+                                            <option>2015</option>
+                                            <option>2014</option>
+                                            <option>2013</option>
+                                            <option>2012</option>
+                                            <option>2011</option>
+                                            <option>2010</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -169,7 +190,10 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Size</h6>
                                 <div class="col-sm-10">
-                                    <input defaultValue={editMode ? car?.size : ''} name="size" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Large SUV" />
+                                    <select name="size" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Large SUV" >
+                                    <option>Small</option>
+                                    <option>Large</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -179,7 +203,11 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Status</h6>
                                 <div class="col-sm-10">
-                                    <input defaultValue={editMode ? car?.status : ''} name="status" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Good, not damaged" />
+                                    <select name="status" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Good, not damaged" >
+                                    <option>good</option>
+                                    <option>bad</option>
+                                    </select>
+
                                 </div>
                             </div>
 
@@ -188,7 +216,11 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Location</h6>
                                 <div class="col-sm-10">
-                                    <input defaultValue={editMode ? car?.location : ''} name="location" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Alkhobar" />
+                                    <select defaultValue={editMode ? car?.location : ''} name="location" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Alkhobar" >
+                                    <option>al-khobar</option>
+                                    <option>al-dammam</option>
+                                    </select>
+
                                 </div>
                             </div>
 

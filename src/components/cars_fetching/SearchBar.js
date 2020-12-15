@@ -85,6 +85,7 @@ function SearchBar() {
                                         <label>Model</label>
                                         <select class="form-control form-control-sm" onChange={((e => setHash("model", e.target.value)))}>
                                             <option>All</option>
+                                            <option>2021</option>
                                             <option>2020</option>
                                             <option>2019</option>
                                             <option>2018</option>
