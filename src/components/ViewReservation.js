@@ -23,8 +23,8 @@ export default function ViewReservation() {
     const [order , setOrder] = useState(null);
 
 
-    function getCar(id){
-        
+    function getCar(id){        
+        if(id)
         Firestore.getCar(id).then((result)=>{
             if(result && result.status === "ok"){
                 setCar(result.result)
@@ -58,6 +58,7 @@ export default function ViewReservation() {
 
     if(!car)
     getOrder(id)
+
     return (
         <>
             <Navbar />
