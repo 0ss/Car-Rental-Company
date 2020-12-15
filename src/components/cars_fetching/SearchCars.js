@@ -187,7 +187,7 @@ export default function SearchCars() {
     function AdminButtons(car){
         return(
             <>
-            <Link to={`/admin/addCar?car=${car}`}>
+            <Link to={`/admin/addCar?car=${JSON.stringify(car)}`}>
             <button className="btn float-right">
                 <span className="font-weight-bold">Edit</span>
             </button>
@@ -218,7 +218,7 @@ export default function SearchCars() {
 
     const carsArray = shownCars?.length ? shownCars.map(car => {
         return (
-            <div className="col-md-4 mb-4">
+            <div key={car.id} className="col-md-4 mb-4">
                 <div class="card">
                     <img class="card-img-top car-img" src={car.image} alt="Card cap"></img>
                     <div class="card-body" >
