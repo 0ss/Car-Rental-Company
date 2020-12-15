@@ -32,6 +32,14 @@ export async function addCar(name, color, model, size, status, location, price, 
     }
 }
 
+export async function deleteCar(carId) {
+    if (Auth.isVerifiedUser(Auth.getUser()) && await Auth.checkUid(Auth.getUid())) {
+        return await remove('cars', carId)
+    } else {
+        return { status: "error" };
+    }
+}
+
 export async function getCar(carId) {
     return await get('cars', carId)
 }

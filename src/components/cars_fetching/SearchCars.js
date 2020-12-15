@@ -7,6 +7,7 @@ import SearchItems from './SearchBar'
 import Footer from '../../layout/Footer'
 import SearchCarsUI from './SearchCarsUI'
 import * as Firestore from '../../services/api/firestore'
+import * as Auth from '../../services/api/auth'
 
 
 
@@ -138,6 +139,16 @@ export default function SearchCars() {
     const [cars, setCars] = useState(null);
     const [shownCars, setShownCars] = useState(null);
     const [tempHash, setTempHash] = useState(null);
+    const [isAdmin , setIsAdmin] = useState(null);
+
+
+    function checkAdmin(){
+        Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) =>{
+           if(result.status === "ok"){
+               setIsAdmin(result.result?.isAdmin === true)
+           }
+        })
+    }
 
     function getCars() {
         Firestore.getCars().then((result) => {
@@ -161,6 +172,47 @@ export default function SearchCars() {
         }
     }
 
+    function deleteCar(car){
+        if(window.confirm(`Are sure you want to delete ${car.name} car?\n\nNOTE:YOU CAN NOT UNDO THIS ACTION`)){
+            Firestore.deleteCar(car.id).then((result)=>{
+                if(result.status === "ok"){
+                    window.location.href = "/searchcars"
+                }else{
+                    window.alert(result.result)
+                }
+            })
+        }
+    }
+
+    function AdminButtons(car){
+        return(
+            <>
+            <Link to={`/admin/addCar?car=${car}`}>
+            <button className="btn float-right">
+                <span className="font-weight-bold">Edit</span>
+            </button>
+        </Link>
+        
+          <button className="btn float-right" onClick={() => deleteCar(car)} >
+              <span className="font-weight-bold">Delete</span>
+          </button>
+      </>
+        )
+    }
+
+    function ClientButtons(car){
+        return(
+            <Link to={`/viewcar?id=${car.id}`}>
+            <button className="btn float-right">
+                <span className="font-weight-bold">Buy now!</span>
+            </button>
+        </Link>
+        )
+    }
+
+
+    if(isAdmin === null)
+    checkAdmin()
 
     checkHash()
 
@@ -178,11 +230,12 @@ export default function SearchCars() {
                         <h5 class="car-price mb-3 mt-3 text-center">
                             {car.price}$
                     </h5>
-                        <Link to={`/viewcar?id=${car.id}`}>
-                            <button className="btn float-right">
-                                <span className="font-weight-bold">Buy now!</span>
-                            </button>
-                        </Link>
+                    {
+                        isAdmin ? 
+                        AdminButtons(car)
+                        :
+                        ClientButtons(car)
+                    }
                     </div>
                 </div>
             </div>
