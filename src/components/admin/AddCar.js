@@ -34,14 +34,15 @@ export default function AddCar() {
 
 
     const [error, setError] = useState(null);
+    const [image, setImage] = useState(null);
+
     const car = JSON.parse(getParameterByName('car'))
     var editMode = false;
-    var image = "";
     const uuid = Firestore.getUuid();
 
     if (car) {
         editMode = true;
-        image = car.image
+        setImage(car.image)
     }
     const handleFileRead = async (event) => {
         console.log(event)
@@ -49,7 +50,7 @@ export default function AddCar() {
         const base64 = await convertBase64(file)
         Firestore.uploadImage('cars_images', uuid, file.type, base64).then((result) => {
             if (result.status === "ok") {
-                image = result.url
+                setImage(result.url)
             } else {
                 console.log(result);
             }
@@ -96,7 +97,7 @@ export default function AddCar() {
     }
 
     function ImagePlaceholder() {
-        if (image !== "" || editMode) {
+        if (image) {
             return (
                 <img class="card-img-top car-img" src={image} alt="car" />
             )
