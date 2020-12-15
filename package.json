@@ -8,6 +8,8 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.3.0",
     "bulma": "^0.9.1",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "express": "^4.17.1",
     "firebase": "^8.1.2",
     "hooks": "^0.3.2",
