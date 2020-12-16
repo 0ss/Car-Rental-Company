@@ -45,17 +45,17 @@ export function getOrdersArray(orders) {
         return (
             <div key={order.id} className="col-md-4 mb-4">
                 <div class="card">
-                    <img class="card-img-top car-img" src={order.car.image} alt="Card cap"></img>
+                    <img class="card-img-top car-img" src={order?.car?.image} alt="Card cap"></img>
                     <div class="card-body" >
                         <h5 class="card-title text-center">
-                            {order.car.name}
+                            {order?.car?.name}
                         </h5>
                         <h5 class="card-title text-center">
-                            From:{order.dateFrom}<br />
-                                To:{order.dateTo}
+                            From:{order?.dateFrom}<br />
+                                To:{order?.dateTo}
                         </h5>
                         <h5 class="car-price mb-3 mt-3 text-center">
-                            Total: {order.price}$
+                            Total: {order?.price}$
                         </h5>
 
                         <Link to={`${SiteLocations.viewReservation}?id=${order.id}`}>
