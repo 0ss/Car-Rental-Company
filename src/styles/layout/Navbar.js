@@ -25,7 +25,7 @@ export default function Navbar() {
                     <li className="nav-item navbar-nav mr-2">
                         <Link className="nav-link sign" to={SiteLocations.adminAllOrders}>
                             <span style={{ "fontSize": 14 }}></span>
-                            All orders
+                            All Reservations
                         </Link>
                     </li>
                 )
@@ -34,7 +34,7 @@ export default function Navbar() {
                     <li className="nav-item navbar-nav mr-2">
                         <Link className="nav-link sign" to={SiteLocations.myOrders}>
                             <span style={{ "fontSize": 14 }}></span>
-                            My orders
+                            My Reservations
                         </Link>
                     </li>
                 )

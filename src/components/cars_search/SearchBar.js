@@ -30,7 +30,7 @@ function SearchBar() {
                 aria-controls="collapseOne"
                 style={{ width: '10' }}
             >
-                Toggle to filter results!
+                Toggle to filter
             </button>
 
             {isAdmin ? <Link className="float-right btn btn-sm" to={SiteLocations.adminAddCar}>
