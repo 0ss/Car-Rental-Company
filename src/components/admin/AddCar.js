@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Navbar from '../../layout/Navbar'
-import Footer from '../../layout/Footer'
+import Navbar from '../../styles/layout/Navbar'
+import Footer from '../../styles/layout/Footer'
 import * as Firestore from '../../services/api/firestore'
 import * as Controllers from './Controllers'
 import * as CarsOptions from '../../constants/CarsOptions'

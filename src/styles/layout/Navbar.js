@@ -1,9 +1,9 @@
 import React , {useState} from 'react'
 import {Link} from 'react-router-dom'
-import '../styles/nav.css'
-import * as Auth from '../services/api/auth'
-import * as Firestore from '../services/api/firestore'
-import {SiteLocations} from '../constants/Constants'
+import '../nav.css'
+import * as Auth from '../../services/api/auth'
+import * as Firestore from '../../services/api/firestore'
+import {SiteLocations} from '../../constants/Constants'
 
 export default function Navbar() {
     

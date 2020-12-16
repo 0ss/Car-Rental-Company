@@ -2,14 +2,14 @@
 import React, { useState } from 'react'
 import '../../styles/main_styles.css'
 import '../../styles/my_orders.css'
-import Navbar from '../../layout/Navbar'
-import Footer from '../../layout/Footer'
+import Navbar from '../../styles/layout/Navbar'
+import Footer from '../../styles/layout/Footer'
 import SearchCarsUI from './../cars_search/SearchCarsUI'
 import * as Controllers from './Controllers'
 import { getOrdersArray } from '../admin/Controllers'
 
 export default function MyOrders() {
-    
+
     const [orders, setOrders] = useState(null);
 
     if (!orders)

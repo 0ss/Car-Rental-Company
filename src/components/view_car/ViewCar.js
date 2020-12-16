@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Navbar from '../../layout/Navbar'
+import Navbar from '../../styles/layout/Navbar'
 import '../../styles/main_styles.css'
-import Footer from '../../layout/Footer'
+import Footer from '../../styles/layout/Footer'
 import * as Firestore from "../../services/api/firestore"
 import { getParameterByName } from '../admin/Controllers'
 import { SiteLocations } from '../../constants/Constants'
@@ -51,7 +51,7 @@ export default function ViewCar() {
 
     if (!car)
         getSetCar(carId, setCar);
-    
+
 
     return (
         <>
@@ -88,7 +88,7 @@ export default function ViewCar() {
                                             type="date"
                                             name="from"
                                             placeholder={from}
-                                            Onchange={(e) => controller.changeFrom(e, from , to,  setError, setFrom, setTo, setPrice)}
+                                            Onchange={(e) => controller.changeFrom(e, from, to, setError, setFrom, setTo, setPrice)}
                                         />
                                     </p>
                                 </div>
