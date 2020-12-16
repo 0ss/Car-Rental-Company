@@ -18,11 +18,13 @@ export default function Home() {
                     Show me awesome cars!
                 </Link>
             </div>
+
             <div className="text-center mb-3">
                 <h1>
                     Some of our cars!
                 </h1>
             </div>
+            <Link to={SiteLocations.searchCars}>
             <div class="card-deck w-100 text-center mx-auto">
                 <div class="card mb-4">
                     <img class="card-img-top" src={img1} alt="Card cap" />
@@ -58,9 +60,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
-
-
+            </Link>
         </>
     )
 }

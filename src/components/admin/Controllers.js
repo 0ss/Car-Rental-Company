@@ -1,6 +1,6 @@
 import * as Firestore from '../../services/api/firestore'
 import { Link } from 'react-router-dom'
-import {SiteLocations} from '../../constants/Constants'
+import { SiteLocations } from '../../constants/Constants'
 
 //Encode image file to base64 to upload it to firebase storage
 export const convertBase64 = (file) => {
@@ -40,8 +40,8 @@ export async function getCar(id) {
 }
 
 //To get orders components
-export function getOrdersArray(orders){
-   return orders?.length ? orders.map(order => {
+export function getOrdersArray(orders) {
+    return orders?.length ? orders.map(order => {
         return (
             <div key={order.id} className="col-md-4 mb-4">
                 <div class="card">
@@ -57,10 +57,15 @@ export function getOrdersArray(orders){
                         <h5 class="car-price mb-3 mt-3 text-center">
                             Total: {order.price}$
                         </h5>
+
                         <Link to={`${SiteLocations.viewReservation}?id=${order.id}`}>
-                            <button className="btn float-right">
-                                <span className="font-weight-bold">Manage Order</span>
-                            </button>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <button class="btn btn-default">Manage reservation</button>
+                                    </div>
+                                </div>
+                            </div>
                         </Link>
                     </div>
                 </div>
@@ -70,7 +75,7 @@ export function getOrdersArray(orders){
 }
 
 //Handles image file reading
-export const handleFileRead = async (event , uuid , setImageCallback , setErrorCallback) => {
+export const handleFileRead = async (event, uuid, setImageCallback, setErrorCallback) => {
     const file = event.target.files[0]
     const base64 = await convertBase64(file)
     Firestore.uploadImage('cars_images', uuid, file.type, base64).then((result) => {

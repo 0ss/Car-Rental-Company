@@ -17,7 +17,7 @@ export default function ViewReservation() {
             <div className="container mt-4">
                 <div className="row mb-3">
                     <div className="col-12 text-center">
-                        <h2>Reservation details</h2>
+                        <h2 className="font-bold"> Reservation details</h2>
                     </div>
                 </div>
 
@@ -29,31 +29,28 @@ export default function ViewReservation() {
                             <div className="row">
                                 <div className="col-12">
                                     {
-                                        car?.image ? <img class="card-img-top" src={car?.image} alt="Card cap" /> : <div class="loader text-center mt-3"></div>
+                                        car?.image ? <img class="card-img-top imgRounded"  src={car?.image} alt="Card cap" /> : <div class="loader text-center mt-3"></div>
                                     }
 
                                 </div>
                             </div>
-                            <div class="row mt-3  text-center">
-                                <div className="col-md-4 mb-3">
-                                    <button
-                                        className="btn btn-sm"
-                                        onClick={() => window.print()}
-                                    >
-                                        Print Receipt </button>
-                                </div>
-                                <div className="col-md-4 mb-3">
-                                    <button
-                                        className="btn btn-sm"
-                                        onClick={() => Controllers.CancelReservation(order)}
-                                    >
-                                        Cancel Reservation</button>
-                                </div>
-                            </div>
+
+
+
+
+
+
+
                         </div>
                     </div>
 
+
+
+
+
+
                     <div className="col-md-4 mb-5 mt-4">
+
                         <div class="card"
                             style={{ borderRadius: '50px' }}
                         >
@@ -117,6 +114,27 @@ export default function ViewReservation() {
                                         <span>Payment method: </span>
                                         <span className="font-weight-light font-italic">{order?.paymentMethod}</span>
                                     </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="container">
+                            <div class="row mt-3  text-center">
+                                <div class="col text-center">
+
+                                    <button
+                                        className="btn btn-default mr-3"
+                                        onClick={() => window.print()}
+                                    >
+                                        Print Receipt </button>
+
+                                    <button
+                                        className="btn btn-default"
+                                        onClick={() => Controllers.CancelReservation(order)}
+                                    >
+                                        Cancel Reservation</button>
+
                                 </div>
                             </div>
                         </div>

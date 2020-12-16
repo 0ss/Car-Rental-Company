@@ -48,6 +48,18 @@ hr{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-/*
 
-                */
+  .imgRounded {
+    border-radius: 5%;
+  }
+  .font-bold {
+    font-weight: bold;
+  }
+
+  a, a:hover,a:visited, a:focus {
+    text-decoration:none;
+}
+
+.text-purple-color {
+    color: #6B5B95 !important;
+  }
