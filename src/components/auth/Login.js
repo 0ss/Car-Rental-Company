@@ -16,10 +16,8 @@ export default function Login() {
         Auth.removeUid(Auth.getUid())
     }
 
-
     function login(email , password){
         Auth.login(email , password).then((result) =>{
-            console.log(result)
             if(result.status === 'error'){
                 setError(result.error)
             }else{
@@ -30,10 +28,6 @@ export default function Login() {
         })
     }
 
-
- 
-      
-
     const handleSubmit = e =>{
         e.preventDefault() // prevent reloading the page
         const email = e.currentTarget.email.value
@@ -43,23 +37,12 @@ export default function Login() {
             console.log(email,password,e.currentTarget)
             setError('Please make sure to write your email and password')
             return
-        }else{            
-
-            
-
+        }else          
           login(email , password);
-           
-        }
-
     }
 
-
     return (
-        
         <>
-
-
-
             <Navbar />
             
             <div className="center"> 

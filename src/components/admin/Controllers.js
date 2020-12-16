@@ -69,6 +69,7 @@ export function getOrdersArray(orders){
     }) : null
 }
 
+//Handles image file reading
 export const handleFileRead = async (event , uuid , setImageCallback , setErrorCallback) => {
     const file = event.target.files[0]
     const base64 = await convertBase64(file)
