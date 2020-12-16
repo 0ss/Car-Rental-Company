@@ -1,29 +1,27 @@
-import React , {useState} from 'react'
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../nav.css'
 import * as Auth from '../../services/api/auth'
 import * as Firestore from '../../services/api/firestore'
-import {SiteLocations} from '../../constants/Constants'
+import { SiteLocations } from '../../constants/Constants'
 
 export default function Navbar() {
-    
-    const [isAdmin , setIsAdmin] = useState(null);
 
+    const [isAdmin, setIsAdmin] = useState(null);
 
-    function checkAdmin(){
-        Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) =>{
-           if(result.status === "ok"){
-               setIsAdmin(result.result?.isAdmin === true)
-           }
+    function checkAdmin() {
+        Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) => {
+            if (result.status === "ok") {
+                setIsAdmin(result.result?.isAdmin === true)
+            }
         })
     }
 
-
     function CheckAuth() {
 
-        function Orders(){
-            if(isAdmin){
-                return(
+        function Orders() {
+            if (isAdmin) {
+                return (
                     <li className="nav-item navbar-nav mr-2">
                         <Link className="nav-link sign" to={SiteLocations.adminAllOrders}>
                             <span style={{ "fontSize": 14 }}></span>
@@ -31,7 +29,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                 )
-            }else{
+            } else {
                 return (
                     <li className="nav-item navbar-nav mr-2">
                         <Link className="nav-link sign" to={SiteLocations.myOrders}>
@@ -42,15 +40,15 @@ export default function Navbar() {
                 )
             }
         }
-    
-        if(isAdmin === null)
-        checkAdmin()
+
+        if (isAdmin === null)
+            checkAdmin()
 
         const user = Auth.getUser();
         if (Auth.isVerifiedUser(user)) {
             return (
                 <>
-                 <Orders/>
+                    <Orders />
                     <li className="nav-item navbar-nav mr-4">
                         <Link className="nav-link sign" to={SiteLocations.login + "?action=logout"}>
                             <span style={{ "fontSize": 14 }}></span>
@@ -64,7 +62,7 @@ export default function Navbar() {
             return (
                 <li className="nav-item navbar-nav mr-3">
                     <Link className="nav-link sign" to={SiteLocations.login}>
-                        <span style={{ "fontSize": 14 }}>⚙️&#160; </span>
+                        <span style={{ "fontSize": 14 }}>&#160; </span>
             Sign Up/In
         </Link>
 
@@ -74,13 +72,12 @@ export default function Navbar() {
     }
 
 
-
     return (
         <>
             <nav className="navbar navbar-expand-sm ">
                 <Link className="navbar-brand font-weight-bold" to={SiteLocations.home}>
                     <span style={{ "fontSize": 17 }}>🏢&#160;</span>
-                    Luxury cars
+                    Luxury Cars
                  </Link>
                 <button
                     className="navbar-toggler navbar-light border"
@@ -97,13 +94,13 @@ export default function Navbar() {
                     <ul className="navbar-nav navbar-nav ml-auto">
                         <li className="nav-item active mr-3">
                             <Link className="nav-link about" to={SiteLocations.home}>
-                            <span style={{"fontSize":14}}>&#160; </span>
+                                <span style={{ "fontSize": 14 }}>&#160; </span>
                            Home
                             </Link>
                         </li>
                         <li className="nav-item mr-3">
                             <Link className="nav-link contact" to={SiteLocations.searchCars}>
-                            <span style={{"fontSize":14}}>&#160; </span>
+                                <span style={{ "fontSize": 14 }}>&#160; </span>
                             Cars
                             </Link>
                         </li>
