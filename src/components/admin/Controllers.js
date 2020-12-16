@@ -39,7 +39,6 @@ export async function getCar(id) {
 
 }
 
-
 //To get orders components
 export function getOrdersArray(orders){
    return orders?.length ? orders.map(order => {

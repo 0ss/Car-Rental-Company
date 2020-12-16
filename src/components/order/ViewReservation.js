@@ -1,64 +1,18 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../layout/Navbar'
-import Car from '../../images/Car.jpg'
 import '../../styles/main_styles.css'
 import Footer from '../../layout/Footer'
-import * as Firestore from "../../services/api/firestore"
-import {SiteLocations} from '../../constants/Constants'
-
-
-function getParameterByName(name, url = window.location.href) {
-    name = name.replace(/[[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-
+import { getParameterByName } from '../admin/Controllers'
+import * as Controllers from './Controllers'
 
 export default function ViewReservation() {
 
     const id = getParameterByName("id")
-    const [car , setCar] = useState(null);
-    const [order , setOrder] = useState(null);
+    const [car, setCar] = useState(null);
+    const [order, setOrder] = useState(null);
 
-
-    function getCar(id){        
-        if(id)
-        Firestore.getCar(id).then((result)=>{
-            if(result && result.status === "ok"){
-                setCar(result.result)
-            }
-        })
-
-    }
-
-    function getOrder(id){
-        
-        Firestore.getOrder(id).then((result)=>{
-            if(result && result.status === "ok" && result.result?.carId){
-                setOrder(result?.result)
-                getCar(order?.carId)
-            }
-        })
-
-    }
-
-    function CancelReservation(){
-        if(window.confirm('Are sure you want to cancel this reservation?\n\nYOU CAN NOT UNDO THIS ACTION')){
-            Firestore.cancelOrder(order.id).then((result)=>{
-                if(result.status === "ok"){
-                    window.location.href = SiteLocations.searchCars
-                }else{
-                    window.alert(result.result)
-                }
-            })
-        }
-    }
-
-    if(!car)
-    getOrder(id)
+    if (!car)
+        Controllers.getOrder(id, setOrder, setCar)
 
     return (
         <>
@@ -77,7 +31,10 @@ export default function ViewReservation() {
                         >
                             <div className="row">
                                 <div className="col-12">
-                                    <img class="card-img-top" src={car?.image ? car.image : Car} alt="Card cap" />
+                                    {
+                                        car?.image ? <img class="card-img-top" src={car?.image} alt="Card cap" /> : <div class="loader text-center mt-3"></div>
+                                    }
+
                                 </div>
                             </div>
                             <div class="row mt-3  text-center">
@@ -91,7 +48,7 @@ export default function ViewReservation() {
                                 <div className="col-md-4 mb-3">
                                     <button
                                         className="btn btn-sm"
-                                        onClick={CancelReservation}
+                                        onClick={() => Controllers.CancelReservation(order)}
                                     >
                                         Cancel Reservation</button>
                                 </div>
@@ -112,7 +69,7 @@ export default function ViewReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Car: </span>
-    <span className="font-weight-light font-italic">{car?.name}</span>
+                                        <span className="font-weight-light font-italic">{car?.name}</span>
                                     </p>
                                 </div>
                             </div>
@@ -121,7 +78,7 @@ export default function ViewReservation() {
                                     <p>
                                         <span>Color: </span>
                                         <span className="font-weight-light font-italic">
-                                        {car?.color}</span>
+                                            {car?.color}</span>
                                     </p>
                                 </div>
                             </div>
@@ -137,7 +94,7 @@ export default function ViewReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>Price: </span>
-    <span className="font-weight-light font-italic">{order?.price}$</span>
+                                        <span className="font-weight-light font-italic">{order?.price}$</span>
                                     </p>
                                 </div>
                             </div>
@@ -153,7 +110,7 @@ export default function ViewReservation() {
                                 <div className="col-12 text-center">
                                     <p>
                                         <span>To: </span>
-    <span className="font-weight-light font-italic">{order?.dateTo}</span>
+                                        <span className="font-weight-light font-italic">{order?.dateTo}</span>
                                     </p>
                                 </div>
                             </div>
@@ -165,14 +122,6 @@ export default function ViewReservation() {
                                     </p>
                                 </div>
                             </div>
-                            {/* <div className="row">
-                                <div className="col-12 text-center">
-                                    <p>
-                                        <span>Order number: </span>
-                                        <span className="font-weight-light font-italic">000001</span>
-                                    </p>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>

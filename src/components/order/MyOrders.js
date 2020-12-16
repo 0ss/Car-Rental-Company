@@ -9,8 +9,7 @@ import * as Controllers from './Controllers'
 import { getOrdersArray } from '../admin/Controllers'
 
 export default function MyOrders() {
-
-
+    
     const [orders, setOrders] = useState(null);
 
     if (!orders)
