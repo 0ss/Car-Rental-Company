@@ -1,5 +1,6 @@
-const apiUrl = "https://car-rental-com.herokuapp.com"
+import {apiBaseUrl} from '../../constants/Constants'
 
+//To send POST http request to the api
 export async function Post(path , body){
     const requestOptions = {
         method: 'POST',
@@ -7,10 +8,10 @@ export async function Post(path , body){
         body: JSON.stringify(body)
     };
 
-    const response = await fetch(`${apiUrl}/${path}`, requestOptions);
-    return await response.json();
+    return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();
 }
 
+//To send GET http request to the api
 export async function Get(path , body){
     const requestOptions = {
         method: 'GET',
@@ -18,7 +19,5 @@ export async function Get(path , body){
         headers: { 'Content-Type': 'application/json' },
 
     };
-
-    const response = await fetch(`${apiUrl}/${path}`, requestOptions);
-    return await response.json();
+    return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();
 }

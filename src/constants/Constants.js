@@ -1,3 +1,5 @@
+export const apiBaseUrl = "https://car-rental-com.herokuapp.com";
+
 export const SiteLocations = {
     signUp: "/signup",
     login: "/login",
