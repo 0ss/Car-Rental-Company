@@ -1,5 +1,17 @@
 window.esdocSearchIndex = [
   [
+    "car_rental_company/src/app.js~app",
+    "function/index.html#static-function-App",
+    "<span>App</span> <span class=\"search-result-import-path\">car_rental_company/src/App.js</span>",
+    "function"
+  ],
+  [
+    "car_rental_company/src/components/view_car/controllers.js~controller",
+    "class/src/components/view_car/Controllers.js~Controller.html",
+    "<span>Controller</span> <span class=\"search-result-import-path\">car_rental_company/src/components/view_car/Controllers.js</span>",
+    "class"
+  ],
+  [
     "car_rental_company/src/services/api/controllers.js~get",
     "function/index.html#static-function-Get",
     "<span>Get</span> <span class=\"search-result-import-path\">car_rental_company/src/services/api/controllers.js</span>",
@@ -12,28 +24,16 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "car_rental_company/src/services/firebase/firestore.js~signup",
-    "function/index.html#static-function-SignUp",
-    "<span>SignUp</span> <span class=\"search-result-import-path\">car_rental_company/src/services/firebase/firestore.js</span>",
+    "car_rental_company/src/components/cars_search/searchcarsui.js~searchcarsui",
+    "function/index.html#static-function-SearchCarsUI",
+    "<span>SearchCarsUI</span> <span class=\"search-result-import-path\">car_rental_company/src/components/cars_search/SearchCarsUI.js</span>",
     "function"
-  ],
-  [
-    "car_rental_company/src/services/firebase/config.js~app",
-    "variable/index.html#static-variable-app",
-    "<span>app</span> <span class=\"search-result-import-path\">car_rental_company/src/services/firebase/config.js</span>",
-    "variable"
   ],
   [
     "car_rental_company/src/services/api/auth.js~checkuid",
     "function/index.html#static-function-checkUid",
     "<span>checkUid</span> <span class=\"search-result-import-path\">car_rental_company/src/services/api/auth.js</span>",
     "function"
-  ],
-  [
-    "car_rental_company/src/services/firebase/collections.js~firebasecollections",
-    "variable/index.html#static-variable-firebaseCollections",
-    "<span>firebaseCollections</span> <span class=\"search-result-import-path\">car_rental_company/src/services/firebase/collections.js</span>",
-    "variable"
   ],
   [
     "car_rental_company/src/services/api/auth.js~getuid",
@@ -45,12 +45,6 @@ window.esdocSearchIndex = [
     "car_rental_company/src/services/api/auth.js~getuser",
     "function/index.html#static-function-getUser",
     "<span>getUser</span> <span class=\"search-result-import-path\">car_rental_company/src/services/api/auth.js</span>",
-    "function"
-  ],
-  [
-    "car_rental_company/src/services/firebase/firestore.js~getuserdata",
-    "function/index.html#static-function-getUserData",
-    "<span>getUserData</span> <span class=\"search-result-import-path\">car_rental_company/src/services/firebase/firestore.js</span>",
     "function"
   ],
   [
@@ -390,6 +384,84 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "src/app.js",
+    "file/src/App.js.html",
+    "src/App.js",
+    "file"
+  ],
+  [
+    "src/components/cars_search/searchcarsui.js",
+    "file/src/components/cars_search/SearchCarsUI.js.html",
+    "src/components/cars_search/SearchCarsUI.js",
+    "file"
+  ],
+  [
+    "src/components/view_car/controllers.js",
+    "file/src/components/view_car/Controllers.js.html",
+    "src/components/view_car/Controllers.js",
+    "file"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#calculateprice",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-method-calculatePrice",
+    "src/components/view_car/Controllers.js~Controller#calculatePrice",
+    "method"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#carprice",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-member-carPrice",
+    "src/components/view_car/Controllers.js~Controller#carPrice",
+    "member"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#changefrom",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-method-changeFrom",
+    "src/components/view_car/Controllers.js~Controller#changeFrom",
+    "method"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#changeto",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-method-changeTo",
+    "src/components/view_car/Controllers.js~Controller#changeTo",
+    "method"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#constructor",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-constructor-constructor",
+    "src/components/view_car/Controllers.js~Controller#constructor",
+    "method"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#days",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-member-days",
+    "src/components/view_car/Controllers.js~Controller#days",
+    "member"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#fromdate",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-member-fromDate",
+    "src/components/view_car/Controllers.js~Controller#fromDate",
+    "member"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#getdatesdiff",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-method-getDatesDiff",
+    "src/components/view_car/Controllers.js~Controller#getDatesDiff",
+    "method"
+  ],
+  [
+    "src/components/view_car/controllers.js~controller#todate",
+    "class/src/components/view_car/Controllers.js~Controller.html#instance-member-toDate",
+    "src/components/view_car/Controllers.js~Controller#toDate",
+    "member"
+  ],
+  [
+    "src/index.js",
+    "file/src/index.js.html",
+    "src/index.js",
+    "file"
+  ],
+  [
     "src/services/api/auth.js",
     "file/src/services/api/auth.js.html",
     "src/services/api/auth.js",
@@ -399,30 +471,6 @@ window.esdocSearchIndex = [
     "src/services/api/controllers.js",
     "file/src/services/api/controllers.js.html",
     "src/services/api/controllers.js",
-    "file"
-  ],
-  [
-    "src/services/firebase/auth.js",
-    "file/src/services/firebase/auth.js.html",
-    "src/services/firebase/auth.js",
-    "file"
-  ],
-  [
-    "src/services/firebase/collections.js",
-    "file/src/services/firebase/collections.js.html",
-    "src/services/firebase/collections.js",
-    "file"
-  ],
-  [
-    "src/services/firebase/config.js",
-    "file/src/services/firebase/config.js.html",
-    "src/services/firebase/config.js",
-    "file"
-  ],
-  [
-    "src/services/firebase/firestore.js",
-    "file/src/services/firebase/firestore.js.html",
-    "src/services/firebase/firestore.js",
     "file"
   ],
   [

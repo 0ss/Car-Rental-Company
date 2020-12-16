@@ -1,6 +1,6 @@
 import {apiBaseUrl} from '../../constants/Constants'
 
-//To send POST http request to the api
+/** To send POST http request to the api **/
 export async function Post(path , body){
     const requestOptions = {
         method: 'POST',
@@ -11,7 +11,7 @@ export async function Post(path , body){
     return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();
 }
 
-//To send GET http request to the api
+/** To send GET http request to the api **/
 export async function Get(path , body){
     const requestOptions = {
         method: 'GET',

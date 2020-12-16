@@ -566,8 +566,410 @@
   {
     "__docId__": 48,
     "kind": "file",
+    "name": "src/App.js",
+    "content": "import {\n  BrowserRouter as Router,\n  Route,\n} from 'react-router-dom';\nimport './styles/main_styles.css'\nimport SignUp from './components/auth/Signup'\nimport Login from './components/auth/Login'\nimport ResetPassword from './components/auth/ResetPassword'\nimport SearchCars from './components/cars_search/SearchCars'\nimport AddCar from './components/admin/AddCar'\nimport AllOrders from './components/admin/AllOrders'\nimport ViewReservation from './components/order/ViewReservation'\nimport MyOrders from './components/order/MyOrders'\nimport ViewCar from './components/view_car/ViewCar'\nimport PrivacyPolicy from './components/privacy/PrivacyPolicy'\nimport TermsConditions from './components/privacy/TermsConditions'\nimport Home from './components/Home'\nimport { SiteLocations } from './constants/Constants'\nimport Footer from './styles/layout/Footer';\nimport Navbar from './styles/layout/Navbar';\n\n\n\n\n\nconst App = () => {\n\n  return (\n\n\n\n    <Router>\n\n      <div class='main-container'>\n\n        <Navbar />\n\n        <Route path={SiteLocations.signUp} component={SignUp} />\n        <Route path={SiteLocations.login} component={Login} />\n        <Route path={SiteLocations.searchCars} component={SearchCars} />\n        <Route path={SiteLocations.adminAddCar} component={AddCar} />\n        <Route path={SiteLocations.adminAllOrders} component={AllOrders} />\n        <Route path={SiteLocations.viewReservation} component={ViewReservation} />\n        <Route path={SiteLocations.myOrders} component={MyOrders} />\n        <Route path={SiteLocations.restPassword} component={ResetPassword} />\n        <Route path={SiteLocations.viewCar} component={ViewCar} />\n        <Route path={SiteLocations.privacyPolicy} component={PrivacyPolicy} />\n        <Route path={SiteLocations.termsConditions} component={TermsConditions} />\n        <Route exact path={SiteLocations.home} component={Home} />\n\n        <Footer />\n\n      </div>\n\n    </Router>\n\n  );\n}\n\n\nexport default App;",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/App.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "App",
+    "memberof": "src/App.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/App.js~App",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/App.js",
+    "importStyle": "App",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "file",
+    "name": "src/components/cars_search/SearchCarsUI.js",
+    "content": "import React from 'react'\n\nexport default function SearchCarsUI({cars})  {\n\n    const carsArray = []\n\n    for(let i=0; i<cars.length; i+=3){\n\n        carsArray.push(\n            <div className=\"row\" >\n            { cars[i] ? cars[i] : null }\n            { cars[i+1] ? cars[i+1] : null }\n            { cars[i+2] ? cars[i+2] : null }\n            </div>\n        )\n    }\n    return (\n        <div>\n            {carsArray}\n        </div>\n    )\n}",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/components/cars_search/SearchCarsUI.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 51,
+    "kind": "function",
+    "name": "SearchCarsUI",
+    "memberof": "src/components/cars_search/SearchCarsUI.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/components/cars_search/SearchCarsUI.js~SearchCarsUI",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/components/cars_search/SearchCarsUI.js",
+    "importStyle": "SearchCarsUI",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"cars\": *}"
+        ],
+        "defaultRaw": {
+          "cars": null
+        },
+        "defaultValue": "{\"cars\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "file",
+    "name": "src/components/view_car/Controllers.js",
+    "content": "/** This class handles calculate car price and validate the rent dates **/\n\nexport default class Controller {\n\n    constructor(carPrice) {\n        this.carPrice = carPrice;\n    }\n    changeFrom(e, from, to, setError, setFrom, setTo, setPrice) {\n\n        this.fromDate = (e.target.value)\n\n        if (this.getDatesDiff(new Date(), this.fromDate) < 0) {\n            setError(\"The date can't be in the past!\")\n            setFrom(null)\n            setTo(null)\n            setPrice(0)\n            return\n        }\n\n        if ((this.fromDate && this.toDate) || (from && to)) {\n            this.calculatePrice(setError, setFrom, setTo, setPrice, from, to)\n        }\n    }\n\n    changeTo(e, from, to, setError, setFrom, setTo, setPrice) {\n\n        this.toDate = (e.target.value)\n        if (this.getDatesDiff(new Date(), this.toDate) < 0) {\n            setError(\"The date can't be in the past!\")\n            setFrom(null)\n            setTo(null)\n            setPrice(0)\n            return\n        }\n        if ((this.fromDate && this.toDate) || (from && to))\n            this.calculatePrice(setError, setFrom, setTo, setPrice, from, to)\n\n    }\n\n    getDatesDiff(from, to) {\n        return Math.floor((Date.parse(to) - Date.parse(from)) / 86400000)\n    }\n\n    calculatePrice(setError, setFrom, setTo, setPrice, from, to) {\n\n        if (this.fromDate === undefined || this.fromDate === null) this.fromDate = from\n        if (this.toDate === undefined || this.toDate === null) this.toDate = to\n\n        this.days = this.getDatesDiff(this.fromDate, this.toDate)\n\n        if (this.days <= 1) {  //  if selected days incorrect\n            setError('Please fill the dates correctly')\n            setFrom(null)\n            setTo(null)\n            return\n        } else {\n            setPrice(this.carPrice * this.days)\n            console.log(this.carPrice * this.days)\n            setTo(this.toDate)\n            setFrom(this.fromDate)\n\n        }\n\n        setError('')\n\n    }\n\n}\n\n\n",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/components/view_car/Controllers.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 53,
+    "kind": "class",
+    "name": "Controller",
+    "memberof": "src/components/view_car/Controllers.js",
+    "static": true,
+    "longname": "src/components/view_car/Controllers.js~Controller",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/components/view_car/Controllers.js",
+    "importStyle": "Controller",
+    "description": "This class handles calculate car price and validate the rent dates *",
+    "lineNumber": 3,
+    "interface": false
+  },
+  {
+    "__docId__": 54,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "member",
+    "name": "carPrice",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#carPrice",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "name": "changeFrom",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#changeFrom",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [
+      {
+        "name": "e",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "from",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "to",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setError",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setFrom",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setTo",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setPrice",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 57,
+    "kind": "member",
+    "name": "fromDate",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#fromDate",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "method",
+    "name": "changeTo",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#changeTo",
+    "access": "public",
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "params": [
+      {
+        "name": "e",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "from",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "to",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setError",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setFrom",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setTo",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setPrice",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 59,
+    "kind": "member",
+    "name": "toDate",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#toDate",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "name": "getDatesDiff",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#getDatesDiff",
+    "access": "public",
+    "description": null,
+    "lineNumber": 40,
+    "undocument": true,
+    "params": [
+      {
+        "name": "from",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "to",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "calculatePrice",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#calculatePrice",
+    "access": "public",
+    "description": null,
+    "lineNumber": 44,
+    "undocument": true,
+    "params": [
+      {
+        "name": "setError",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setFrom",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setTo",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "setPrice",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "from",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "to",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 64,
+    "kind": "member",
+    "name": "days",
+    "memberof": "src/components/view_car/Controllers.js~Controller",
+    "static": false,
+    "longname": "src/components/view_car/Controllers.js~Controller#days",
+    "access": "public",
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport reportWebVitals from './reportWebVitals';\n\nReactDOM.render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>,\n  document.getElementById('root')\n);\n\n// If you want to start measuring performance in your app, pass a function\n// to log results (for example: reportWebVitals(console.log))\n// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals\nreportWebVitals();\n",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 66,
+    "kind": "file",
     "name": "src/services/api/auth.js",
-    "content": "\nimport * as Api from './controllers';\nimport * as Firestore from './firestore'\n\nexport async function login(email, password) {\n    return await Api.Post('login', { email: email, password: password })\n}\n\nexport async function signUp(email, password, name) {\n    return await Api.Post('signup', { email: email, password: password, name: name })\n}\n\nexport async function restPassword(email) {\n    return await Api.Post('restPassword', { email: email })\n}\n\nexport async function checkUid(uid) {\n    const result = await Api.Post('firestore/get', { collection: \"users\", doc: uid, uid: uid });\n    if (result && result.result && result.result.uid) {\n        return true;\n    } else {\n        return false;\n    }\n}\n\nexport function isVerifiedUser(user) {\n   return user && user.uid && user.uid.length > 9;\n}\n\nexport async function isAdmin() {\n    return await (Firestore.getUser(getUid())).result.isAdmin === true\n }\n\nexport function setUid(uid) {\n    localStorage.setItem(\"uid\", uid)\n}\n\nexport function getUid() {\n    return localStorage.getItem(\"uid\");\n}\n\nexport function removeUid() {\n    return localStorage.removeItem(\"uid\");\n}\n\nexport function setUser(user) {\n    localStorage.setItem(\"user\", JSON.stringify(user));\n}\n\nexport function getUser() {\n    return JSON.parse(localStorage.getItem(\"user\"));\n}\n\nexport function removeUser() {\n    return localStorage.removeItem(\"user\");\n}",
+    "content": "\nimport * as Api from './controllers';\nimport * as Firestore from './firestore'\n\nexport async function login(email, password) {\n    return await Api.Post('login', { email: email, password: password })\n}\n\nexport async function signUp(email, password, name) {\n    return await Api.Post('signup', { email: email, password: password, name: name })\n}\n\nexport async function restPassword(email) {\n    return await Api.Post('restPassword', { email: email })\n}\n\n/** Checks if the user id is legit **/\nexport async function checkUid(uid) {\n    const result = await Api.Post('firestore/get', { collection: \"users\", doc: uid, uid: uid });\n    if (result && result.result && result.result.uid) {\n        return true;\n    } else {\n        return false;\n    }\n}\n\n/** Checks if the user object is legit **/\nexport function isVerifiedUser(user) {\n   return user && user.uid && user.uid.length > 9;\n}\n\n/** Checks if the logged user is admin **/\nexport async function isAdmin() {\n    return await (Firestore.getUser(getUid())).result.isAdmin === true\n }\n\n /** Sets user id into browser local storage **/\nexport function setUid(uid) {\n    localStorage.setItem(\"uid\", uid)\n}\n\n /** Gets user id from browser local storage **/\nexport function getUid() {\n    return localStorage.getItem(\"uid\");\n}\n\n /** Deletes user id from browser local storage **/\nexport function removeUid() {\n    return localStorage.removeItem(\"uid\");\n}\n\n /** Sets user object into browser local storage **/\nexport function setUser(user) {\n    localStorage.setItem(\"user\", JSON.stringify(user));\n}\n\n /** Gets user object from browser local storage **/\nexport function getUser() {\n    return JSON.parse(localStorage.getItem(\"user\"));\n}\n\n /** Deletes user object from browser local storage **/\nexport function removeUser() {\n    return localStorage.removeItem(\"user\");\n}",
     "static": true,
     "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/api/auth.js",
     "access": "public",
@@ -575,7 +977,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 49,
+    "__docId__": 67,
     "kind": "function",
     "name": "login",
     "memberof": "src/services/api/auth.js",
@@ -611,7 +1013,7 @@
     }
   },
   {
-    "__docId__": 50,
+    "__docId__": 68,
     "kind": "function",
     "name": "signUp",
     "memberof": "src/services/api/auth.js",
@@ -653,7 +1055,7 @@
     }
   },
   {
-    "__docId__": 51,
+    "__docId__": 69,
     "kind": "function",
     "name": "restPassword",
     "memberof": "src/services/api/auth.js",
@@ -683,7 +1085,7 @@
     }
   },
   {
-    "__docId__": 52,
+    "__docId__": 70,
     "kind": "function",
     "name": "checkUid",
     "memberof": "src/services/api/auth.js",
@@ -695,9 +1097,8 @@
     "export": true,
     "importPath": "car_rental_company/src/services/api/auth.js",
     "importStyle": "{checkUid}",
-    "description": null,
-    "lineNumber": 17,
-    "undocument": true,
+    "description": "Checks if the user id is legit *",
+    "lineNumber": 18,
     "params": [
       {
         "name": "uid",
@@ -713,7 +1114,7 @@
     }
   },
   {
-    "__docId__": 53,
+    "__docId__": 71,
     "kind": "function",
     "name": "isVerifiedUser",
     "memberof": "src/services/api/auth.js",
@@ -725,421 +1126,11 @@
     "export": true,
     "importPath": "car_rental_company/src/services/api/auth.js",
     "importStyle": "{isVerifiedUser}",
-    "description": null,
-    "lineNumber": 26,
-    "undocument": true,
+    "description": "Checks if the user object is legit *",
+    "lineNumber": 28,
     "params": [
       {
         "name": "user",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 54,
-    "kind": "function",
-    "name": "isAdmin",
-    "memberof": "src/services/api/auth.js",
-    "generator": false,
-    "async": true,
-    "static": true,
-    "longname": "src/services/api/auth.js~isAdmin",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/auth.js",
-    "importStyle": "{isAdmin}",
-    "description": null,
-    "lineNumber": 30,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 55,
-    "kind": "function",
-    "name": "setUid",
-    "memberof": "src/services/api/auth.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/services/api/auth.js~setUid",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/auth.js",
-    "importStyle": "{setUid}",
-    "description": null,
-    "lineNumber": 34,
-    "undocument": true,
-    "params": [
-      {
-        "name": "uid",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": null
-  },
-  {
-    "__docId__": 56,
-    "kind": "function",
-    "name": "getUid",
-    "memberof": "src/services/api/auth.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/services/api/auth.js~getUid",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/auth.js",
-    "importStyle": "{getUid}",
-    "description": null,
-    "lineNumber": 38,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 57,
-    "kind": "function",
-    "name": "removeUid",
-    "memberof": "src/services/api/auth.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/services/api/auth.js~removeUid",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/auth.js",
-    "importStyle": "{removeUid}",
-    "description": null,
-    "lineNumber": 42,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 58,
-    "kind": "function",
-    "name": "setUser",
-    "memberof": "src/services/api/auth.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/services/api/auth.js~setUser",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/auth.js",
-    "importStyle": "{setUser}",
-    "description": null,
-    "lineNumber": 46,
-    "undocument": true,
-    "params": [
-      {
-        "name": "user",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": null
-  },
-  {
-    "__docId__": 59,
-    "kind": "function",
-    "name": "getUser",
-    "memberof": "src/services/api/auth.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/services/api/auth.js~getUser",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/auth.js",
-    "importStyle": "{getUser}",
-    "description": null,
-    "lineNumber": 50,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 60,
-    "kind": "function",
-    "name": "removeUser",
-    "memberof": "src/services/api/auth.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/services/api/auth.js~removeUser",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/auth.js",
-    "importStyle": "{removeUser}",
-    "description": null,
-    "lineNumber": 54,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 61,
-    "kind": "file",
-    "name": "src/services/api/controllers.js",
-    "content": "const apiUrl = \"https://car-rental-com.herokuapp.com\"\n\nexport async function Post(path , body){\n    const requestOptions = {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify(body)\n    };\n\n    const response = await fetch(`${apiUrl}/${path}`, requestOptions);\n    return await response.json();\n}\n\nexport async function Get(path , body){\n    const requestOptions = {\n        method: 'GET',\n        body: JSON.stringify(body),\n        headers: { 'Content-Type': 'application/json' },\n\n    };\n\n    const response = await fetch(`${apiUrl}/${path}`, requestOptions);\n    return await response.json();\n}",
-    "static": true,
-    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/api/controllers.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 62,
-    "kind": "variable",
-    "name": "apiUrl",
-    "memberof": "src/services/api/controllers.js",
-    "static": true,
-    "longname": "src/services/api/controllers.js~apiUrl",
-    "access": "public",
-    "export": false,
-    "importPath": "car_rental_company/src/services/api/controllers.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
-    "type": {
-      "types": [
-        "string"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 63,
-    "kind": "function",
-    "name": "Post",
-    "memberof": "src/services/api/controllers.js",
-    "generator": false,
-    "async": true,
-    "static": true,
-    "longname": "src/services/api/controllers.js~Post",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/controllers.js",
-    "importStyle": "{Post}",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
-    "params": [
-      {
-        "name": "path",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "body",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 64,
-    "kind": "function",
-    "name": "Get",
-    "memberof": "src/services/api/controllers.js",
-    "generator": false,
-    "async": true,
-    "static": true,
-    "longname": "src/services/api/controllers.js~Get",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/api/controllers.js",
-    "importStyle": "{Get}",
-    "description": null,
-    "lineNumber": 14,
-    "undocument": true,
-    "params": [
-      {
-        "name": "path",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "body",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 65,
-    "kind": "file",
-    "name": "src/services/firebase/auth.js",
-    "content": "// import React, { useContext } from \"react\";\n// import \"../../App.css\";\n// import firebase from \"firebase\";\n// import { FirebaseAuth } from \"react-firebaseui\";\n// import { AuthContext } from \"../firebase/context\";\n\n// // export const SignOut = auth => auth.signOut().then(() => console.log('signed out'));\n\n// // export async function FirebaseSignup(email, password, firstName, lastName, phoneNumber) {\n    \n// //      const userCredential = await useAuth().createUserWithEmailAndPassword(email, password).catch((error) => ErrorHandler(error));\n\n// //      useFirestore()\n// //         .collection(\"collection\")\n// //         .doc(\"doc\").set({uid: userCredential.user.uid});\n      \n// //         // return await Firestore.SignUp(email, userCredential.user.uid, firstName, lastName, phoneNumber).catch((error) => ErrorHandler(error));\n   \n\n// // }\n\n// export default function SignIn() {\n//     //get the user state from the context\n//     const { user } = useContext(AuthContext); \n  \n//     //this is our config for FirebaseAuth\n//     const uiConfig = {\n//       signInFlow: \"popup\",\n//       signInOptions: [\n//         firebase.auth.EmailAuthProvider.PROVIDER_ID,\n//       ],\n//       callbacks: {\n//         signInSuccess: () => false,\n//       },\n//     };\n  \n//   //if user exists or signed in, we redirect the page to home, else display the sign in methods with FirebaseAuth\n//     return (\n//       <div>\n//         {!!user ? (\n//           <div>\n//           <p>Please Sign In</p>\n//           <FirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />\n//         </div>\n//         ) : (\n//             <p>Please Sign In</p>\n\n//         )}\n//       </div>\n//     );\n//   }\n\n// // export async function Login(email, password) {\n// //     return await useAuth().signInWithEmailAndPassword(email, password).catch((error) => ErrorHandler(error));;\n// // }\n\n// // export async function RestPassword(email) {\n// //     return await useAuth().sendPasswordResetEmail(email).catch((error) => ErrorHandler(error));;\n// // }\n\n// function ErrorHandler(error) {\n//        //TODO:Better error handling\n//         alert(error.message)\n//         console.log(error);\n// }",
-    "static": true,
-    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/firebase/auth.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 66,
-    "kind": "file",
-    "name": "src/services/firebase/collections.js",
-    "content": "\n\n\nexport const firebaseCollections = {\n\n    users: \"users\",\n    orders: \"orders\",\n    cars: \"cars\",\n\n};",
-    "static": true,
-    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/firebase/collections.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 67,
-    "kind": "variable",
-    "name": "firebaseCollections",
-    "memberof": "src/services/firebase/collections.js",
-    "static": true,
-    "longname": "src/services/firebase/collections.js~firebaseCollections",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/firebase/collections.js",
-    "importStyle": "{firebaseCollections}",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"users\": string, \"orders\": string, \"cars\": string}"
-      ]
-    }
-  },
-  {
-    "__docId__": 68,
-    "kind": "file",
-    "name": "src/services/firebase/config.js",
-    "content": "\n\nimport firebase from \"firebase\";\nimport \"firebase/auth\";\n\n//2. Initialize app with the config vars\nconst app = firebase.initializeApp({\n  apiKey: \"AIzaSyDFtiSnzjZxsY9StJh_DjkG_h-7WZrDMfg\",\n  authDomain: \"car-rental-company-a1000.firebaseapp.com\",\n  projectId: \"car-rental-company-a1000\",\n  storageBucket: \"car-rental-company-a1000.appspot.com\",\n  messagingSenderId: \"742372854829\",\n  appId: \"1:742372854829:web:1e8037df63c9d151003ca4\",\n  measurementId: \"G-D0ZSYQ5QV2\"\n});\n\nexport default app;",
-    "static": true,
-    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/firebase/config.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 69,
-    "kind": "variable",
-    "name": "app",
-    "memberof": "src/services/firebase/config.js",
-    "static": true,
-    "longname": "src/services/firebase/config.js~app",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/firebase/config.js",
-    "importStyle": "app",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 70,
-    "kind": "file",
-    "name": "src/services/firebase/firestore.js",
-    "content": "import 'firebase/database';\nimport 'firebase/firestore';\n\nimport { FirebaseAppProvider, useFirestoreDocData, useFirestore } from 'reactfire';\nimport {firebaseCollections} from './Collections'\n\nexport async function SignUp(email , uid , firstName,lastName , phoneNumber){\n    return Write(firebaseCollections.users , uid , {\n        firstName: firstName,\n        lastName:lastName,\n        phoneNumber:phoneNumber,\n        email:email,\n        uid:uid,\n    })\n}\n\nexport async function getUserData(uid){\n    return (await Read(firebaseCollections.users , uid)).data()\n}\n\nasync function Write(collection, doc, data) {\n    return await useFirestore()\n        .collection(collection)\n        .doc(doc).set(data);\n}\n\nasync function Read(collection, doc) {\n    return await useFirestore()\n        .collection(collection)\n        .doc(doc).get();\n}",
-    "static": true,
-    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/firebase/firestore.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 71,
-    "kind": "function",
-    "name": "SignUp",
-    "memberof": "src/services/firebase/firestore.js",
-    "generator": false,
-    "async": true,
-    "static": true,
-    "longname": "src/services/firebase/firestore.js~SignUp",
-    "access": "public",
-    "export": true,
-    "importPath": "car_rental_company/src/services/firebase/firestore.js",
-    "importStyle": "{SignUp}",
-    "description": null,
-    "lineNumber": 7,
-    "undocument": true,
-    "params": [
-      {
-        "name": "email",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "uid",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "firstName",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "lastName",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "phoneNumber",
         "types": [
           "*"
         ]
@@ -1154,22 +1145,198 @@
   {
     "__docId__": 72,
     "kind": "function",
-    "name": "getUserData",
-    "memberof": "src/services/firebase/firestore.js",
+    "name": "isAdmin",
+    "memberof": "src/services/api/auth.js",
     "generator": false,
     "async": true,
     "static": true,
-    "longname": "src/services/firebase/firestore.js~getUserData",
+    "longname": "src/services/api/auth.js~isAdmin",
     "access": "public",
     "export": true,
-    "importPath": "car_rental_company/src/services/firebase/firestore.js",
-    "importStyle": "{getUserData}",
-    "description": null,
-    "lineNumber": 17,
-    "undocument": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{isAdmin}",
+    "description": "Checks if the logged user is admin *",
+    "lineNumber": 33,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "function",
+    "name": "setUid",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~setUid",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{setUid}",
+    "description": "Sets user id into browser local storage *",
+    "lineNumber": 38,
     "params": [
       {
         "name": "uid",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 74,
+    "kind": "function",
+    "name": "getUid",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~getUid",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{getUid}",
+    "description": "Gets user id from browser local storage *",
+    "lineNumber": 43,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "function",
+    "name": "removeUid",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~removeUid",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{removeUid}",
+    "description": "Deletes user id from browser local storage *",
+    "lineNumber": 48,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "function",
+    "name": "setUser",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~setUser",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{setUser}",
+    "description": "Sets user object into browser local storage *",
+    "lineNumber": 53,
+    "params": [
+      {
+        "name": "user",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 77,
+    "kind": "function",
+    "name": "getUser",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~getUser",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{getUser}",
+    "description": "Gets user object from browser local storage *",
+    "lineNumber": 58,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "function",
+    "name": "removeUser",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~removeUser",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{removeUser}",
+    "description": "Deletes user object from browser local storage *",
+    "lineNumber": 63,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
+    "name": "src/services/api/controllers.js",
+    "content": "import {apiBaseUrl} from '../../constants/Constants'\n\n/** To send POST http request to the api **/\nexport async function Post(path , body){\n    const requestOptions = {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify(body)\n    };\n\n    return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();\n}\n\n/** To send GET http request to the api **/\nexport async function Get(path , body){\n    const requestOptions = {\n        method: 'GET',\n        body: JSON.stringify(body),\n        headers: { 'Content-Type': 'application/json' },\n\n    };\n    return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();\n}",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/api/controllers.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 80,
+    "kind": "function",
+    "name": "Post",
+    "memberof": "src/services/api/controllers.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/api/controllers.js~Post",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/controllers.js",
+    "importStyle": "{Post}",
+    "description": "To send POST http request to the api *",
+    "lineNumber": 4,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "body",
         "types": [
           "*"
         ]
@@ -1182,36 +1349,29 @@
     }
   },
   {
-    "__docId__": 73,
+    "__docId__": 81,
     "kind": "function",
-    "name": "Write",
-    "memberof": "src/services/firebase/firestore.js",
+    "name": "Get",
+    "memberof": "src/services/api/controllers.js",
     "generator": false,
     "async": true,
     "static": true,
-    "longname": "src/services/firebase/firestore.js~Write",
+    "longname": "src/services/api/controllers.js~Get",
     "access": "public",
-    "export": false,
-    "importPath": "car_rental_company/src/services/firebase/firestore.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 21,
-    "undocument": true,
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/controllers.js",
+    "importStyle": "{Get}",
+    "description": "To send GET http request to the api *",
+    "lineNumber": 15,
     "params": [
       {
-        "name": "collection",
+        "name": "path",
         "types": [
           "*"
         ]
       },
       {
-        "name": "doc",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "data",
+        "name": "body",
         "types": [
           "*"
         ]
@@ -1221,48 +1381,10 @@
       "types": [
         "*"
       ]
-    },
-    "ignore": true
+    }
   },
   {
-    "__docId__": 74,
-    "kind": "function",
-    "name": "Read",
-    "memberof": "src/services/firebase/firestore.js",
-    "generator": false,
-    "async": true,
-    "static": true,
-    "longname": "src/services/firebase/firestore.js~Read",
-    "access": "public",
-    "export": false,
-    "importPath": "car_rental_company/src/services/firebase/firestore.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 27,
-    "undocument": true,
-    "params": [
-      {
-        "name": "collection",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "doc",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 75,
+    "__docId__": 82,
     "kind": "file",
     "name": "src/setupTests.js",
     "content": "// jest-dom adds custom jest matchers for asserting on DOM nodes.\n// allows you to do things like:\n// expect(element).toHaveTextContent(/react/i)\n// learn more: https://github.com/testing-library/jest-dom\nimport '@testing-library/jest-dom';\n",
@@ -1282,7 +1404,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"car_rental_company\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@react-firebase/auth\": \"^0.2.10\",\n    \"@testing-library/jest-dom\": \"^5.11.6\",\n    \"@testing-library/react\": \"^11.2.2\",\n    \"@testing-library/user-event\": \"^12.3.0\",\n    \"bulma\": \"^0.9.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"express\": \"^4.17.1\",\n    \"firebase\": \"^8.1.2\",\n    \"hooks\": \"^0.3.2\",\n    \"react\": \"0.0.0-experimental-4ead6b530\",\n    \"react-dom\": \"0.0.0-experimental-4ead6b530\",\n    \"react-firebase\": \"^2.2.8\",\n    \"react-firebaseui\": \"^4.1.0\",\n    \"react-hook-form\": \"^6.12.2\",\n    \"react-router-dom\": \"^5.2.0\",\n    \"react-scripts\": \"4.0.1\",\n    \"react-uuid\": \"^1.0.2\",\n    \"reactfire\": \"^3.0.0-rc.0\",\n    \"web-vitals\": \"^0.2.4\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"eslintConfig\": {\n    \"extends\": [\n      \"react-app\",\n      \"react-app/jest\"\n    ]\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  }\n}\n",
+    "content": "{\n  \"name\": \"car_rental_company\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@react-firebase/auth\": \"^0.2.10\",\n    \"@testing-library/jest-dom\": \"^5.11.6\",\n    \"@testing-library/react\": \"^11.2.2\",\n    \"@testing-library/user-event\": \"^12.3.0\",\n    \"bulma\": \"^0.9.1\",\n    \"docz\": \"^2.3.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"express\": \"^4.17.1\",\n    \"firebase\": \"^8.1.2\",\n    \"hooks\": \"^0.3.2\",\n    \"react\": \"0.0.0-experimental-4ead6b530\",\n    \"react-dom\": \"0.0.0-experimental-4ead6b530\",\n    \"react-firebase\": \"^2.2.8\",\n    \"react-firebaseui\": \"^4.1.0\",\n    \"react-google-map-picker\": \"^1.2.2\",\n    \"react-hook-form\": \"^6.12.2\",\n    \"react-location-picker\": \"^1.5.0\",\n    \"react-router-dom\": \"^5.2.0\",\n    \"react-scripts\": \"4.0.1\",\n    \"react-uuid\": \"^1.0.2\",\n    \"reactfire\": \"^3.0.0-rc.0\",\n    \"web-vitals\": \"^0.2.4\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"eslintConfig\": {\n    \"extends\": [\n      \"react-app\",\n      \"react-app/jest\"\n    ]\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  },\n  \"devDependencies\": {\n    \"jsdoc\": \"^3.6.6\"\n  }\n}\n",
     "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/package.json",
     "name": "package.json",
     "static": true,

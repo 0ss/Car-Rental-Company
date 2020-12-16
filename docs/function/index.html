@@ -29,7 +29,10 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#services-api">services/api</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkUid">checkUid</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-cars-search">components/cars_search</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SearchCarsUI">SearchCarsUI</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-view-car">components/view_car</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/view_car/Controllers.js~Controller.html">Controller</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#services-api">services/api</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-checkUid">checkUid</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getUid">getUid</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getUser">getUser</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isAdmin">isAdmin</a></span></span></li>
@@ -43,10 +46,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signUp">signUp</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Get">Get</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Post">Post</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#services-firebase">services/firebase</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SignUp">SignUp</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getUserData">getUserData</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseCollections">firebaseCollections</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-app">app</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -68,6 +67,34 @@
       <div>
         <p>
           
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
           <span data-ice="async">async</span>
           
           <span class="code" data-ice="name"><span><a href="function/index.html#static-function-Get">Get</a></span></span><span class="code" data-ice="signature">(path: <span>*</span>, body: <span>*</span>): <span>*</span></span>
@@ -76,7 +103,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>To send GET http request to the api *</p>
+</div>
       </div>
     </td>
     <td>
@@ -104,7 +132,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>To send POST http request to the api *</p>
+</div>
       </div>
     </td>
     <td>
@@ -124,9 +153,9 @@
       <div>
         <p>
           
-          <span data-ice="async">async</span>
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-SignUp">SignUp</a></span></span><span class="code" data-ice="signature">(email: <span>*</span>, uid: <span>*</span>, firstName: <span>*</span>, lastName: <span>*</span>, phoneNumber: <span>*</span>): <span>*</span></span>
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-SearchCarsUI">SearchCarsUI</a></span></span><span class="code" data-ice="signature">(objectPattern: {&quot;cars&quot;: <span>*</span>}): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -160,7 +189,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Checks if the user id is legit *</p>
+</div>
       </div>
     </td>
     <td>
@@ -188,7 +218,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Gets user id from browser local storage *</p>
+</div>
       </div>
     </td>
     <td>
@@ -216,35 +247,8 @@
       <div>
         
         
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          <span data-ice="async">async</span>
-          
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getUserData">getUserData</a></span></span><span class="code" data-ice="signature">(uid: <span>*</span>): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
+        <div data-ice="description"><p>Gets user object from browser local storage *</p>
+</div>
       </div>
     </td>
     <td>
@@ -272,7 +276,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Checks if the logged user is admin *</p>
+</div>
       </div>
     </td>
     <td>
@@ -300,7 +305,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Checks if the user object is legit *</p>
+</div>
       </div>
     </td>
     <td>
@@ -356,7 +362,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Deletes user id from browser local storage *</p>
+</div>
       </div>
     </td>
     <td>
@@ -384,7 +391,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Deletes user object from browser local storage *</p>
+</div>
       </div>
     </td>
     <td>
@@ -440,7 +448,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Sets user id into browser local storage *</p>
+</div>
       </div>
     </td>
     <td>
@@ -468,7 +477,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Sets user object into browser local storage *</p>
+</div>
       </div>
     </td>
     <td>
@@ -510,6 +520,61 @@
 <div data-ice="details"><h2 data-ice="title">Static Public </h2>
 
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-App">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">App</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/App.js.html#lineNumber26">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import App from &apos;<span><a href="file/src/App.js.html#lineNumber26">car_rental_company/src/App.js</a></span>&apos;</code></pre></div>
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-function-Get">
     <span class="access" data-ice="access">public</span>
     
@@ -521,14 +586,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/controllers.js.html#lineNumber14">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/controllers.js.html#lineNumber15">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {Get} from &apos;<span><a href="file/src/services/api/controllers.js.html#lineNumber14">car_rental_company/src/services/api/controllers.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {Get} from &apos;<span><a href="file/src/services/api/controllers.js.html#lineNumber15">car_rental_company/src/services/api/controllers.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>To send GET http request to the api *</p>
+</div>
 
   
 
@@ -598,14 +664,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/controllers.js.html#lineNumber3">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/controllers.js.html#lineNumber4">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {Post} from &apos;<span><a href="file/src/services/api/controllers.js.html#lineNumber3">car_rental_company/src/services/api/controllers.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {Post} from &apos;<span><a href="file/src/services/api/controllers.js.html#lineNumber4">car_rental_company/src/services/api/controllers.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>To send POST http request to the api *</p>
+</div>
 
   
 
@@ -664,22 +731,22 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-SignUp">
+  <h3 data-ice="anchor" id="static-function-SearchCarsUI">
     <span class="access" data-ice="access">public</span>
     
     
     
-    <span data-ice="async">async</span>
     
-    <span class="code" data-ice="name">SignUp</span><span class="code" data-ice="signature">(email: <span>*</span>, uid: <span>*</span>, firstName: <span>*</span>, lastName: <span>*</span>, phoneNumber: <span>*</span>): <span>*</span></span>
+    
+    <span class="code" data-ice="name">SearchCarsUI</span><span class="code" data-ice="signature">(objectPattern: {&quot;cars&quot;: <span>*</span>}): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/firebase/firestore.js.html#lineNumber7">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/cars_search/SearchCarsUI.js.html#lineNumber3">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {SignUp} from &apos;<span><a href="file/src/services/firebase/firestore.js.html#lineNumber7">car_rental_company/src/services/firebase/firestore.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import SearchCarsUI from &apos;<span><a href="file/src/components/cars_search/SearchCarsUI.js.html#lineNumber3">car_rental_company/src/components/cars_search/SearchCarsUI.js</a></span>&apos;</code></pre></div>
   
   
   
@@ -695,33 +762,9 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">email</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">uid</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">firstName</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">lastName</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">phoneNumber</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
+      <td data-ice="name" class="code" data-depth="0">objectPattern</td>
+      <td data-ice="type" class="code">{&quot;cars&quot;: <span>*</span>}</td>
+      <td data-ice="appendix"><ul><li>default: {&quot;cars&quot;:null}</li></ul></td>
       <td data-ice="description"></td>
     </tr>
 </tbody>
@@ -770,14 +813,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber17">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber18">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {checkUid} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber17">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {checkUid} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber18">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Checks if the user id is legit *</p>
+</div>
 
   
 
@@ -841,14 +885,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber38">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber43">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getUid} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber38">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getUid} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber43">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Gets user id from browser local storage *</p>
+</div>
 
   
 
@@ -896,89 +941,19 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber50">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber58">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getUser} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber50">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getUser} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber58">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Gets user object from browser local storage *</p>
+</div>
 
   
 
   <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-getUserData">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    <span data-ice="async">async</span>
-    
-    <span class="code" data-ice="name">getUserData</span><span class="code" data-ice="signature">(uid: <span>*</span>): <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/services/firebase/firestore.js.html#lineNumber17">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getUserData} from &apos;<span><a href="file/src/services/firebase/firestore.js.html#lineNumber17">car_rental_company/src/services/firebase/firestore.js</a></span>&apos;</code></pre></div>
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">uid</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
 </div>
 
   <div class="return-params" data-ice="returnParams">
@@ -1022,14 +997,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber30">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isAdmin} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber30">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isAdmin} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber33">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Checks if the logged user is admin *</p>
+</div>
 
   
 
@@ -1077,14 +1053,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber28">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isVerifiedUser} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber26">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isVerifiedUser} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber28">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Checks if the user object is legit *</p>
+</div>
 
   
 
@@ -1225,14 +1202,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber42">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber48">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {removeUid} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber42">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {removeUid} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber48">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Deletes user id from browser local storage *</p>
+</div>
 
   
 
@@ -1280,14 +1258,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber54">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber63">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {removeUser} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber54">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {removeUser} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber63">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Deletes user object from browser local storage *</p>
+</div>
 
   
 
@@ -1406,14 +1385,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber34">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber38">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setUid} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber34">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setUid} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber38">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Sets user id into browser local storage *</p>
+</div>
 
   
 
@@ -1465,14 +1445,15 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber46">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/services/api/auth.js.html#lineNumber53">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setUser} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber46">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {setUser} from &apos;<span><a href="file/src/services/api/auth.js.html#lineNumber53">car_rental_company/src/services/api/auth.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Sets user object into browser local storage *</p>
+</div>
 
   
 
@@ -1598,6 +1579,9 @@
 </div>
 </div>
 
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
 
 <script src="script/search_index.js"></script>
 <script src="script/search.js"></script>

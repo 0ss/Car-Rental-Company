@@ -93,7 +93,7 @@ export default function Signup() {
                                     className="form-text text-muted font-italic"
                                     style={{ 'fontSize': 11 }}
                                 >
-                                    Your password must be 6-20 characters long, contain letters and numbers.
+                                    Your password must be 6-20 characters long.
                         </small>
                                 <div className="form-group">
                                     <label className="font-weight-bold mt-2">Password Confirmation</label>

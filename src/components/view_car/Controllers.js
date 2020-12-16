@@ -1,4 +1,4 @@
-//This class handles calculate car price and validate the rent dates
+/** This class handles calculate car price and validate the rent dates **/
 
 export default class Controller {
 
@@ -48,7 +48,7 @@ export default class Controller {
 
         this.days = this.getDatesDiff(this.fromDate, this.toDate)
 
-        if (this.days <= 1) {  // if selected days incorrect
+        if (this.days <= 1) {  //  if selected days incorrect
             setError('Please fill the dates correctly')
             setFrom(null)
             setTo(null)

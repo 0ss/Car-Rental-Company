@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">src/services/api/controllers.js | car_rental_company</title>
+  <title data-ice="title">src/components/view_car/Controllers.js | car_rental_company</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -50,30 +50,78 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/services/api/controllers.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {apiBaseUrl} from &apos;../../constants/Constants&apos;
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/view_car/Controllers.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/** This class handles calculate car price and validate the rent dates **/
 
-/** To send POST http request to the api **/
-export async function Post(path , body){
-    const requestOptions = {
-        method: &apos;POST&apos;,
-        headers: { &apos;Content-Type&apos;: &apos;application/json&apos; },
-        body: JSON.stringify(body)
-    };
+export default class Controller {
 
-    return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();
+    constructor(carPrice) {
+        this.carPrice = carPrice;
+    }
+    changeFrom(e, from, to, setError, setFrom, setTo, setPrice) {
+
+        this.fromDate = (e.target.value)
+
+        if (this.getDatesDiff(new Date(), this.fromDate) &lt; 0) {
+            setError(&quot;The date can&apos;t be in the past!&quot;)
+            setFrom(null)
+            setTo(null)
+            setPrice(0)
+            return
+        }
+
+        if ((this.fromDate &amp;&amp; this.toDate) || (from &amp;&amp; to)) {
+            this.calculatePrice(setError, setFrom, setTo, setPrice, from, to)
+        }
+    }
+
+    changeTo(e, from, to, setError, setFrom, setTo, setPrice) {
+
+        this.toDate = (e.target.value)
+        if (this.getDatesDiff(new Date(), this.toDate) &lt; 0) {
+            setError(&quot;The date can&apos;t be in the past!&quot;)
+            setFrom(null)
+            setTo(null)
+            setPrice(0)
+            return
+        }
+        if ((this.fromDate &amp;&amp; this.toDate) || (from &amp;&amp; to))
+            this.calculatePrice(setError, setFrom, setTo, setPrice, from, to)
+
+    }
+
+    getDatesDiff(from, to) {
+        return Math.floor((Date.parse(to) - Date.parse(from)) / 86400000)
+    }
+
+    calculatePrice(setError, setFrom, setTo, setPrice, from, to) {
+
+        if (this.fromDate === undefined || this.fromDate === null) this.fromDate = from
+        if (this.toDate === undefined || this.toDate === null) this.toDate = to
+
+        this.days = this.getDatesDiff(this.fromDate, this.toDate)
+
+        if (this.days &lt;= 1) {  //  if selected days incorrect
+            setError(&apos;Please fill the dates correctly&apos;)
+            setFrom(null)
+            setTo(null)
+            return
+        } else {
+            setPrice(this.carPrice * this.days)
+            console.log(this.carPrice * this.days)
+            setTo(this.toDate)
+            setFrom(this.fromDate)
+
+        }
+
+        setError(&apos;&apos;)
+
+    }
+
 }
 
-/** To send GET http request to the api **/
-export async function Get(path , body){
-    const requestOptions = {
-        method: &apos;GET&apos;,
-        body: JSON.stringify(body),
-        headers: { &apos;Content-Type&apos;: &apos;application/json&apos; },
 
-    };
-    return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();
-}</code></pre>
+</code></pre>
 
 </div>
 

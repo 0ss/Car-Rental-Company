@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">src/services/api/controllers.js | car_rental_company</title>
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/App.js | car_rental_company</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -50,30 +50,68 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/services/api/controllers.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {apiBaseUrl} from &apos;../../constants/Constants&apos;
+<div class="content" data-ice="content"><h1 data-ice="title">src/App.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {
+  BrowserRouter as Router,
+  Route,
+} from &apos;react-router-dom&apos;;
+import &apos;./styles/main_styles.css&apos;
+import SignUp from &apos;./components/auth/Signup&apos;
+import Login from &apos;./components/auth/Login&apos;
+import ResetPassword from &apos;./components/auth/ResetPassword&apos;
+import SearchCars from &apos;./components/cars_search/SearchCars&apos;
+import AddCar from &apos;./components/admin/AddCar&apos;
+import AllOrders from &apos;./components/admin/AllOrders&apos;
+import ViewReservation from &apos;./components/order/ViewReservation&apos;
+import MyOrders from &apos;./components/order/MyOrders&apos;
+import ViewCar from &apos;./components/view_car/ViewCar&apos;
+import PrivacyPolicy from &apos;./components/privacy/PrivacyPolicy&apos;
+import TermsConditions from &apos;./components/privacy/TermsConditions&apos;
+import Home from &apos;./components/Home&apos;
+import { SiteLocations } from &apos;./constants/Constants&apos;
+import Footer from &apos;./styles/layout/Footer&apos;;
+import Navbar from &apos;./styles/layout/Navbar&apos;;
 
-/** To send POST http request to the api **/
-export async function Post(path , body){
-    const requestOptions = {
-        method: &apos;POST&apos;,
-        headers: { &apos;Content-Type&apos;: &apos;application/json&apos; },
-        body: JSON.stringify(body)
-    };
 
-    return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();
+
+
+
+const App = () =&gt; {
+
+  return (
+
+
+
+    &lt;Router&gt;
+
+      &lt;div class=&apos;main-container&apos;&gt;
+
+        &lt;Navbar /&gt;
+
+        &lt;Route path={SiteLocations.signUp} component={SignUp} /&gt;
+        &lt;Route path={SiteLocations.login} component={Login} /&gt;
+        &lt;Route path={SiteLocations.searchCars} component={SearchCars} /&gt;
+        &lt;Route path={SiteLocations.adminAddCar} component={AddCar} /&gt;
+        &lt;Route path={SiteLocations.adminAllOrders} component={AllOrders} /&gt;
+        &lt;Route path={SiteLocations.viewReservation} component={ViewReservation} /&gt;
+        &lt;Route path={SiteLocations.myOrders} component={MyOrders} /&gt;
+        &lt;Route path={SiteLocations.restPassword} component={ResetPassword} /&gt;
+        &lt;Route path={SiteLocations.viewCar} component={ViewCar} /&gt;
+        &lt;Route path={SiteLocations.privacyPolicy} component={PrivacyPolicy} /&gt;
+        &lt;Route path={SiteLocations.termsConditions} component={TermsConditions} /&gt;
+        &lt;Route exact path={SiteLocations.home} component={Home} /&gt;
+
+        &lt;Footer /&gt;
+
+      &lt;/div&gt;
+
+    &lt;/Router&gt;
+
+  );
 }
 
-/** To send GET http request to the api **/
-export async function Get(path , body){
-    const requestOptions = {
-        method: &apos;GET&apos;,
-        body: JSON.stringify(body),
-        headers: { &apos;Content-Type&apos;: &apos;application/json&apos; },
 
-    };
-    return await (await fetch(`${apiBaseUrl}/${path}`, requestOptions)).json();
-}</code></pre>
+export default App;</code></pre>
 
 </div>
 

@@ -2,7 +2,7 @@ import * as Firestore from '../../services/api/firestore'
 import { Link } from 'react-router-dom'
 import { SiteLocations } from '../../constants/Constants'
 
-//Encode image file to base64 to upload it to firebase storage
+/** Encode image file to base64 to upload it to firebase storage **/
 export const convertBase64 = (file) => {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
@@ -16,7 +16,7 @@ export const convertBase64 = (file) => {
     })
 }
 
-//To get href Parameters
+/** To get href Parameters **/
 export function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -26,7 +26,7 @@ export function getParameterByName(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-//Get car object by id
+/** Get car object by id **/
 export async function getCar(id) {
     if (id && id.length > 3) {
         var result = await Firestore.getCar(id);
@@ -39,7 +39,7 @@ export async function getCar(id) {
 
 }
 
-//To get orders components
+/** To get orders components **/
 export function getOrdersArray(orders) {
     return orders?.length ? orders.map(order => {
         return (
@@ -74,7 +74,7 @@ export function getOrdersArray(orders) {
     }) : null
 }
 
-//Handles image file reading
+/** Handles image file reading **/
 export const handleFileRead = async (event, uuid, setImageCallback, setErrorCallback) => {
     const file = event.target.files[0]
     const base64 = await convertBase64(file)
