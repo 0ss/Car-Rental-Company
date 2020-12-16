@@ -8,10 +8,7 @@ import { SiteLocations } from '../../constants/Constants'
 
 export default function Signup() {
 
-
     const [error, setError] = useState(null)
-
-
 
     function signup(email, password, name) {
         Auth.signUp(email, password, name).then((result) => {
@@ -25,10 +22,6 @@ export default function Signup() {
             }
         })
     }
-
-
-
-
 
     const HandleSubmit = e => {
         e.preventDefault() // prevent reloading the page
