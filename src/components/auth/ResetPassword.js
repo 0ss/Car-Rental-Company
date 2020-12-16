@@ -70,7 +70,7 @@ export default function ResetPassword() {
                                 />
                             </div>
                             <button type="submit" className="btn btn-block mt-4">
-                                Sign up
+                               Rest Password
                             </button>
                             <small class="Have-account form-text text-muted mt-3 text-center">
                                 Already know your password?
