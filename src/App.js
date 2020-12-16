@@ -3,14 +3,14 @@ import {
   Route,
 } from 'react-router-dom';
 import './styles/main_styles.css'
-import SignUp from './components/Signup'
-import Login from './components/Login'
+import SignUp from './components/auth/Signup'
+import Login from './components/auth/Login'
+import ResetPassword from './components/auth/ResetPassword'
 import SearchCars from './components/cars_fetching/SearchCars'
 import AddCar from './components/admin/AddCar'
 import AllOrders from './components/admin/AllOrders'
 import ViewReservation from './components/ViewReservation'
 import MyOrders from './components/MyOrders'
-import ResetPassword from './components/ResetPassword'
 import ViewCar from './components/ViewCar'
 import Home from './components/Home'
 import {SiteLocations} from './constants/Constants'

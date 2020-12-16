@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import   '../styles/sign_styles.css'
-import Navbar from '../layout/Navbar'
-import Footer from '../layout/Footer'
-import * as Auth from '../services/api/auth'
-import {SiteLocations} from '../constants/Constants'
+import   '../../styles/sign_styles.css'
+import Navbar from '../../layout/Navbar'
+import Footer from '../../layout/Footer'
+import * as Auth from '../../services/api/auth'
+import {SiteLocations} from '../../constants/Constants'
 
 export default function Login() {
 
