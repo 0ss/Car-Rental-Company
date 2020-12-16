@@ -40,7 +40,7 @@ export const CarsSizesOptions = () => {
     return (
         <>
             <option value="" selected disabled hidden>Select a size</option>
-            <option>Mirco</option>
+            <option>Micro</option>
             <option>Hatch</option>
             <option>Convertible</option>
             <option>Coupe</option>
