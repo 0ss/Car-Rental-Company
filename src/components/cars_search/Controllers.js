@@ -184,10 +184,15 @@ export function deleteCar(car) {
     }
 }
 
+function getCarToEdit(car) {
+    car.locationUrl = ""
+    return car;
+}
+
 export function AdminButtons(car) {
     return (
         <>
-            <Link to={`${SiteLocations.adminAddCar}?car=${JSON.stringify(car)}`}>
+            <Link to={`${SiteLocations.adminAddCar}?car=${JSON.stringify(getCarToEdit(car))}`}>
                 <button className="btn float-right ml-3">
                     <span className="font-weight-bold">Edit</span>
                 </button>

@@ -126,7 +126,7 @@ export default function ViewReservation() {
 
                                         <button
                                             className="btn btn-default mr-3 mb-3"
-                                            onClick={() =>  window.open(car.locationUrl, '_blank')}>
+                                            onClick={() =>  window.open(decodeURI(car.locationUrl), '_blank')}>
                                             Pick-up Location
                                         </button>
 
