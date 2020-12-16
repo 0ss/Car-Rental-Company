@@ -55,3 +55,11 @@ hr{
   .font-bold {
     font-weight: bold;
   }
+
+  a, a:hover,a:visited, a:focus {
+    text-decoration:none;
+}
+
+.text-purple-color {
+    color: #6B5B95 !important;
+  }
