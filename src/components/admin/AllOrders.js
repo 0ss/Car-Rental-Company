@@ -5,7 +5,7 @@ import '../../styles/my_orders.css'
 import Navbar from '../../layout/Navbar'
 import Footer from '../../layout/Footer'
 import * as Firestore from '../../services/api/firestore'
-import SearchCarsUI from '../cars_fetching/SearchCarsUI'
+import SearchCarsUI from '../cars_search/SearchCarsUI'
 import * as Controllers from './Controllers'
 
 export default function AllOrders() {

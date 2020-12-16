@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import Navbar from '../layout/Navbar'
-import Car from '../images/Car.jpg'
-import '../styles/main_styles.css'
-import Footer from '../layout/Footer'
-import * as Firestore from "../services/api/firestore"
-import {SiteLocations} from '../constants/Constants'
+import Navbar from '../../layout/Navbar'
+import Car from '../../images/Car.jpg'
+import '../../styles/main_styles.css'
+import Footer from '../../layout/Footer'
+import * as Firestore from "../../services/api/firestore"
+import {SiteLocations} from '../../constants/Constants'
 
 
 function getParameterByName(name, url = window.location.href) {

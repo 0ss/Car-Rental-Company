@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react'
-import '../styles/main_styles.css'
-import '../styles/my_orders.css'
+import '../../styles/main_styles.css'
+import '../../styles/my_orders.css'
 import { Link } from 'react-router-dom'
-import Navbar from '../layout/Navbar'
-import Footer from '../layout/Footer'
-import * as Firestore from '../services/api/firestore'
-import SearchCarsUI from './cars_fetching/SearchCarsUI'
+import Navbar from '../../layout/Navbar'
+import Footer from '../../layout/Footer'
+import * as Firestore from '../../services/api/firestore'
+import SearchCarsUI from './../cars_search/SearchCarsUI'
 
 export default function MyOrders() {
 
