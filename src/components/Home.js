@@ -6,7 +6,8 @@ import {Link} from 'react-router-dom'
 import img1 from '../images/lamb.jpg'
 import img2 from '../images/bug.jpg'
 import img3 from '../images/mas.jpg'
-// style={{backgroundColor:'#e9e9e9', color:'white'}}
+import {SiteLocations} from '../constants/Constants'
+
 export default function Home() {
     return (
         <>
@@ -16,7 +17,7 @@ export default function Home() {
                 <p class="lead">A place where you can rental your dream car!</p>
                 <hr class="my-4" />
                 <p>Our mission is to provide to the costumers any cars they wish with the lowest prices in the market</p>
-                <Link className="btn btn-primary btn-lg" to="/searchcars" style={{border:'0'}}>
+                <Link className="btn btn-primary btn-lg" to={SiteLocations.searchCars} style={{border:'0'}}>
                   Search cars
                 </Link>
             </div>

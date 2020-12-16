@@ -4,7 +4,7 @@ import   '../styles/sign_styles.css'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
 import * as Auth from '../services/api/auth'
-
+import {SiteLocations} from '../constants/Constants'
 
 export default function Login() {
 
@@ -25,7 +25,7 @@ export default function Login() {
             }else{
                 Auth.setUid(result.userData.user.uid);
                 Auth.setUser(result.userData.user);
-                window.location.href = "/searchcars";
+                window.location.href = SiteLocations.searchCars;
             }
         })
     }
@@ -103,13 +103,13 @@ export default function Login() {
                             <small  class="Have-account form-text text-muted mt-3 text-center">
                             Don't have an account?  
                             
-                                <Link className="other-page-link"to="/signup">
+                                <Link className="other-page-link" to={SiteLocations.signUp}>
                                 &#160; Sign up.
                                 </Link>
                             </small>
                             <small  class="Have-account form-text text-muted mt-2 text-center">
                              Maybe you forgot your password? it happens,
-                                <Link className="other-page-link" to="/resetpassword">
+                                <Link className="other-page-link" to={SiteLocations.restPassword}>
                                 &#160; Reset.
                                 </Link>
                             </small>

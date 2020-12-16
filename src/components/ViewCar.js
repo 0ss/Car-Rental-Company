@@ -3,6 +3,7 @@ import Navbar from '../layout/Navbar'
 import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
 import * as Firestore from "../services/api/firestore"
+import {SiteLocations} from '../constants/Constants'
 
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[[\]]/g, '\\$&');
@@ -57,9 +58,9 @@ export default function ViewCar() {
             console.log(result)
             if (result && result.status === "error") {
                 setError(result.error)
-                window.location.href = "/login"
+                window.location.href = SiteLocations.login
             } else {
-                window.location.href = "/viewReservation?id=" + orderId
+                window.location.href = `${SiteLocations.viewReservation}?id=${orderId}`
             }
         })
 

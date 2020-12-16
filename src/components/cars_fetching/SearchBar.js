@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import '../../styles/search_cars.css'
 import * as Auth from '../../services/api/auth'
 import * as Firestore from '../../services/api/firestore'
+import {SiteLocations} from '../../constants/Constants'
 
 
 function SearchBar() {
@@ -59,7 +60,7 @@ function SearchBar() {
                 Toggle to filter results!
             </button>
 
-           {isAdmin ?   <Link className="float-right btn btn-sm" to="/admin/addCar">
+           {isAdmin ?   <Link className="float-right btn btn-sm" to={SiteLocations.adminAddCar}>
                 Add car
             </Link> : <></>}
 

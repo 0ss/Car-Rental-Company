@@ -4,6 +4,7 @@ import   '../styles/sign_styles.css'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
 import * as Auth from '../services/api/auth'
+import {SiteLocations} from '../constants/Constants'
 
 
 export default function ResetPassword() {
@@ -76,7 +77,7 @@ export default function ResetPassword() {
                             </button>
                             <small  class="Have-account form-text text-muted mt-3 text-center">
                             Already know your password? 
-                            <Link className="other-page-link" to="/login">
+                            <Link className="other-page-link" to={SiteLocations.login}>
                                 &#160; Log in.
                             </Link>
                             </small>

@@ -8,6 +8,7 @@ import Footer from '../../layout/Footer'
 import SearchCarsUI from './SearchCarsUI'
 import * as Firestore from '../../services/api/firestore'
 import * as Auth from '../../services/api/auth'
+import {SiteLocations} from '../../constants/Constants'
 
 
 
@@ -176,7 +177,7 @@ export default function SearchCars() {
         if(window.confirm(`Are sure you want to delete ${car.name} car?\n\nNOTE:YOU CAN NOT UNDO THIS ACTION`)){
             Firestore.deleteCar(car.id).then((result)=>{
                 if(result.status === "ok"){
-                    window.location.href = "/searchcars"
+                    window.location.href = SiteLocations.searchCars
                 }else{
                     window.alert(result.result)
                 }
@@ -187,7 +188,7 @@ export default function SearchCars() {
     function AdminButtons(car){
         return(
             <>
-            <Link to={`/admin/addCar?car=${JSON.stringify(car)}`}>
+            <Link to={`${SiteLocations.adminAddCar}?car=${JSON.stringify(car)}`}>
             <button className="btn float-right ml-3">
                 <span className="font-weight-bold">Edit</span>
             </button>

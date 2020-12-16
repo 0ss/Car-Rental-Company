@@ -4,6 +4,7 @@ import Car from '../images/Car.jpg'
 import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
 import * as Firestore from "../services/api/firestore"
+import {SiteLocations} from '../constants/Constants'
 
 
 function getParameterByName(name, url = window.location.href) {
@@ -48,7 +49,7 @@ export default function ViewReservation() {
         if(window.confirm('Are sure you want to cancel this reservation?\n\nYOU CAN NOT UNDO THIS ACTION')){
             Firestore.cancelOrder(order.id).then((result)=>{
                 if(result.status === "ok"){
-                    window.location.href = "/searchcars"
+                    window.location.href = SiteLocations.searchCars
                 }else{
                     window.alert(result.result)
                 }

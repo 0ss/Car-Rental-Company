@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import '../styles/nav.css'
 import * as Auth from '../services/api/auth'
 import * as Firestore from '../services/api/firestore'
+import {SiteLocations} from '../constants/Constants'
+
 export default function Navbar() {
     
     const [isAdmin , setIsAdmin] = useState(null);
@@ -23,7 +25,7 @@ export default function Navbar() {
             if(isAdmin){
                 return(
                     <li className="nav-item navbar-nav mr-2">
-                        <Link className="nav-link sign" to="/admin/allOrders">
+                        <Link className="nav-link sign" to={SiteLocations.adminAllOrders}>
                             <span style={{ "fontSize": 14 }}></span>
                             All orders
                         </Link>
@@ -32,7 +34,7 @@ export default function Navbar() {
             }else{
                 return (
                     <li className="nav-item navbar-nav mr-2">
-                        <Link className="nav-link sign" to="/myorders">
+                        <Link className="nav-link sign" to={SiteLocations.myOrders}>
                             <span style={{ "fontSize": 14 }}></span>
                             My orders
                         </Link>
@@ -50,7 +52,7 @@ export default function Navbar() {
                 <>
                  <Orders/>
                     <li className="nav-item navbar-nav mr-4">
-                        <Link className="nav-link sign" to="/login?action=logout">
+                        <Link className="nav-link sign" to={SiteLocations.login + "?action=logout"}>
                             <span style={{ "fontSize": 14 }}></span>
                             Logout
                         </Link>
@@ -61,7 +63,7 @@ export default function Navbar() {
 
             return (
                 <li className="nav-item navbar-nav mr-3">
-                    <Link className="nav-link sign" to="/login">
+                    <Link className="nav-link sign" to={SiteLocations.login}>
                         <span style={{ "fontSize": 14 }}>⚙️&#160; </span>
             Sign Up/In
         </Link>
@@ -76,7 +78,7 @@ export default function Navbar() {
     return (
         <>
             <nav className="navbar navbar-expand-sm ">
-                <Link className="navbar-brand font-weight-bold" to="/">
+                <Link className="navbar-brand font-weight-bold" to={SiteLocations.home}>
                     <span style={{ "fontSize": 17 }}>🏢&#160;</span>
                     Luxury cars
                  </Link>
@@ -94,13 +96,13 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav navbar-nav ml-auto">
                         <li className="nav-item active mr-3">
-                            <Link className="nav-link about" to="/">
+                            <Link className="nav-link about" to={SiteLocations.home}>
                             <span style={{"fontSize":14}}>&#160; </span>
                            Home
                             </Link>
                         </li>
                         <li className="nav-item mr-3">
-                            <Link className="nav-link contact" to="/searchcars">
+                            <Link className="nav-link contact" to={SiteLocations.searchCars}>
                             <span style={{"fontSize":14}}>&#160; </span>
                             Cars
                             </Link>

@@ -2,32 +2,9 @@ import React, { useState } from 'react'
 import Navbar from '../../layout/Navbar'
 import Footer from '../../layout/Footer'
 import * as Firestore from '../../services/api/firestore'
-
-
-
-const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(file)
-        fileReader.onload = () => {
-            resolve(fileReader.result);
-        }
-        fileReader.onerror = (error) => {
-            reject(error);
-        }
-    })
-}
-
-function getParameterByName(name, url = window.location.href) {
-    name = name.replace(/[[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-
-
+import * as Controllers from './Controllers'
+import * as CarsOptions from '../../constants/CarsOptions'
+import {SiteLocations} from '../../constants/Constants'
 
 export default function AddCar() {
 
@@ -35,7 +12,7 @@ export default function AddCar() {
     const [image, setImage] = useState(null);
     const [editMode, setEditMode] = useState(false);
 
-    const car = JSON.parse(getParameterByName('car'))
+    const car = JSON.parse(Controllers.getParameterByName('car'))
     const uuid = Firestore.getUuid();
 
     if (car && !editMode) {
@@ -44,14 +21,13 @@ export default function AddCar() {
     }
 
     const handleFileRead = async (event) => {
-        console.log(event)
         const file = event.target.files[0]
-        const base64 = await convertBase64(file)
+        const base64 = await Controllers.convertBase64(file)
         Firestore.uploadImage('cars_images', uuid, file.type, base64).then((result) => {
             if (result.status === "ok") {
                 setImage(result.url)
             } else {
-                console.log(result);
+                setError(result.error);
             }
         })
     }
@@ -81,13 +57,11 @@ export default function AddCar() {
             return
         } else {
 
-
-
             Firestore.addCar(name, color, model, size, status, location, price, image, editMode ? car.id : uuid).then((result) => {
                 if (result && result.status === "error") {
                     setError(result.error);
                 } else {
-                    window.location.href = "/searchcars"
+                    window.location.href = SiteLocations.searchCars
                 }
             })
 
@@ -151,13 +125,7 @@ export default function AddCar() {
                                 <h6 class="col-sm-2 mt-1">Color</h6>
                                 <div class="col-sm-10">
                                     <select name="color" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Dark Red" >
-                                        <option>Red</option>
-                                        <option>Yellow</option>
-                                        <option>Black</option>
-                                        <option>White</option>
-                                        <option>Blue</option>
-                                        <option>Grey</option>
-                                        <option>Green</option>
+                                        <CarsOptions.CarsColorsOptions/>
                                     </select>
                                 </div>
                             </div>
@@ -168,18 +136,7 @@ export default function AddCar() {
                                 <h6 class="col-sm-2 mt-1">Model</h6>
                                 <div class="col-sm-10">
                                     <select defaultValue={editMode ? car?.model : ''} name="model" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="2015" >
-                                        <option>2021</option>
-                                        <option>2020</option>
-                                        <option>2019</option>
-                                        <option>2018</option>
-                                        <option>2017</option>
-                                        <option>2016</option>
-                                        <option>2015</option>
-                                        <option>2014</option>
-                                        <option>2013</option>
-                                        <option>2012</option>
-                                        <option>2011</option>
-                                        <option>2010</option>
+                                    <CarsOptions.CarsModelsOptions/>
                                     </select>
                                 </div>
                             </div>
@@ -190,8 +147,7 @@ export default function AddCar() {
                                 <h6 class="col-sm-2 mt-1">Size</h6>
                                 <div class="col-sm-10">
                                     <select name="size" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Large SUV" >
-                                        <option>Small</option>
-                                        <option>Large</option>
+                                       <CarsOptions.CarsSizesOptions/>
                                     </select>
                                 </div>
                             </div>
@@ -203,8 +159,7 @@ export default function AddCar() {
                                 <h6 class="col-sm-2 mt-1">Status</h6>
                                 <div class="col-sm-10">
                                     <select name="status" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Good, not damaged" >
-                                        <option>good</option>
-                                        <option>bad</option>
+                                       <CarsOptions.CarsStatusOptions/>
                                     </select>
 
                                 </div>
@@ -216,8 +171,7 @@ export default function AddCar() {
                                 <h6 class="col-sm-2 mt-1">Location</h6>
                                 <div class="col-sm-10">
                                     <select defaultValue={editMode ? car?.location : ''} name="location" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Alkhobar" >
-                                        <option>al-khobar</option>
-                                        <option>al-dammam</option>
+                                       <CarsOptions.CarsLocationsOptions/>
                                     </select>
 
                                 </div>
@@ -226,9 +180,9 @@ export default function AddCar() {
                             <hr />
 
                             <div class="form-group row">
-                                <h6 class="col-sm-2 mt-1">Price</h6>
+                                <h6 class="col-sm-2 mt-1">Price/Day</h6>
                                 <div class="col-sm-10">
-                                    <input defaultValue={editMode ? car?.price : ''} name="price" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="$328/85" />
+                                    <input defaultValue={editMode ? car?.price : ''} name="price" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="328" />
                                 </div>
                             </div>
 

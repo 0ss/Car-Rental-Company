@@ -13,7 +13,7 @@ import MyOrders from './components/MyOrders'
 import ResetPassword from './components/ResetPassword'
 import ViewCar from './components/ViewCar'
 import Home from './components/Home'
-
+import {SiteLocations} from './constants/Constants'
 
 
 
@@ -21,23 +21,19 @@ import Home from './components/Home'
 
 const App = () => {
 
-
-
- 
-
   return (
 
     <Router>
-      <Route path="/signup" component={SignUp} />
-      <Route path="/login" component={Login} />
-      <Route path="/searchcars" component={SearchCars} />
-      <Route path="/admin/addCar" component={AddCar} />
-      <Route path="/admin/allOrders" component={AllOrders} />
-      <Route path="/viewReservation" component={ViewReservation} />
-      <Route path="/myorders" component={MyOrders} />
-      <Route path="/resetpassword" component={ResetPassword} />
-      <Route path="/viewcar" component={ViewCar} />
-      <Route exact path="/" component={Home} />
+      <Route path={SiteLocations.signUp} component={SignUp} />
+      <Route path={SiteLocations.login} component={Login} />
+      <Route path={SiteLocations.searchCars} component={SearchCars} />
+      <Route path={SiteLocations.adminAddCar} component={AddCar} />
+      <Route path={SiteLocations.adminAllOrders} component={AllOrders} />
+      <Route path={SiteLocations.viewReservation} component={ViewReservation} />
+      <Route path={SiteLocations.myOrders} component={MyOrders} />
+      <Route path={SiteLocations.restPassword} component={ResetPassword} />
+      <Route path={SiteLocations.viewCar} component={ViewCar} />
+      <Route exact path={SiteLocations.home} component={Home} />
 
 
 
