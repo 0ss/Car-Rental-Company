@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import   '../../styles/sign_styles.css'
-import Navbar from '../../layout/Navbar'
-import Footer from '../../layout/Footer'
 import * as Auth from '../../services/api/auth'
 import {SiteLocations} from '../../constants/Constants'
 
@@ -16,10 +14,8 @@ export default function Login() {
         Auth.removeUid(Auth.getUid())
     }
 
-
     function login(email , password){
         Auth.login(email , password).then((result) =>{
-            console.log(result)
             if(result.status === 'error'){
                 setError(result.error)
             }else{
@@ -30,10 +26,6 @@ export default function Login() {
         })
     }
 
-
- 
-      
-
     const handleSubmit = e =>{
         e.preventDefault() // prevent reloading the page
         const email = e.currentTarget.email.value
@@ -43,25 +35,13 @@ export default function Login() {
             console.log(email,password,e.currentTarget)
             setError('Please make sure to write your email and password')
             return
-        }else{            
-
-            
-
+        }else          
           login(email , password);
-           
-        }
-
     }
 
-
     return (
-        
         <>
-
-
-
-            <Navbar />
-            
+                  
             <div className="center"> 
                 <div class="card" style ={{'width':'22rem'}}>
                     <div class="card-body ">
@@ -117,7 +97,6 @@ export default function Login() {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </>
     )
 }

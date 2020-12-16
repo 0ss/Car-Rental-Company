@@ -1,14 +1,18 @@
+export const apiBaseUrl = "https://car-rental-com.herokuapp.com";
+
 export const SiteLocations = {
     signUp: "/signup",
     login: "/login",
-    searchCars: "/searchCars",
-    adminAddCar: "/admin/addCar",
-    adminAllOrders: "/admin/allOrders",
-    viewReservation: "/viewReservation",
-    myOrders: "/myOrders",
-    restPassword: "/resetPassword",
-    viewCar: "/viewCar",
-    home: "/"
+    searchCars: "/SearchCars",
+    adminAddCar: "/admin/AddCar",
+    adminAllOrders: "/admin/AllOrders",
+    viewReservation: "/ViewReservation",
+    myOrders: "/MyOrders",
+    restPassword: "/ResetPassword",
+    viewCar: "/ViewCar",
+    home: "/",
+    termsConditions: "/privacy/TermsConditions",
+    privacyPolicy: "/privacy/PrivacyPolicy"
 };
 
 export const DateInput = ({ type, placeholder, ...props }) => (

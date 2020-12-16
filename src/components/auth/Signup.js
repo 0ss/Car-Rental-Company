@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/sign_styles.css'
-import Navbar from '../../layout/Navbar'
-import Footer from '../../layout/Footer'
 import * as Auth from '../../services/api/auth'
 import { SiteLocations } from '../../constants/Constants'
 
 export default function Signup() {
 
-
     const [error, setError] = useState(null)
-
-
 
     function signup(email, password, name) {
         Auth.signUp(email, password, name).then((result) => {
@@ -25,10 +20,6 @@ export default function Signup() {
             }
         })
     }
-
-
-
-
 
     const HandleSubmit = e => {
         e.preventDefault() // prevent reloading the page
@@ -51,7 +42,6 @@ export default function Signup() {
 
     return (
         <>
-            <Navbar />
             <div className="center">
                 <div class="card" style={{ 'width': '22rem' }}>
                     <div class="card-body ">
@@ -131,7 +121,7 @@ export default function Signup() {
                 </div>
             </div>
 
-            <Footer />
+
         </>
 
     )

@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import Navbar from '../../layout/Navbar'
-import Footer from '../../layout/Footer'
 import * as Firestore from '../../services/api/firestore'
 import * as Controllers from './Controllers'
 import * as CarsOptions from '../../constants/CarsOptions'
-import {SiteLocations} from '../../constants/Constants'
+import { SiteLocations } from '../../constants/Constants'
 
 export default function AddCar() {
 
@@ -20,20 +18,9 @@ export default function AddCar() {
         setImage(car.image)
     }
 
-    const handleFileRead = async (event) => {
-        const file = event.target.files[0]
-        const base64 = await Controllers.convertBase64(file)
-        Firestore.uploadImage('cars_images', uuid, file.type, base64).then((result) => {
-            if (result.status === "ok") {
-                setImage(result.url)
-            } else {
-                setError(result.error);
-            }
-        })
-    }
-
     const handleSubmit = e => {
         e.preventDefault() // prevent reloading the page
+
         const name = e.currentTarget.name.value
         const color = e.currentTarget.color.value
         const model = e.currentTarget.model.value
@@ -53,20 +40,15 @@ export default function AddCar() {
             if (!price) setError("Please make sure to fill the 'Price' field")
             if (!image) setError("Please make sure to fill the 'Car image' field")
 
-
             return
-        } else {
 
+        } else
             Firestore.addCar(name, color, model, size, status, location, price, image, editMode ? car.id : uuid).then((result) => {
-                if (result && result.status === "error") {
+                if (result && result.status === "error")
                     setError(result.error);
-                } else {
+                else
                     window.location.href = SiteLocations.searchCars
-                }
             })
-
-
-        }
     }
 
     function ImagePlaceholder() {
@@ -85,7 +67,6 @@ export default function AddCar() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-4">
                 <div className="row">
                     <div className="col-12 text-center">
@@ -124,8 +105,8 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Color</h6>
                                 <div class="col-sm-10">
-                                    <select name="color" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Dark Red" >
-                                        <CarsOptions.CarsColorsOptions/>
+                                    <select defaultValue={editMode ? car?.color : ''} name="color" type="text" class="form-control form-control-sm" id="colFormLabelSm" >
+                                        <CarsOptions.CarsColorsOptions />
                                     </select>
                                 </div>
                             </div>
@@ -135,8 +116,8 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Model</h6>
                                 <div class="col-sm-10">
-                                    <select defaultValue={editMode ? car?.model : ''} name="model" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="2015" >
-                                    <CarsOptions.CarsModelsOptions/>
+                                    <select defaultValue={editMode ? car?.model : ''} name="model" type="text" class="form-control form-control-sm" id="colFormLabelSm" >
+                                        <CarsOptions.CarsModelsOptions />
                                     </select>
                                 </div>
                             </div>
@@ -146,20 +127,19 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Size</h6>
                                 <div class="col-sm-10">
-                                    <select name="size" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Large SUV" >
-                                       <CarsOptions.CarsSizesOptions/>
+                                    <select defaultValue={editMode ? car?.size : ''} name="size" type="text" class="form-control form-control-sm" id="colFormLabelSm" >
+                                        <CarsOptions.CarsSizesOptions />
                                     </select>
                                 </div>
                             </div>
 
                             <hr />
 
-
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Status</h6>
                                 <div class="col-sm-10">
-                                    <select name="status" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Good, not damaged" >
-                                       <CarsOptions.CarsStatusOptions/>
+                                    <select defaultValue={editMode ? car?.status : ''} name="status" type="text" class="form-control form-control-sm" id="colFormLabelSm" >
+                                        <CarsOptions.CarsStatusOptions />
                                     </select>
 
                                 </div>
@@ -170,8 +150,8 @@ export default function AddCar() {
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Location</h6>
                                 <div class="col-sm-10">
-                                    <select defaultValue={editMode ? car?.location : ''} name="location" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Alkhobar" >
-                                       <CarsOptions.CarsLocationsOptions/>
+                                    <select defaultValue={editMode ? car?.location : ''} name="location" type="text" class="form-control form-control-sm" id="colFormLabelSm" >
+                                        <CarsOptions.CarsLocationsOptions />
                                     </select>
 
                                 </div>
@@ -197,7 +177,7 @@ export default function AddCar() {
                                         id="file"
                                         inputProps={{ accept: 'image/*' }}
                                         name="image"
-                                        onChange={e => handleFileRead(e)}
+                                        onChange={e => Controllers.handleFileRead(e, uuid, setImage, setError)}
                                         style={{ display: 'none' }}
                                     />
                                     <ImagePlaceholder />
@@ -218,7 +198,7 @@ export default function AddCar() {
                     </div>
                 </form>
             </div>
-            <Footer />
+
         </>
     )
 }

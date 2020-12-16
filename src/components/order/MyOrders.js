@@ -2,14 +2,12 @@
 import React, { useState } from 'react'
 import '../../styles/main_styles.css'
 import '../../styles/my_orders.css'
-import Navbar from '../../layout/Navbar'
-import Footer from '../../layout/Footer'
 import SearchCarsUI from './../cars_search/SearchCarsUI'
 import * as Controllers from './Controllers'
 import { getOrdersArray } from '../admin/Controllers'
 
 export default function MyOrders() {
-    
+
     const [orders, setOrders] = useState(null);
 
     if (!orders)
@@ -19,7 +17,6 @@ export default function MyOrders() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-3">
 
                 {
@@ -27,7 +24,7 @@ export default function MyOrders() {
                 }
 
             </div>
-            <Footer />
+
         </>
     )
 }

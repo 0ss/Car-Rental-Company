@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import Navbar from '../../layout/Navbar'
 import '../../styles/search_cars.css'
 import '../../styles/main_styles.css'
 import SearchItems from './SearchBar'
-import Footer from '../../layout/Footer'
 import SearchCarsUI from './SearchCarsUI'
 import * as Controllers from './Controllers'
 
@@ -45,7 +43,6 @@ export default function SearchCars() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-3">
                 <SearchItems />
                 {
@@ -56,7 +53,7 @@ export default function SearchCars() {
                         <h1 className="text-center">Cars inventory is empty</h1>
                 }
             </div>
-            <Footer />
+
         </>
     )
 }
