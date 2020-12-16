@@ -18,7 +18,7 @@ export default function Home() {
                 <hr class="my-4" />
                 <p>Our mission is to provide to the costumers any cars they wish with the lowest prices in the market</p>
                 <Link className="btn btn-primary btn-lg" to={SiteLocations.searchCars} style={{border:'0'}}>
-                  Search cars
+                  Show me awesome cars!
                 </Link>
             </div>
             <div className="text-center mb-3">
@@ -33,7 +33,7 @@ export default function Home() {
                     <h5 class="card-title">Lamborghini</h5>
                     <p class="card-text">
                             <h5 class="car-price mb-3 mt-3 text-center">
-                                    $699
+                                    $699/Day
                             </h5>
                         </p> 
                     </div>
@@ -44,7 +44,7 @@ export default function Home() {
                         <h5 class="card-title">Bugatti  </h5>
                         <p class="card-text">
                             <h5 class="car-price mb-3 mt-3 text-center">
-                                    $799
+                                    $799/Day
                             </h5>
                         </p>  
                     </div>
@@ -55,7 +55,7 @@ export default function Home() {
                         <h5 class="card-title">Maserati  </h5>
                         <p class="card-text">
                             <h5 class="car-price mb-3 mt-3 text-center">
-                                    $499
+                                    $499/Day
                             </h5>
                         </p>  
                     </div>
