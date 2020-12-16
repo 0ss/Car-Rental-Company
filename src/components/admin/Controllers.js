@@ -1,5 +1,6 @@
 import * as Firestore from '../../services/api/firestore'
 import { Link } from 'react-router-dom'
+import {SiteLocations} from '../../constants/Constants'
 
 //Encode image file to base64 to upload it to firebase storage
 export const convertBase64 = (file) => {
@@ -57,7 +58,7 @@ export function getOrdersArray(orders){
                         <h5 class="car-price mb-3 mt-3 text-center">
                             Total: {order.price}$
                         </h5>
-                        <Link to={`/viewReservation?id=${order.id}`}>
+                        <Link to={`${SiteLocations.viewReservation}?id=${order.id}`}>
                             <button className="btn float-right">
                                 <span className="font-weight-bold">Manage Order</span>
                             </button>
