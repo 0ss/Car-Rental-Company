@@ -68,3 +68,15 @@ export function getOrdersArray(orders){
         )
     }) : null
 }
+
+export const handleFileRead = async (event , uuid , setImageCallback , setErrorCallback) => {
+    const file = event.target.files[0]
+    const base64 = await convertBase64(file)
+    Firestore.uploadImage('cars_images', uuid, file.type, base64).then((result) => {
+        if (result.status === "ok") {
+            setImageCallback(result.url)
+        } else {
+            setErrorCallback(result.error);
+        }
+    })
+}
