@@ -3,6 +3,7 @@ import * as Firestore from '../../services/api/firestore'
 import { SiteLocations } from '../../constants/Constants'
 import { Link } from 'react-router-dom'
 
+//Checks if the user is admin
 export function checkAdmin(callBack) {
     Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) => {
         if (result.status === "ok") {
@@ -11,24 +12,38 @@ export function checkAdmin(callBack) {
     })
 }
 
+//Sets url hash(used to handel the user inputs without refreshing the page)
 export function setHash(type, value) {
     var hash = window.location.hash;
-
     if (hash.includes(type)) {
         console.log(hash.split(type + "=")[1].split("&")[0])
         hash = value === "All" ? hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], "") : hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], `${type}=${value}`)
     } else if (value !== "All") {
         hash += `${type}=${value}&`
     }
-
     window.location.hash = hash;
 }
 
+//Get url hash items
+export function getHashItem(hash, type) {
+    return hash?.split(type + "=")[1]?.split("&")[0];
+}
 
+//Check if the user change the search values
+export function checkHash(cars, tempHash, setTempHashCallback, setShownCarsCallback, setCarsCallback) {
+    if (tempHash !== window.location.hash) {
+        setTempHashCallback(window.location.hash);
+        if (!cars)
+            getCars(setCarsCallback, setShownCarsCallback);
+        else {
+            setShownCarsCallback(filterCars(cars))
+        }
+        console.log("change in hash!")
+    }
+}
 
 export function getSearchOptions() {
     const hash = window.location.hash
-
 
     var searchOptions = {};
 
@@ -41,10 +56,7 @@ export function getSearchOptions() {
     return searchOptions;
 }
 
-export function getHashItem(hash, type) {
-    return hash?.split(type + "=")[1]?.split("&")[0];
-}
-
+//Filters array of car objects 
 export function filterCars(cars) {
     const options = getSearchOptions();
     var filteredCars = [];
@@ -143,11 +155,12 @@ export function filterCars(cars) {
         filteredCars = cars;
     }
 
-    return [...new Set(filteredCars)];
+    return [...new Set(filteredCars)]; //Remove any duplications
 
 
 }
 
+//Get cars array from firestore
 function getCars(setCarsCallback, setShownCarsCallback) {
     Firestore.getCars().then((result) => {
         console.log(result)
@@ -158,18 +171,7 @@ function getCars(setCarsCallback, setShownCarsCallback) {
     })
 }
 
-export function checkHash(cars, tempHash, setTempHashCallback, setShownCarsCallback, setCarsCallback) {
-    if (tempHash !== window.location.hash) {
-        setTempHashCallback(window.location.hash);
-        if (!cars)
-            getCars(setCarsCallback, setShownCarsCallback);
-        else {
-            setShownCarsCallback(filterCars(cars))
-        }
-        console.log("change in hash!")
-    }
-}
-
+//Deletes a car from firestore
 export function deleteCar(car) {
     if (window.confirm(`Are sure you want to delete ${car.name} car?\n\nNOTE:YOU CAN NOT UNDO THIS ACTION`)) {
         Firestore.deleteCar(car.id).then((result) => {
