@@ -35,15 +35,17 @@ export default function AddCar() {
 
     const [error, setError] = useState(null);
     const [image, setImage] = useState(null);
+    const [editMode, setEditMode] = useState(false);
 
     const car = JSON.parse(getParameterByName('car'))
-    var editMode = false;
+    // var editMode = false;
     const uuid = Firestore.getUuid();
 
-    if (car) {
-        editMode = true;
+    if (car && !editMode) {
+       setEditMode(true);
         setImage(car.image)
     }
+
     const handleFileRead = async (event) => {
         console.log(event)
         const file = event.target.files[0]
