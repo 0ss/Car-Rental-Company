@@ -86,3 +86,19 @@ export const handleFileRead = async (event, uuid, setImageCallback, setErrorCall
         }
     })
 }
+
+export function getCurrentLocation(e , setLocation) {
+    e.preventDefault()
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position=>{
+            setLocation({ lat: position.coords.latitude, lng: position.coords.longitude })
+        }), errorFunction);
+    }
+    else {
+        alert('It seems like Geolocation, which is required for this page, is not enabled in your browser.');
+    }
+}
+
+function errorFunction() {
+    alert("Can't get your current location");
+}

@@ -3,8 +3,38 @@ import * as Firestore from '../../services/api/firestore'
 import * as Controllers from './Controllers'
 import * as CarsOptions from '../../constants/CarsOptions'
 import { SiteLocations } from '../../constants/Constants'
+import MapPicker from 'react-google-map-picker'
+import {googleMapsApiKey} from '../../constants/Constants'
 
 export default function AddCar() {
+
+    const [locationData, setLocationData] = useState({ lat: 26.307216, lng: 50.146151 });
+    const [zoom, setZoom] = useState(15);
+
+    function GoogleMap() {
+        return (
+            <>
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="form-group">
+                                <MapPicker defaultLocation={locationData}
+                                    zoom={zoom}
+                                    style={{ height: '350px' }}
+                                    onChangeLocation={((lat, lng) => { setLocationData({ lat: lat, lng: lng }) })}
+                                    onChangeZoom={((zoom) => { setZoom(zoom) })}
+                                    apiKey={googleMapsApiKey}
+                                    />
+                            </div>
+                            <button className="btn" onClick={((e) => { Controllers.getCurrentLocation(e, setLocationData) })}>Get current Location</button>
+                        </div>
+                    </div>
+                </div>
+
+            </>
+        )
+    }
+
 
     const [error, setError] = useState(null);
     const [image, setImage] = useState(null);
@@ -43,7 +73,7 @@ export default function AddCar() {
             return
 
         } else
-            Firestore.addCar(name, color, model, size, status, location, price, image, editMode ? car.id : uuid).then((result) => {
+            Firestore.addCar(name, color, model, size, status, location, price, image, editMode ? car.id : uuid, locationData).then((result) => {
                 if (result && result.status === "error")
                     setError(result.error);
                 else
@@ -92,7 +122,6 @@ export default function AddCar() {
 
                                 </div>
                             }
-
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Car name</h6>
                                 <div class="col-sm-10">
@@ -135,6 +164,7 @@ export default function AddCar() {
 
                             <hr />
 
+
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1">Status</h6>
                                 <div class="col-sm-10">
@@ -142,6 +172,16 @@ export default function AddCar() {
                                         <CarsOptions.CarsStatusOptions />
                                     </select>
 
+                                </div>
+                            </div>
+
+                            <hr />
+
+
+                            <div class="form-group row">
+                                <h6 class="col-sm-2 mt-1">Price/Day</h6>
+                                <div class="col-sm-10">
+                                    <input defaultValue={editMode ? car?.price : ''} name="price" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="328" />
                                 </div>
                             </div>
 
@@ -159,14 +199,16 @@ export default function AddCar() {
 
                             <hr />
 
+
                             <div class="form-group row">
-                                <h6 class="col-sm-2 mt-1">Price/Day</h6>
+                                <h6 class="col-sm-2 mt-1">Pick up location</h6>
                                 <div class="col-sm-10">
-                                    <input defaultValue={editMode ? car?.price : ''} name="price" type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="328" />
+                                    <GoogleMap />
                                 </div>
                             </div>
 
                             <hr />
+
 
                             <div class="form-group row">
                                 <h6 class="col-sm-2 mt-1 text-center">Car image</h6>

@@ -28,10 +28,10 @@ export async function getSearchList(collection, searchName, searchValue) {
 }
 
 //Adds new car object to firestore
-export async function addCar(name, color, model, size, status, location, price, image, id) {
+export async function addCar(name, color, model, size, status, location, price, image, id, locationData) {
     if (!id) id = uuid()
     if (await Auth.checkUid(Auth.getUid())) {
-        return await set('cars', id, { name: name, color: color, model: model, size: size, status: status, location: location, price: price, image: image, id: id })
+        return await set('cars', id, { name: name, color: color, model: model, size: size, status: status, location: location, price: price, image: image, id: id, locationUrl: `https://www.google.com/maps/search/?api=1&query=${locationData.lat},${locationData.lng}` })
     } else {
         return false;
     }

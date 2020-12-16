@@ -26,3 +26,5 @@ export const DateInput = ({ type, placeholder, ...props }) => (
         {...props}
     />
 );
+
+export const googleMapsApiKey= "AIzaSyAENo7khC9GIWWk_t9gxngDAIbFIDXBSec";
