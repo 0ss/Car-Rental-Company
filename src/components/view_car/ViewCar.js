@@ -3,16 +3,11 @@ import Navbar from '../../layout/Navbar'
 import '../../styles/main_styles.css'
 import Footer from '../../layout/Footer'
 import * as Firestore from "../../services/api/firestore"
-import {SiteLocations} from '../../constants/Constants'
-
-function getParameterByName(name, url = window.location.href) {
-    name = name.replace(/[[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
+import { getParameterByName } from '../admin/Controllers'
+import { SiteLocations } from '../../constants/Constants'
+import Controller from './Controllers'
+import { getSetCar } from '../order/Controllers'
+import { DateInput } from '../../constants/Constants'
 
 export default function ViewCar() {
     const carId = getParameterByName("id")
@@ -22,19 +17,7 @@ export default function ViewCar() {
     const [to, setTo] = useState(null);
     const [car, setCar] = useState(null);
 
-    var fromDate = from, toDate = to, days
-
-    function getCar(id) {
-
-        if (id && id.length > 3)
-            Firestore.getCar(id).then((result) => {
-                if (result && result.status === "ok") {
-                    setCar(result.result)
-                }
-            })
-
-    }
-
+    const controller = new Controller(car?.price);
 
     const handleSubmitData = e => {
         e.preventDefault()
@@ -53,9 +36,9 @@ export default function ViewCar() {
             return
         }
         setError('')
+
         const orderId = Firestore.getUuid();
-        Firestore.addOrder(orderId, carId, price, days, from, to, method).then((result) => {
-            console.log(result)
+        Firestore.addOrder(orderId, carId, price, controller.days, from, to, method).then((result) => {
             if (result && result.status === "error") {
                 setError(result.error)
                 window.location.href = SiteLocations.login
@@ -66,69 +49,9 @@ export default function ViewCar() {
 
     }
 
-    const DateInput = ({ type, placeholder, ...props }) => (
-        <input
-            type={type}
-            spellCheck="false"
-            autoComplete="false"
-            placeholder={placeholder}
-            defaultValue={placeholder}
-            onChange={props.Onchange}
-            {...props}
-        />
-    )
-
-    function changeFrom(e) {
-        fromDate = (e.target.value)
-
-        if (getDatesDiff(new Date(), fromDate) <= 1) {
-            setError("The date can't be in the past!")
-            setFrom(null)
-            return
-        }
-
-        if ((fromDate && toDate) || (from && to)) {
-            calculatePrice()
-        }
-    }
-
-    function changeTo(e) {
-        toDate = (e.target.value)
-        if (getDatesDiff(new Date(), toDate) <= 1) {
-            setError("The date can't be in the past!")
-            setTo(null)
-            return
-        }
-        if ((fromDate && toDate) || (from && to))
-            calculatePrice()
-    }
-
-    function getDatesDiff(from, to) {
-        return Math.floor((Date.parse(to) - Date.parse(from)) / 86400000)
-    }
-
-
-    function calculatePrice() {
-
-        days = getDatesDiff(fromDate, toDate)
-
-        if (days <= 1) {  // if days in minus
-            setError('Please fill the dates correctly')
-            setFrom(null)
-            setTo(null)
-            return
-        } else {
-            setPrice(car.price * days)
-            setTo(toDate)
-            setFrom(fromDate)
-
-        }
-
-
-    }
-
     if (!car)
-        getCar(carId);
+        getSetCar(carId, setCar);
+    
 
     return (
         <>
@@ -139,13 +62,10 @@ export default function ViewCar() {
                         <div class="card mx-auto mb-5" style={{ borderRadius: '30px' }} >
                             <div className="row">
                                 <div className="col-12">
-
                                     {
                                         car?.image ?
                                             <img class="card-img-top" src={car?.image} alt="Card cap" /> :
                                             <div class="loader text-center mt-3"></div>
-
-
                                     }
                                 </div>
                             </div>
@@ -168,7 +88,7 @@ export default function ViewCar() {
                                             type="date"
                                             name="from"
                                             placeholder={from}
-                                            Onchange={changeFrom}
+                                            Onchange={(e) => controller.changeFrom(e, from , to,  setError, setFrom, setTo, setPrice)}
                                         />
                                     </p>
                                 </div>
@@ -179,18 +99,11 @@ export default function ViewCar() {
                                             type="date"
                                             name="to"
                                             placeholder={to}
-                                            Onchange={changeTo}
+                                            Onchange={(e) => controller.changeTo(e, from, to, setError, setFrom, setTo, setPrice)}
                                         />
                                     </p>
                                 </div>
                             </div>
-                            {/* <div class="row text-center mb-2">
-                                    <div className="col-md-12">
-                                        <button className="btn btn-sm" type="submit">
-                                            click to see price
-                                        </button>
-                                    </div>
-                                </div> */}
                             <form onSubmit={handleSubmitData}>
                                 <div class="row text-center">
                                     <div className="col-md-12">
@@ -209,8 +122,8 @@ export default function ViewCar() {
                                         <p>
                                             <span>Payment method : </span>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="Paypal" />
-                                                <label class="form-check-label" for="inlineRadio1">Paypal</label>
+                                                <input class="form-check-input" type="radio" name="method" id="inlineRadio1" value="PayPal" />
+                                                <label class="form-check-label" for="inlineRadio1">PayPal</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="method" id="inlineRadio2" value="Cash" />

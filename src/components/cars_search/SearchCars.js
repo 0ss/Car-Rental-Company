@@ -32,7 +32,7 @@ export default function SearchCars() {
                             {car.name}
                         </h5>
                         <h5 class="car-price mb-3 mt-3 text-center">
-                            {car.price}$
+                            {car.price}$/Day
                     </h5>
                         {
                             isAdmin ? Controllers.AdminButtons(car) : Controllers.ClientButtons(car)

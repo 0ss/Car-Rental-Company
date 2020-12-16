@@ -11,3 +11,14 @@ export const SiteLocations = {
     home: "/"
 };
 
+export const DateInput = ({ type, placeholder, ...props }) => (
+    <input
+        type={type}
+        spellCheck="false"
+        autoComplete="false"
+        placeholder={placeholder}
+        defaultValue={placeholder}
+        onChange={props.Onchange}
+        {...props}
+    />
+);
