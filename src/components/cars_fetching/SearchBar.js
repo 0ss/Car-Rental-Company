@@ -2,50 +2,23 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/search_cars.css'
-import * as Auth from '../../services/api/auth'
-import * as Firestore from '../../services/api/firestore'
-import {SiteLocations} from '../../constants/Constants'
-
+import * as Controllers from './Controllers'
+import { SiteLocations } from '../../constants/Constants'
+import * as CarOptions from '../../constants/CarsOptions'
 
 function SearchBar() {
 
-    const [isAdmin , setIsAdmin] = useState(null);
+    const [isAdmin, setIsAdmin] = useState(null);
 
-
-    function checkAdmin(){
-        Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) =>{
-           if(result.status === "ok"){
-               setIsAdmin(result.result?.isAdmin === true)
-           }
-        })
-    }
-
-
-
-
-    function setHash(type, value) {
-        var hash = window.location.hash;
-
-        if (hash.includes(type)) {
-            console.log(hash.split(type + "=")[1].split("&")[0])
-            hash = value === "All" ? hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], "") : hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], `${type}=${value}`)
-        } else {
-            hash += `${type}=${value}&`
-        }
-
-        window.location.hash = hash;
-    }
 
     const handleSubmit = e => {
         e.preventDefault() // prevent reloading the page
-
         window.location.hash = e.target.value
-
     }
 
 
-    if(isAdmin === null)
-    checkAdmin()
+    if (isAdmin === null)
+        Controllers.checkAdmin(setIsAdmin)
 
     return (
         <div id="accordion" className="search-container mb-3">
@@ -60,7 +33,7 @@ function SearchBar() {
                 Toggle to filter results!
             </button>
 
-           {isAdmin ?   <Link className="float-right btn btn-sm" to={SiteLocations.adminAddCar}>
+            {isAdmin ? <Link className="float-right btn btn-sm" to={SiteLocations.adminAddCar}>
                 Add car
             </Link> : <></>}
 
@@ -73,61 +46,37 @@ function SearchBar() {
                                 <div className="row">
                                     <div class="col-md-2">
                                         <label>Color</label>
-                                        <select name="color" class="form-control form-control-sm" onChange={((e => setHash("color", e.target.value)))}>
+                                        <select name="color" class="form-control form-control-sm" onChange={((e => Controllers.setHash("color", e.target.value)))}>
                                             <option>All</option>
-                                            <option>Red</option>
-                                            <option>Yellow</option>
-                                            <option>Black</option>
-                                            <option>White</option>
+                                            <CarOptions.CarsColorsOptions />
 
                                         </select>
                                     </div>
                                     <div class="col-md-2">
                                         <label>Model</label>
-                                        <select class="form-control form-control-sm" onChange={((e => setHash("model", e.target.value)))}>
+                                        <select class="form-control form-control-sm" onChange={((e => Controllers.setHash("model", e.target.value)))}>
                                             <option>All</option>
-                                            <option>2021</option>
-                                            <option>2020</option>
-                                            <option>2019</option>
-                                            <option>2018</option>
-                                            <option>2017</option>
-                                            <option>2016</option>
-                                            <option>2015</option>
-                                            <option>2014</option>
-                                            <option>2013</option>
-                                            <option>2012</option>
-                                            <option>2011</option>
-                                            <option>2010</option>
+                                            <CarOptions.CarsModelsOptions />
                                         </select>
                                     </div>
                                     <div class="col-md-2">
                                         <label>Size</label>
-                                        <select class="form-control form-control-sm" onChange={((e => setHash("size", e.target.value)))}>
+                                        <select class="form-control form-control-sm" onChange={((e => Controllers.setHash("size", e.target.value)))}>
                                             <option>All</option>
-                                            <option>Small</option>
-                                            <option>medium</option>
-                                            <option>big</option>
+                                            <CarOptions.CarsSizesOptions />
                                         </select>
                                     </div>
                                     <div class="col-md-2">
                                         <label>Price From</label>
-                                        <input class="form-control form-control-sm" onChange={((e => setHash("priceFrom", e.target.value)))} />
+                                        <input class="form-control form-control-sm" onChange={((e => Controllers.setHash("priceFrom", e.target.value)))} />
                                     </div>
                                     <div class="col-md-2">
                                         <label>Price To</label>
                                         <input
                                             class="form-control form-control-sm"
-                                            onChange={((e => setHash("priceTo", e.target.value)))}
+                                            onChange={((e => Controllers.setHash("priceTo", e.target.value)))}
                                         />
                                     </div>
-                                    {/* <div class="col-md-2">
-                                         <button
-                                             type="submit"
-                                             class="btn btn-sm filter-search-btn"
-                                         >
-                                             Search
-                                         </button>
-                                     </div> */}
                                 </div>
                             </form>
                             <div className="row text-center">
