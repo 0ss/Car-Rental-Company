@@ -12,6 +12,7 @@ export default function Login() {
     if(window.location.search.includes("logout")){
         Auth.removeUser(Auth.getUser())
         Auth.removeUid(Auth.getUid())
+        window.location.href = SiteLocations.login
     }
 
     function login(email , password){
