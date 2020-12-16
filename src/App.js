@@ -29,20 +29,24 @@ const App = () => {
 
     <Router>
 
-      <Navbar />
+      <div class='main-container'>
 
-      <Route path={SiteLocations.signUp} component={SignUp} />
-      <Route path={SiteLocations.login} component={Login} />
-      <Route path={SiteLocations.searchCars} component={SearchCars} />
-      <Route path={SiteLocations.adminAddCar} component={AddCar} />
-      <Route path={SiteLocations.adminAllOrders} component={AllOrders} />
-      <Route path={SiteLocations.viewReservation} component={ViewReservation} />
-      <Route path={SiteLocations.myOrders} component={MyOrders} />
-      <Route path={SiteLocations.restPassword} component={ResetPassword} />
-      <Route path={SiteLocations.viewCar} component={ViewCar} />
-      <Route exact path={SiteLocations.home} component={Home} />
+        <Navbar />
 
-      <Footer />
+        <Route path={SiteLocations.signUp} component={SignUp} />
+        <Route path={SiteLocations.login} component={Login} />
+        <Route path={SiteLocations.searchCars} component={SearchCars} />
+        <Route path={SiteLocations.adminAddCar} component={AddCar} />
+        <Route path={SiteLocations.adminAllOrders} component={AllOrders} />
+        <Route path={SiteLocations.viewReservation} component={ViewReservation} />
+        <Route path={SiteLocations.myOrders} component={MyOrders} />
+        <Route path={SiteLocations.restPassword} component={ResetPassword} />
+        <Route path={SiteLocations.viewCar} component={ViewCar} />
+        <Route exact path={SiteLocations.home} component={Home} />
+
+        <Footer />
+
+      </div>
 
     </Router>
 
