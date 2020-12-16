@@ -3,11 +3,11 @@ import * as Firestore from '../../services/api/firestore'
 import { SiteLocations } from '../../constants/Constants'
 import { Link } from 'react-router-dom'
 
-export function checkAdmin(callBack){
-    Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) =>{
-       if(result.status === "ok"){
-           callBack(result.result?.isAdmin === true)
-       }
+export function checkAdmin(callBack) {
+    Auth.isVerifiedUser(Auth.getUser()) && Firestore.getUser(Auth.getUid()).then((result) => {
+        if (result.status === "ok") {
+            callBack(result.result?.isAdmin === true)
+        }
     })
 }
 
@@ -17,7 +17,7 @@ export function setHash(type, value) {
     if (hash.includes(type)) {
         console.log(hash.split(type + "=")[1].split("&")[0])
         hash = value === "All" ? hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], "") : hash.replace(type + "=" + hash.split(type + "=")[1].split("&")[0], `${type}=${value}`)
-    } else if(value!== "All") {
+    } else if (value !== "All") {
         hash += `${type}=${value}&`
     }
 
@@ -148,7 +148,7 @@ export function filterCars(cars) {
 
 }
 
-function getCars(setCarsCallback , setShownCarsCallback) {
+function getCars(setCarsCallback, setShownCarsCallback) {
     Firestore.getCars().then((result) => {
         console.log(result)
         if (result.status === "ok") {
@@ -158,11 +158,11 @@ function getCars(setCarsCallback , setShownCarsCallback) {
     })
 }
 
-export function checkHash(cars , tempHash , setTempHashCallback , setShownCarsCallback , setCarsCallback) {
+export function checkHash(cars, tempHash, setTempHashCallback, setShownCarsCallback, setCarsCallback) {
     if (tempHash !== window.location.hash) {
         setTempHashCallback(window.location.hash);
         if (!cars)
-            getCars(setCarsCallback , setShownCarsCallback);
+            getCars(setCarsCallback, setShownCarsCallback);
         else {
             setShownCarsCallback(filterCars(cars))
         }
@@ -170,40 +170,40 @@ export function checkHash(cars , tempHash , setTempHashCallback , setShownCarsCa
     }
 }
 
-export function deleteCar(car){
-    if(window.confirm(`Are sure you want to delete ${car.name} car?\n\nNOTE:YOU CAN NOT UNDO THIS ACTION`)){
-        Firestore.deleteCar(car.id).then((result)=>{
-            if(result.status === "ok"){
+export function deleteCar(car) {
+    if (window.confirm(`Are sure you want to delete ${car.name} car?\n\nNOTE:YOU CAN NOT UNDO THIS ACTION`)) {
+        Firestore.deleteCar(car.id).then((result) => {
+            if (result.status === "ok") {
                 window.location.href = SiteLocations.searchCars
-            }else{
+            } else {
                 window.alert(result.result)
             }
         })
     }
 }
 
-export function AdminButtons(car){
-    return(
+export function AdminButtons(car) {
+    return (
         <>
-        <Link to={`${SiteLocations.adminAddCar}?car=${JSON.stringify(car)}`}>
-        <button className="btn float-right ml-3">
-            <span className="font-weight-bold">Edit</span>
-        </button>
-    </Link>
-    
-      <button className="btn float-right" onClick={() => deleteCar(car)} >
-          <span className="font-weight-bold">Delete</span>
-      </button>
-  </>
+            <Link to={`${SiteLocations.adminAddCar}?car=${JSON.stringify(car)}`}>
+                <button className="btn float-right ml-3">
+                    <span className="font-weight-bold">Edit</span>
+                </button>
+            </Link>
+
+            <button className="btn float-right" onClick={() => deleteCar(car)} >
+                <span className="font-weight-bold">Delete</span>
+            </button>
+        </>
     )
 }
 
-export function ClientButtons(car){
-    return(
+export function ClientButtons(car) {
+    return (
         <Link to={`${SiteLocations.viewCar}?id=${car.id}`}>
-        <button className="btn float-right">
-            <span className="font-weight-bold">Buy now!</span>
-        </button>
-    </Link>
+            <button className="btn float-right">
+                <span className="font-weight-bold">Buy now!</span>
+            </button>
+        </Link>
     )
 }
