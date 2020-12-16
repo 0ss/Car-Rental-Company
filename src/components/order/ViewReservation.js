@@ -29,7 +29,7 @@ export default function ViewReservation() {
                             <div className="row">
                                 <div className="col-12">
                                     {
-                                        car?.image ? <img class="card-img-top imgRounded"  src={car?.image} alt="Card cap" /> : <div class="loader text-center mt-3"></div>
+                                        car?.image ? <img class="card-img-top imgRounded" src={car?.image} alt="Card cap" /> : <div class="loader text-center mt-3"></div>
                                     }
 
                                 </div>
@@ -120,21 +120,31 @@ export default function ViewReservation() {
                         </div>
 
                         <div class="container">
-                            <div class="row mt-3  text-center">
+                            <div class="row mt-4  text-center">
                                 <div class="col text-center">
+                                    <div className="form control">
 
-                                    <button
-                                        className="btn btn-default mr-3"
-                                        onClick={() => window.print()}
-                                    >
-                                        Print Receipt </button>
+                                        <button
+                                            className="btn btn-default mr-3 mb-3"
+                                            onClick={() =>  window.open(car.locationUrl, '_blank')}>
+                                            Pick-up Location
+                                        </button>
 
-                                    <button
-                                        className="btn btn-default"
-                                        onClick={() => Controllers.CancelReservation(order)}
-                                    >
-                                        Cancel Reservation</button>
+                                        <button
 
+                                            className="btn btn-default pa-3 mb-3"
+                                            onClick={() => window.print()}>
+                                            Print Receipt
+                                                        </button>
+
+                                        <button
+                                            className="btn btn-default pa-3"
+                                            onClick={() => Controllers.CancelReservation(order)}>
+                                            Cancel Reservation
+                                        </button>
+
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
