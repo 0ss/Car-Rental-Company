@@ -1,0 +1,1291 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/services/api/auth.js",
+    "content": "\nimport * as Api from './controllers';\nimport * as Firestore from './firestore'\n\nexport async function login(email, password) {\n    return await Api.Post('login', { email: email, password: password })\n}\n\nexport async function signUp(email, password, name) {\n    return await Api.Post('signup', { email: email, password: password, name: name })\n}\n\nexport async function restPassword(email) {\n    return await Api.Post('restPassword', { email: email })\n}\n\nexport async function checkUid(uid) {\n    const result = await Api.Post('firestore/get', { collection: \"users\", doc: uid, uid: uid });\n    if (result && result.result && result.result.uid) {\n        return true;\n    } else {\n        return false;\n    }\n}\n\nexport function isVerifiedUser(user) {\n   return user && user.uid && user.uid.length > 9;\n}\n\nexport async function isAdmin() {\n    return await (Firestore.getUser(getUid())).result.isAdmin === true\n }\n\nexport function setUid(uid) {\n    localStorage.setItem(\"uid\", uid)\n}\n\nexport function getUid() {\n    return localStorage.getItem(\"uid\");\n}\n\nexport function removeUid() {\n    return localStorage.removeItem(\"uid\");\n}\n\nexport function setUser(user) {\n    localStorage.setItem(\"user\", JSON.stringify(user));\n}\n\nexport function getUser() {\n    return JSON.parse(localStorage.getItem(\"user\"));\n}\n\nexport function removeUser() {\n    return localStorage.removeItem(\"user\");\n}",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/api/auth.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "login",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/api/auth.js~login",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{login}",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [
+      {
+        "name": "email",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "password",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "function",
+    "name": "signUp",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/api/auth.js~signUp",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{signUp}",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [
+      {
+        "name": "email",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "password",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "name",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "function",
+    "name": "restPassword",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/api/auth.js~restPassword",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{restPassword}",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "params": [
+      {
+        "name": "email",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "function",
+    "name": "checkUid",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/api/auth.js~checkUid",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{checkUid}",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [
+      {
+        "name": "uid",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "function",
+    "name": "isVerifiedUser",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~isVerifiedUser",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{isVerifiedUser}",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [
+      {
+        "name": "user",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "isAdmin",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/api/auth.js~isAdmin",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{isAdmin}",
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "function",
+    "name": "setUid",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~setUid",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{setUid}",
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "params": [
+      {
+        "name": "uid",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 56,
+    "kind": "function",
+    "name": "getUid",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~getUid",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{getUid}",
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "removeUid",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~removeUid",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{removeUid}",
+    "description": null,
+    "lineNumber": 42,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "setUser",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~setUser",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{setUser}",
+    "description": null,
+    "lineNumber": 46,
+    "undocument": true,
+    "params": [
+      {
+        "name": "user",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 59,
+    "kind": "function",
+    "name": "getUser",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~getUser",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{getUser}",
+    "description": null,
+    "lineNumber": 50,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "function",
+    "name": "removeUser",
+    "memberof": "src/services/api/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/api/auth.js~removeUser",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/auth.js",
+    "importStyle": "{removeUser}",
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "file",
+    "name": "src/services/api/controllers.js",
+    "content": "const apiUrl = \"https://car-rental-com.herokuapp.com\"\n\nexport async function Post(path , body){\n    const requestOptions = {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify(body)\n    };\n\n    const response = await fetch(`${apiUrl}/${path}`, requestOptions);\n    return await response.json();\n}\n\nexport async function Get(path , body){\n    const requestOptions = {\n        method: 'GET',\n        body: JSON.stringify(body),\n        headers: { 'Content-Type': 'application/json' },\n\n    };\n\n    const response = await fetch(`${apiUrl}/${path}`, requestOptions);\n    return await response.json();\n}",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/api/controllers.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 62,
+    "kind": "variable",
+    "name": "apiUrl",
+    "memberof": "src/services/api/controllers.js",
+    "static": true,
+    "longname": "src/services/api/controllers.js~apiUrl",
+    "access": "public",
+    "export": false,
+    "importPath": "car_rental_company/src/services/api/controllers.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "function",
+    "name": "Post",
+    "memberof": "src/services/api/controllers.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/api/controllers.js~Post",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/controllers.js",
+    "importStyle": "{Post}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "body",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "function",
+    "name": "Get",
+    "memberof": "src/services/api/controllers.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/api/controllers.js~Get",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/api/controllers.js",
+    "importStyle": "{Get}",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "body",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "file",
+    "name": "src/services/firebase/auth.js",
+    "content": "// import React, { useContext } from \"react\";\n// import \"../../App.css\";\n// import firebase from \"firebase\";\n// import { FirebaseAuth } from \"react-firebaseui\";\n// import { AuthContext } from \"../firebase/context\";\n\n// // export const SignOut = auth => auth.signOut().then(() => console.log('signed out'));\n\n// // export async function FirebaseSignup(email, password, firstName, lastName, phoneNumber) {\n    \n// //      const userCredential = await useAuth().createUserWithEmailAndPassword(email, password).catch((error) => ErrorHandler(error));\n\n// //      useFirestore()\n// //         .collection(\"collection\")\n// //         .doc(\"doc\").set({uid: userCredential.user.uid});\n      \n// //         // return await Firestore.SignUp(email, userCredential.user.uid, firstName, lastName, phoneNumber).catch((error) => ErrorHandler(error));\n   \n\n// // }\n\n// export default function SignIn() {\n//     //get the user state from the context\n//     const { user } = useContext(AuthContext); \n  \n//     //this is our config for FirebaseAuth\n//     const uiConfig = {\n//       signInFlow: \"popup\",\n//       signInOptions: [\n//         firebase.auth.EmailAuthProvider.PROVIDER_ID,\n//       ],\n//       callbacks: {\n//         signInSuccess: () => false,\n//       },\n//     };\n  \n//   //if user exists or signed in, we redirect the page to home, else display the sign in methods with FirebaseAuth\n//     return (\n//       <div>\n//         {!!user ? (\n//           <div>\n//           <p>Please Sign In</p>\n//           <FirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />\n//         </div>\n//         ) : (\n//             <p>Please Sign In</p>\n\n//         )}\n//       </div>\n//     );\n//   }\n\n// // export async function Login(email, password) {\n// //     return await useAuth().signInWithEmailAndPassword(email, password).catch((error) => ErrorHandler(error));;\n// // }\n\n// // export async function RestPassword(email) {\n// //     return await useAuth().sendPasswordResetEmail(email).catch((error) => ErrorHandler(error));;\n// // }\n\n// function ErrorHandler(error) {\n//        //TODO:Better error handling\n//         alert(error.message)\n//         console.log(error);\n// }",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/firebase/auth.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 66,
+    "kind": "file",
+    "name": "src/services/firebase/collections.js",
+    "content": "\n\n\nexport const firebaseCollections = {\n\n    users: \"users\",\n    orders: \"orders\",\n    cars: \"cars\",\n\n};",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/firebase/collections.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 67,
+    "kind": "variable",
+    "name": "firebaseCollections",
+    "memberof": "src/services/firebase/collections.js",
+    "static": true,
+    "longname": "src/services/firebase/collections.js~firebaseCollections",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/firebase/collections.js",
+    "importStyle": "{firebaseCollections}",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"users\": string, \"orders\": string, \"cars\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "file",
+    "name": "src/services/firebase/config.js",
+    "content": "\n\nimport firebase from \"firebase\";\nimport \"firebase/auth\";\n\n//2. Initialize app with the config vars\nconst app = firebase.initializeApp({\n  apiKey: \"AIzaSyDFtiSnzjZxsY9StJh_DjkG_h-7WZrDMfg\",\n  authDomain: \"car-rental-company-a1000.firebaseapp.com\",\n  projectId: \"car-rental-company-a1000\",\n  storageBucket: \"car-rental-company-a1000.appspot.com\",\n  messagingSenderId: \"742372854829\",\n  appId: \"1:742372854829:web:1e8037df63c9d151003ca4\",\n  measurementId: \"G-D0ZSYQ5QV2\"\n});\n\nexport default app;",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/firebase/config.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 69,
+    "kind": "variable",
+    "name": "app",
+    "memberof": "src/services/firebase/config.js",
+    "static": true,
+    "longname": "src/services/firebase/config.js~app",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/firebase/config.js",
+    "importStyle": "app",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "file",
+    "name": "src/services/firebase/firestore.js",
+    "content": "import 'firebase/database';\nimport 'firebase/firestore';\n\nimport { FirebaseAppProvider, useFirestoreDocData, useFirestore } from 'reactfire';\nimport {firebaseCollections} from './Collections'\n\nexport async function SignUp(email , uid , firstName,lastName , phoneNumber){\n    return Write(firebaseCollections.users , uid , {\n        firstName: firstName,\n        lastName:lastName,\n        phoneNumber:phoneNumber,\n        email:email,\n        uid:uid,\n    })\n}\n\nexport async function getUserData(uid){\n    return (await Read(firebaseCollections.users , uid)).data()\n}\n\nasync function Write(collection, doc, data) {\n    return await useFirestore()\n        .collection(collection)\n        .doc(doc).set(data);\n}\n\nasync function Read(collection, doc) {\n    return await useFirestore()\n        .collection(collection)\n        .doc(doc).get();\n}",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/services/firebase/firestore.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 71,
+    "kind": "function",
+    "name": "SignUp",
+    "memberof": "src/services/firebase/firestore.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/firebase/firestore.js~SignUp",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/firebase/firestore.js",
+    "importStyle": "{SignUp}",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [
+      {
+        "name": "email",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "uid",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "firstName",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "lastName",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "phoneNumber",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "function",
+    "name": "getUserData",
+    "memberof": "src/services/firebase/firestore.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/firebase/firestore.js~getUserData",
+    "access": "public",
+    "export": true,
+    "importPath": "car_rental_company/src/services/firebase/firestore.js",
+    "importStyle": "{getUserData}",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [
+      {
+        "name": "uid",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "function",
+    "name": "Write",
+    "memberof": "src/services/firebase/firestore.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/firebase/firestore.js~Write",
+    "access": "public",
+    "export": false,
+    "importPath": "car_rental_company/src/services/firebase/firestore.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "collection",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "doc",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "function",
+    "name": "Read",
+    "memberof": "src/services/firebase/firestore.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/services/firebase/firestore.js~Read",
+    "access": "public",
+    "export": false,
+    "importPath": "car_rental_company/src/services/firebase/firestore.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "params": [
+      {
+        "name": "collection",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "doc",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "file",
+    "name": "src/setupTests.js",
+    "content": "// jest-dom adds custom jest matchers for asserting on DOM nodes.\n// allows you to do things like:\n// expect(element).toHaveTextContent(/react/i)\n// learn more: https://github.com/testing-library/jest-dom\nimport '@testing-library/jest-dom';\n",
+    "static": true,
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/src/setupTests.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "kind": "index",
+    "content": "# Getting Started with Create React App\n\nThis project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\n\n## Available Scripts\n\nIn the project directory, you can run:\n\n### `npm start`\n\nRuns the app in the development mode.\\\nOpen [http://localhost:3000](http://localhost:3000) to view it in the browser.\n\nThe page will reload if you make edits.\\\nYou will also see any lint errors in the console.\n\n### `npm test`\n\nLaunches the test runner in the interactive watch mode.\\\nSee the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.\n\n### `npm run build`\n\nBuilds the app for production to the `build` folder.\\\nIt correctly bundles React in production mode and optimizes the build for the best performance.\n\nThe build is minified and the filenames include the hashes.\\\nYour app is ready to be deployed!\n\nSee the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.\n\n### `npm run eject`\n\n**Note: this is a one-way operation. Once you `eject`, you can’t go back!**\n\nIf you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.\n\nInstead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.\n\nYou don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.\n\n## Learn More\n\nYou can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).\n\nTo learn React, check out the [React documentation](https://reactjs.org/).\n\n### Code Splitting\n\nThis section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)\n\n### Analyzing the Bundle Size\n\nThis section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)\n\n### Making a Progressive Web App\n\nThis section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)\n\n### Advanced Configuration\n\nThis section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)\n\n### Deployment\n\nThis section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)\n\n### `npm run build` fails to minify\n\nThis section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)\n",
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"car_rental_company\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@react-firebase/auth\": \"^0.2.10\",\n    \"@testing-library/jest-dom\": \"^5.11.6\",\n    \"@testing-library/react\": \"^11.2.2\",\n    \"@testing-library/user-event\": \"^12.3.0\",\n    \"bulma\": \"^0.9.1\",\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"express\": \"^4.17.1\",\n    \"firebase\": \"^8.1.2\",\n    \"hooks\": \"^0.3.2\",\n    \"react\": \"0.0.0-experimental-4ead6b530\",\n    \"react-dom\": \"0.0.0-experimental-4ead6b530\",\n    \"react-firebase\": \"^2.2.8\",\n    \"react-firebaseui\": \"^4.1.0\",\n    \"react-hook-form\": \"^6.12.2\",\n    \"react-router-dom\": \"^5.2.0\",\n    \"react-scripts\": \"4.0.1\",\n    \"react-uuid\": \"^1.0.2\",\n    \"reactfire\": \"^3.0.0-rc.0\",\n    \"web-vitals\": \"^0.2.4\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"eslintConfig\": {\n    \"extends\": [\n      \"react-app\",\n      \"react-app/jest\"\n    ]\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  }\n}\n",
+    "longname": "/Users/Hadi/Documents/GitHub/Car-Rental-Company/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]
