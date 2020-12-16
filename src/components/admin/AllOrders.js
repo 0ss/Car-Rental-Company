@@ -2,8 +2,6 @@
 import React, { useState } from 'react'
 import '../../styles/main_styles.css'
 import '../../styles/my_orders.css'
-import Navbar from '../../styles/layout/Navbar'
-import Footer from '../../styles/layout/Footer'
 import * as Firestore from '../../services/api/firestore'
 import SearchCarsUI from '../cars_search/SearchCarsUI'
 import * as Controllers from './Controllers'

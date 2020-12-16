@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import Navbar from '../../styles/layout/Navbar'
 import '../../styles/search_cars.css'
 import '../../styles/main_styles.css'
 import SearchItems from './SearchBar'
-import Footer from '../../styles/layout/Footer'
 import SearchCarsUI from './SearchCarsUI'
 import * as Controllers from './Controllers'
 

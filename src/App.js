@@ -12,6 +12,8 @@ import AllOrders from './components/admin/AllOrders'
 import ViewReservation from './components/order/ViewReservation'
 import MyOrders from './components/order/MyOrders'
 import ViewCar from './components/view_car/ViewCar'
+import PrivacyPolicy from './components/privacy/PrivacyPolicy'
+import TermsConditions from './components/privacy/TermsConditions'
 import Home from './components/Home'
 import { SiteLocations } from './constants/Constants'
 import Footer from './styles/layout/Footer';
@@ -42,6 +44,8 @@ const App = () => {
         <Route path={SiteLocations.myOrders} component={MyOrders} />
         <Route path={SiteLocations.restPassword} component={ResetPassword} />
         <Route path={SiteLocations.viewCar} component={ViewCar} />
+        <Route path={SiteLocations.privacyPolicy} component={PrivacyPolicy} />
+        <Route path={SiteLocations.termsConditions} component={TermsConditions} />
         <Route exact path={SiteLocations.home} component={Home} />
 
         <Footer />

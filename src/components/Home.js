@@ -1,7 +1,5 @@
 import React from 'react'
-import Navbar from '../styles/layout/Navbar'
 import '../styles/main_styles.css'
-import Footer from '../styles/layout/Footer'
 import { Link } from 'react-router-dom'
 import img1 from '../assets/images/lamb.jpg'
 import img2 from '../assets/images/bug.jpg'

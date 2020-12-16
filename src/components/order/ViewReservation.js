@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import Navbar from '../../styles/layout/Navbar'
 import '../../styles/main_styles.css'
-import Footer from '../../styles/layout/Footer'
 import { getParameterByName } from '../admin/Controllers'
 import * as Controllers from './Controllers'
 

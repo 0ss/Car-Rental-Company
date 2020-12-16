@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import Navbar from '../../styles/layout/Navbar'
 import '../../styles/main_styles.css'
-import Footer from '../../styles/layout/Footer'
 import * as Firestore from "../../services/api/firestore"
 import { getParameterByName } from '../admin/Controllers'
 import { SiteLocations } from '../../constants/Constants'
