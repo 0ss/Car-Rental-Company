@@ -4,37 +4,12 @@ import * as Controllers from './Controllers'
 import * as CarsOptions from '../../constants/CarsOptions'
 import { SiteLocations } from '../../constants/Constants'
 import MapPicker from 'react-google-map-picker'
-import {googleMapsApiKey} from '../../constants/Constants'
+import { googleMapsApiKey } from '../../constants/Constants'
 
 export default function AddCar() {
 
     const [locationData, setLocationData] = useState({ lat: 26.307216, lng: 50.146151 });
     const [zoom, setZoom] = useState(15);
-
-    function GoogleMap() {
-        return (
-            <>
-                <div class="container">
-                    <div class="row">
-                        <div class="col text-center">
-                            <div class="form-group">
-                                <MapPicker defaultLocation={locationData}
-                                    zoom={zoom}
-                                    style={{ height: '350px' }}
-                                    onChangeLocation={((lat, lng) => { setLocationData({ lat: lat, lng: lng }) })}
-                                    onChangeZoom={((zoom) => { setZoom(zoom) })}
-                                    apiKey={googleMapsApiKey}
-                                    />
-                            </div>
-                            <button className="btn" onClick={((e) => { Controllers.getCurrentLocation(e, setLocationData) })}>Get current Location</button>
-                        </div>
-                    </div>
-                </div>
-
-            </>
-        )
-    }
-
 
     const [error, setError] = useState(null);
     const [image, setImage] = useState(null);
@@ -93,6 +68,30 @@ export default function AddCar() {
                 </label>
             )
         }
+    }
+
+    function GoogleMap() {
+        return (
+            <>
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="form-group">
+                                <MapPicker defaultLocation={locationData}
+                                    zoom={zoom}
+                                    style={{ height: '350px' }}
+                                    onChangeLocation={((lat, lng) => { setLocationData({ lat: lat, lng: lng }) })}
+                                    onChangeZoom={((zoom) => { setZoom(zoom) })}
+                                    apiKey={googleMapsApiKey}
+                                />
+                            </div>
+                            <button className="btn" onClick={((e) => { Controllers.getCurrentLocation(e, setLocationData) })}>Get current Location</button>
+                        </div>
+                    </div>
+                </div>
+
+            </>
+        )
     }
 
     return (
