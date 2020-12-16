@@ -5,8 +5,8 @@ import '../../styles/my_orders.css'
 import Navbar from '../../layout/Navbar'
 import Footer from '../../layout/Footer'
 import * as Firestore from '../../services/api/firestore'
-import { Link } from 'react-router-dom'
 import SearchCarsUI from '../cars_fetching/SearchCarsUI'
+import * as Controllers from './Controllers'
 
 export default function AllOrders() {
 
@@ -20,74 +20,28 @@ export default function AllOrders() {
         })
     }
 
-
-
     async function addCarsToOrders(orders) {
         for (const order of orders) {
-            order.car = await getCar(order.carId);
+            order.car = await Controllers.getCar(order.carId);
         }
 
         setOrders(orders);
-
-    }
-
-    async function getCar(id) {
-
-        if (id && id.length > 3) {
-            var result = await Firestore.getCar(id);
-            if (result && result.status === "ok") {
-                return result.result
-            }
-
-        }
-        return undefined;
-
     }
 
 
     if (!orders)
         getOrders();
 
-    const carsArray = orders?.length ? orders.map(order => {
-        return (
-            <div key={order.id} className="col-md-4 mb-4">
-                <div class="card">
-                    <img class="card-img-top car-img" src={order.car.image} alt="Card cap"></img>
-                    <div class="card-body" >
-                        <h5 class="card-title text-center">
-                            {order.car.name}
-                        </h5>
-                        <h5 class="card-title text-center">
-                            From:{order.dateFrom}<br />
-                                To:{order.dateTo}
-                        </h5>
-                        <h5 class="car-price mb-3 mt-3 text-center">
-                            Total: {order.price}$
-                        </h5>
-                        <Link to={`/viewReservation?id=${order.id}`}>
-                            <button className="btn float-right">
-                                <span className="font-weight-bold">Manage Order</span>
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        )
-    }) : null
+    const ordersArray = Controllers.getOrdersArray(orders)
+
 
     return (
         <>
             <Navbar />
             <div className="container mt-3">
-
                 {
-                    carsArray
-                        ?
-                        <SearchCarsUI cars={carsArray} />
-                        :
-                        <h1 className="text-center">Cars inventory is empty</h1>
+                    ordersArray ? <SearchCarsUI cars={ordersArray} /> :<h1 className="text-center">There is no orders to show</h1>
                 }
-
             </div>
             <Footer />
         </>
