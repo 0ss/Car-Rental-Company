@@ -44,7 +44,6 @@ export default function Signup() {
 
     return (
         <>
-            <Navbar />
             <div className="center">
                 <div class="card" style={{ 'width': '22rem' }}>
                     <div class="card-body ">
@@ -124,7 +123,7 @@ export default function Signup() {
                 </div>
             </div>
 
-            <Footer />
+
         </>
 
     )

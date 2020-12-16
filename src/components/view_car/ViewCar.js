@@ -55,7 +55,6 @@ export default function ViewCar() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-4">
                 <div className="row">
                     <div className="col-md-8">
@@ -199,7 +198,7 @@ export default function ViewCar() {
                     </div>
                 </div>
             </div>
-            <Footer />
+
         </>
     )
 }

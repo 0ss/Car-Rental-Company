@@ -43,8 +43,7 @@ export default function Login() {
 
     return (
         <>
-            <Navbar />
-            
+                  
             <div className="center"> 
                 <div class="card" style ={{'width':'22rem'}}>
                     <div class="card-body ">

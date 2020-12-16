@@ -11,7 +11,6 @@ import { SiteLocations } from '../constants/Constants'
 export default function Home() {
     return (
         <>
-            <Navbar />
             <div class="jumbotron text-center mt-3 bg-white" style={{ backgroundColor: '#e9e9e9' }} >
                 <h1 class="display-4">Car Rental Company</h1>
                 <p class="lead">A place where you can rental your dream car!</p>
@@ -64,7 +63,6 @@ export default function Home() {
 
 
 
-            <Footer />
         </>
     )
 }

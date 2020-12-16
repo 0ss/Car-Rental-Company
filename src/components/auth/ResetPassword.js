@@ -32,7 +32,6 @@ export default function ResetPassword() {
 
     return (
         <>
-            <Navbar />
             <div className="center">
                 <div class="card" style={{ 'width': '22rem' }}>
                     <div class="card-body ">
@@ -85,7 +84,7 @@ export default function ResetPassword() {
                     </div>
                 </div>
             </div>
-            <Footer />
+
         </>
     )
 }	

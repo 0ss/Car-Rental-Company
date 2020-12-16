@@ -37,13 +37,12 @@ export default function AllOrders() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-3">
                 {
                     ordersArray ? <SearchCarsUI cars={ordersArray} /> : <h1 className="text-center">There is no orders to show</h1>
                 }
             </div>
-            <Footer />
+
         </>
     )
 }

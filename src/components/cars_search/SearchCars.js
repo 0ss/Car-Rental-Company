@@ -45,7 +45,6 @@ export default function SearchCars() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-3">
                 <SearchItems />
                 {
@@ -56,7 +55,7 @@ export default function SearchCars() {
                         <h1 className="text-center">Cars inventory is empty</h1>
                 }
             </div>
-            <Footer />
+
         </>
     )
 }

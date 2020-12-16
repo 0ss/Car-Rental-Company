@@ -16,7 +16,6 @@ export default function ViewReservation() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-4">
                 <div className="row mb-3">
                     <div className="col-12 text-center">
@@ -126,7 +125,7 @@ export default function ViewReservation() {
                     </div>
                 </div>
             </div>
-            <Footer />
+
         </>
     )
 }

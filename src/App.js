@@ -13,7 +13,9 @@ import ViewReservation from './components/order/ViewReservation'
 import MyOrders from './components/order/MyOrders'
 import ViewCar from './components/view_car/ViewCar'
 import Home from './components/Home'
-import {SiteLocations} from './constants/Constants'
+import { SiteLocations } from './constants/Constants'
+import Footer from './styles/layout/Footer';
+import Navbar from './styles/layout/Navbar';
 
 
 
@@ -23,7 +25,12 @@ const App = () => {
 
   return (
 
+
+
     <Router>
+
+      <Navbar />
+
       <Route path={SiteLocations.signUp} component={SignUp} />
       <Route path={SiteLocations.login} component={Login} />
       <Route path={SiteLocations.searchCars} component={SearchCars} />
@@ -35,7 +42,7 @@ const App = () => {
       <Route path={SiteLocations.viewCar} component={ViewCar} />
       <Route exact path={SiteLocations.home} component={Home} />
 
-
+      <Footer />
 
     </Router>
 

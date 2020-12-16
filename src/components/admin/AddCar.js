@@ -69,7 +69,6 @@ export default function AddCar() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-4">
                 <div className="row">
                     <div className="col-12 text-center">
@@ -201,7 +200,7 @@ export default function AddCar() {
                     </div>
                 </form>
             </div>
-            <Footer />
+
         </>
     )
 }

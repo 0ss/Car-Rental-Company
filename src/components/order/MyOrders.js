@@ -19,7 +19,6 @@ export default function MyOrders() {
 
     return (
         <>
-            <Navbar />
             <div className="container mt-3">
 
                 {
@@ -27,7 +26,7 @@ export default function MyOrders() {
                 }
 
             </div>
-            <Footer />
+
         </>
     )
 }
