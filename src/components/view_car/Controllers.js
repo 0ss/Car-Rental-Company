@@ -16,7 +16,7 @@ export default class Controller {
         }
 
         if ((this.fromDate && this.toDate) || (from && to)) {
-            this.calculatePrice(setError, setFrom, setTo, setPrice)
+            this.calculatePrice(setError, setFrom, setTo, setPrice , from , to)
         }
     }
 
@@ -28,7 +28,7 @@ export default class Controller {
             return
         }
         if ((this.fromDate && this.toDate) || (from && to))
-            this.calculatePrice(setError, setFrom, setTo, setPrice)
+            this.calculatePrice(setError, setFrom, setTo, setPrice , from , to)
 
     }
 
@@ -36,7 +36,10 @@ export default class Controller {
         return Math.floor((Date.parse(to) - Date.parse(from)) / 86400000)
     }
 
-    calculatePrice(setError, setFrom, setTo, setPrice) {
+    calculatePrice(setError, setFrom, setTo, setPrice , from , to) {
+
+        if(this.fromDate === undefined || this.fromDate === null) this.fromDate = from
+        if(this.toDate === undefined || this.toDate === null) this.toDate = to
 
         this.days = this.getDatesDiff(this.fromDate, this.toDate)
 
