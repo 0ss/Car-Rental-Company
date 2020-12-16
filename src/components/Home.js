@@ -3,9 +3,9 @@ import Navbar from '../layout/Navbar'
 import '../styles/main_styles.css'
 import Footer from '../layout/Footer'
 import {Link} from 'react-router-dom'
-import img1 from '../images/lamb.jpg'
-import img2 from '../images/bug.jpg'
-import img3 from '../images/mas.jpg'
+import img1 from '../assets/images/lamb.jpg'
+import img2 from '../assets/images/bug.jpg'
+import img3 from '../assets/images/mas.jpg'
 import {SiteLocations} from '../constants/Constants'
 
 export default function Home() {
