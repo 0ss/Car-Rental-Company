@@ -47,7 +47,6 @@ export const CarsSizesOptions = () => {
             <option>Sedan</option>
             <option>Small Suv</option>
             <option>Large Suv</option>
-            <option>Sedan</option>
         </>
     )
 }
